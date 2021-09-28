@@ -1,4 +1,4 @@
-package ch.fhnw.cpib;
+package ch.fhnw.cpib.Scanner;
 
 /**
  * I'm a scanner
