@@ -7,5 +7,6 @@ public enum Terminals {
     ADDOPR,
     LITERAL,
     MULTOPR,
+    SENTINEL,
     RELOPR;
 }

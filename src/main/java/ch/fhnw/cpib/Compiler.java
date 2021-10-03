@@ -1,5 +1,6 @@
 package ch.fhnw.cpib;
 
+import ch.fhnw.cpib.Errors.LexicalError;
 import ch.fhnw.cpib.Scanner.Scanner;
 
 public class Compiler {
@@ -7,10 +8,10 @@ public class Compiler {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws LexicalError {
         System.out.println("Hello Manuel, Hi Markus!");
 
         Scanner scanner = new Scanner();
-        scanner.scan();
+        scanner.scan("");
     }
 }
