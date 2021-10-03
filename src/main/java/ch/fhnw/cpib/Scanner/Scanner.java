@@ -17,6 +17,7 @@ import java.util.Map;
  */
 public class Scanner {
 
+    //ToDO: Implement iTokenList
     private ITokenList iTokenList;
     private final List<String> symbols = Arrays.asList("(", ")", ",", ";", ":", "=", "*", "+", "-", "/", "<", ">", "&", "|", "?");
     public Map<String, Token> keywords = new HashMap<>();
