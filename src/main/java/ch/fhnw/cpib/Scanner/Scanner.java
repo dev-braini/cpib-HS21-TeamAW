@@ -2,10 +2,7 @@ package ch.fhnw.cpib.Scanner;
 
 import ch.fhnw.cpib.Enums.Terminals;
 import ch.fhnw.cpib.Errors.LexicalError;
-import ch.fhnw.cpib.Token.ITokenList;
-import ch.fhnw.cpib.Token.Ident;
-import ch.fhnw.cpib.Token.Literal;
-import ch.fhnw.cpib.Token.Token;
+import ch.fhnw.cpib.Token.*;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -18,12 +15,12 @@ import java.util.Map;
 public class Scanner {
 
     //ToDO: Implement iTokenList
-    private ITokenList iTokenList;
+    private ITokenList tokenList;
     private final List<String> symbols = Arrays.asList("(", ")", ",", ";", ":", "=", "*", "+", "-", "/", "<", ">", "&", "|", "?");
     public Map<String, Token> keywords = new HashMap<>();
     public Scanner() {
         //Todo:Fill in keywords
-
+        tokenList = new TokenList();
     }
 
     public ITokenList scan(CharSequence cs) throws LexicalError {
@@ -76,7 +73,7 @@ public class Scanner {
                         state = 0;
                         i = i - 1;
                         Literal intLiteralToken = new Literal((int) numAccu);
-                        iTokenList.add(intLiteralToken);
+                        tokenList.add(intLiteralToken);
                     }
                     break;
                 }
@@ -93,7 +90,7 @@ public class Scanner {
                         state = 0;
                         i = i - 1;
                         Ident ident = new Ident(lexAccu.toString());
-                        iTokenList.add(ident);
+                        tokenList.add(ident);
                         lexAccu.delete(0, lexAccu.length());
                     }
                     break;
@@ -133,8 +130,8 @@ public class Scanner {
             }
         }
         assert state == 0;
-        iTokenList.add(new Token(Terminals.SENTINEL));
-        return iTokenList;
+        tokenList.add(new Token(Terminals.SENTINEL));
+        return tokenList;
     }
 
     private boolean isSymbol(char c) {
@@ -145,7 +142,7 @@ public class Scanner {
     private boolean checkIfToken(String string) {
         if (keywords.containsKey(string)) {
             Token token = keywords.get(string);
-            iTokenList.add(token);
+            tokenList.add(token);
             return true;
         }
         return false;
