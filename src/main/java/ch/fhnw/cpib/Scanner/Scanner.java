@@ -13,13 +13,23 @@ import java.util.Map;
  * I'm a scanner
  */
 public class Scanner {
-
-    //ToDO: Implement iTokenList
     private final ITokenList tokenList;
     private final List<String> symbols = Arrays.asList("(", ")", ",", ";", ":", "=", "*", "+", "-", "/", "<", ">", "&", "|", "?");
     public Map<String, Token> keywords = new HashMap<>();
     public Scanner() {
         //Todo:Fill in keywords
+        keywords.put("debugin", new Token(Terminals.DEBUGIN));
+        keywords.put("debugout", new Token(Terminals.DEBUGOUT));
+        keywords.put("(", new Token(Terminals.LPAREN));
+        keywords.put(")", new Token(Terminals.RPAREN));
+        keywords.put(",", new Token(Terminals.COMMA));
+        keywords.put(":", new Token(Terminals.COLON));
+        keywords.put(";", new Token(Terminals.SEMICOLON));
+        keywords.put(":=", new Token(Terminals.BECOMES));
+        keywords.put("global", new Token(Terminals.GLOBAL));
+        keywords.put("do", new Token(Terminals.DO));
+        keywords.put("endprogram", new Token(Terminals.ENDPROGRAM));
+
         tokenList = new TokenList();
     }
 
@@ -120,6 +130,7 @@ public class Scanner {
             }
         }
         assert state == 0;
+
         tokenList.add(new Token(Terminals.SENTINEL));
         return tokenList;
     }
@@ -129,9 +140,9 @@ public class Scanner {
         return symbols.contains(string);
     }
 
-    private boolean checkIfToken(String string) {
-        if (keywords.containsKey(string)) {
-            Token token = keywords.get(string);
+    private boolean checkIfToken(String checkString) {
+        if (keywords.containsKey(checkString)) {
+            Token token = keywords.get(checkString);
             tokenList.add(token);
             return true;
         }
