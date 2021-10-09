@@ -15,7 +15,7 @@ import java.util.Map;
 public class Scanner {
 
     //ToDO: Implement iTokenList
-    private ITokenList tokenList;
+    private final ITokenList tokenList;
     private final List<String> symbols = Arrays.asList("(", ")", ",", ";", ":", "=", "*", "+", "-", "/", "<", ">", "&", "|", "?");
     public Map<String, Token> keywords = new HashMap<>();
     public Scanner() {
@@ -29,7 +29,7 @@ public class Scanner {
         int state = 0;
         StringBuffer lexAccu = new StringBuffer();
         long numAccu = 0L;
-        Token lastToken = null;
+        // Token lastToken = null;
 
         int lineCounter = 1, posCounterStart = 0, posCounter;
 
@@ -40,11 +40,10 @@ public class Scanner {
             }
             posCounter = i - posCounterStart + 1;
             switch (state) {
-                case 0 : {
+                case 0 -> {
                     if (Character.isDigit(c)) {
                         state = 1;
-                        int digit = Character.digit(c, 10);
-                        numAccu = digit;
+                        numAccu = Character.digit(c, 10);
                     } else if (Character.isLetter(c)) {
                         state = 2;
                         i = i - 1;
@@ -59,9 +58,8 @@ public class Scanner {
                     } else {
                         throw new LexicalError("Unknown character: '" + c + "' Line: " + lineCounter + ", Position: " + posCounter);
                     }
-                    break;
                 }
-                case 1 : {
+                case 1 -> {
                     if (Character.isDigit(c)) {
                         state = 1;
                         int digit = Character.digit(c, 10);
@@ -75,9 +73,8 @@ public class Scanner {
                         Literal intLiteralToken = new Literal((int) numAccu);
                         tokenList.add(intLiteralToken);
                     }
-                    break;
                 }
-                case 2 : {
+                case 2 -> {
                     if (Character.isLetter(c) || Character.isDigit(c) || '\'' == c || '_' == c) {
                         state = 2;
                         lexAccu.append(c);
@@ -85,7 +82,6 @@ public class Scanner {
                         state = 0;
                         i = i - 1;
                         lexAccu.delete(0, lexAccu.length());
-                        break;
                     } else {
                         state = 0;
                         i = i - 1;
@@ -93,39 +89,33 @@ public class Scanner {
                         tokenList.add(ident);
                         lexAccu.delete(0, lexAccu.length());
                     }
-                    break;
                 }
-                case 3 : {
+                case 3 -> {
                     if (isSymbol(c) && lexAccu.length() < 2) {
                         state = 3;
                         lexAccu.append(c);
                         if ("//".equals(lexAccu.toString())) {
                             state = 4;
                             lexAccu.delete(0, lexAccu.length());
-                            break;
                         }
                     } else if (checkIfToken(lexAccu.toString())) {
                         state = 0;
                         i = i - 1;
                         lexAccu.delete(0, lexAccu.length());
-                        break;
                     } else {
-                        lexAccu = lexAccu.delete(1, lexAccu.length());
-                        if (checkIfToken(lexAccu.toString())){
+                        lexAccu.delete(1, lexAccu.length());
+                        if (checkIfToken(lexAccu.toString())) {
                             state = 0;
                             i = i - 2;
                             lexAccu.delete(0, lexAccu.length());
-                            break;
                         }
                     }
-                    break;
                 }
-                case 4 : {
+                case 4 -> {
                     if (c == '\n') {
                         lineCounter++;
                         state = 0;
                     }
-                    break;
                 }
             }
         }
