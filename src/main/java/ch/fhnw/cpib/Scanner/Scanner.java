@@ -13,9 +13,7 @@ import java.util.Map;
  * I'm a scanner
  */
 public class Scanner {
-
-    //ToDO: Implement iTokenList
-    private ITokenList iTokenList;
+    private final ITokenList tokenList;
     private final List<String> symbols = Arrays.asList("(", ")", ",", ";", ":", "=", "*", "+", "-", "/", "<", ">", "&", "|", "?");
     public Map<String, Token> keywords = new HashMap<>();
     public Scanner() {
@@ -88,6 +86,7 @@ public class Scanner {
         keywords.put("out", new FlowMode(FlowModes.OUT));
         keywords.put("inout", new FlowMode(FlowModes.INOUT));
 
+        tokenList = new TokenList();
 
     }
 
@@ -97,7 +96,7 @@ public class Scanner {
         int state = 0;
         StringBuffer lexAccu = new StringBuffer();
         long numAccu = 0L;
-        Token lastToken = null;
+        //Token lastToken = null;
 
         int lineCounter = 1, posCounterStart = 0, posCounter;
 
@@ -141,7 +140,7 @@ public class Scanner {
                         state = 0;
                         i = i - 1;
                         Literal intLiteralToken = new Literal((int) numAccu);
-                        iTokenList.add(intLiteralToken);
+                        tokenList.add(intLiteralToken);
                     }
                     break;
                 }
@@ -158,7 +157,7 @@ public class Scanner {
                         state = 0;
                         i = i - 1;
                         Ident ident = new Ident(lexAccu.toString());
-                        iTokenList.add(ident);
+                        tokenList.add(ident);
                         lexAccu.delete(0, lexAccu.length());
                     }
                     break;
@@ -198,8 +197,8 @@ public class Scanner {
             }
         }
         assert state == 0;
-        iTokenList.add(new Token(Terminals.SENTINEL));
-        return iTokenList;
+        tokenList.add(new Token(Terminals.SENTINEL));
+        return tokenList;
     }
 
     private boolean isSymbol(char c) {
@@ -210,7 +209,7 @@ public class Scanner {
     private boolean checkIfToken(String string) {
         if (keywords.containsKey(string)) {
             Token token = keywords.get(string);
-            iTokenList.add(token);
+            tokenList.add(token);
             return true;
         }
         return false;
