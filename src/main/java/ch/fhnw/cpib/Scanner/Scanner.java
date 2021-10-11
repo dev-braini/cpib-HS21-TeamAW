@@ -1,11 +1,8 @@
 package ch.fhnw.cpib.Scanner;
 
-import ch.fhnw.cpib.Enums.Terminals;
+import ch.fhnw.cpib.Enums.*;
 import ch.fhnw.cpib.Errors.LexicalError;
-import ch.fhnw.cpib.Token.ITokenList;
-import ch.fhnw.cpib.Token.Ident;
-import ch.fhnw.cpib.Token.Literal;
-import ch.fhnw.cpib.Token.Token;
+import ch.fhnw.cpib.Token.*;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -22,7 +19,75 @@ public class Scanner {
     private final List<String> symbols = Arrays.asList("(", ")", ",", ";", ":", "=", "*", "+", "-", "/", "<", ">", "&", "|", "?");
     public Map<String, Token> keywords = new HashMap<>();
     public Scanner() {
-        //Todo:Fill in keywords
+
+        //Terminals
+        keywords.put("(",new Token(Terminals.LPAREN));
+        keywords.put(")",new Token(Terminals.RPAREN));
+        keywords.put(",",new Token(Terminals.COMMA));
+        keywords.put(";",new Token(Terminals.SEMICOLON));
+        keywords.put(":",new Token(Terminals.COLON));
+        keywords.put(":=",new Token(Terminals.BECOMES));
+        keywords.put("call",new Token(Terminals.CALL));
+        keywords.put("debugin",new Token(Terminals.DEBUGIN));
+        keywords.put("debugout",new Token(Terminals.DEBUGOUT));
+        keywords.put("do", new Token(Terminals.DO));
+        keywords.put("if", new Token(Terminals.IF));
+        keywords.put("then", new Token(Terminals.THEN));
+        keywords.put("else", new Token(Terminals.ELSE));
+        keywords.put("endif", new Token(Terminals.ENDIF));
+        keywords.put("fun", new Token(Terminals.FUN));
+        keywords.put("endfun", new Token(Terminals.ENDFUN));
+        keywords.put("proc", new Token(Terminals.PROC));
+        keywords.put("endproc", new Token(Terminals.ENDPROC));
+        keywords.put("program", new Token(Terminals.PROGRAM));
+        keywords.put("endprogram", new Token(Terminals.ENDPROGRAM));
+        keywords.put("while", new Token(Terminals.WHILE));
+        keywords.put("endwhile", new Token(Terminals.ENDWHILE));
+        keywords.put("local", new Token(Terminals.LOCAL));
+        keywords.put("global", new Token(Terminals.GLOBAL));
+        keywords.put("init", new Token(Terminals.INIT));
+        keywords.put("returns", new Token(Terminals.RETURNS));
+        keywords.put("not", new Token(Terminals.NOTOPR));
+        keywords.put("skip", new Token(Terminals.SKIP));
+
+        //Operators
+        keywords.put("+", new Operator(Terminals.ADDOPR, Operators.PLUS));
+        keywords.put("-", new Operator(Terminals.ADDOPR, Operators.MINUS));
+        keywords.put("*", new Operator(Terminals.MULTOPR, Operators.TIMES));
+        keywords.put("=", new Operator(Terminals.RELOPR, Operators.EQ));
+        keywords.put("/=", new Operator(Terminals.RELOPR, Operators.NE));
+        keywords.put("<", new Operator(Terminals.RELOPR, Operators.LT));
+        keywords.put(">", new Operator(Terminals.RELOPR, Operators.GT));
+        keywords.put("<=", new Operator(Terminals.RELOPR, Operators.LE));
+        keywords.put(">=", new Operator(Terminals.RELOPR, Operators.GE));
+        keywords.put("&&", new Operator(Terminals.RELOPR, Operators.AND));
+        keywords.put("||", new Operator(Terminals.RELOPR, Operators.OR));
+        keywords.put("&?", new Operator(Terminals.RELOPR, Operators.CAND));
+        keywords.put("|?", new Operator(Terminals.RELOPR, Operators.COR));
+        keywords.put("divE", new Operator(Terminals.MULTOPR, Operators.DIV_E));
+        keywords.put("modE", new Operator(Terminals.MULTOPR, Operators.MOD_E));
+
+        //Types
+        keywords.put("int64", new Type(Types.INT64));
+        keywords.put("bool", new Type(Types.BOOL));
+
+        //MechModes
+        keywords.put("copy", new MechMode(MechModes.COPY));
+        keywords.put("ref", new MechMode(MechModes.REF));
+
+        //Literals
+        keywords.put("true", new Literal(true));
+        keywords.put("false", new Literal(false));
+
+        //ChangeModes
+        keywords.put("const", new ChangeMode(ChangeModes.CONST));
+        keywords.put("var", new ChangeMode(ChangeModes.VAR));
+
+        //FlowModes
+        keywords.put("in", new FlowMode(FlowModes.IN));
+        keywords.put("out", new FlowMode(FlowModes.OUT));
+        keywords.put("inout", new FlowMode(FlowModes.INOUT));
+
 
     }
 

@@ -6,6 +6,7 @@ public enum Terminals {
     MULTOPR,
     RELOPR,
     BOOLOPR,
+    NOTOPR,
 
     CHANGEMODE,
     MECHMODE,
