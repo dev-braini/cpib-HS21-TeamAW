@@ -2,9 +2,9 @@ package ch.fhnw.cpib.Token;
 
 public interface ITokenList {
 
-    void add(Token base);
+    void add(IToken token);
     void reset();
-    Token nextToken();
+    IToken nextToken();
     String toString();
 
 }

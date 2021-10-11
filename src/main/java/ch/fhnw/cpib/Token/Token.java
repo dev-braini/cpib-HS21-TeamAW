@@ -2,7 +2,7 @@ package ch.fhnw.cpib.Token;
 
 import ch.fhnw.cpib.Enums.Terminals;
 
-public class Token {
+public class Token implements IToken {
 
     private final Terminals terminal;
 
