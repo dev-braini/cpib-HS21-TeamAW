@@ -58,4 +58,14 @@ public class TokenList implements ITokenList {
     public String toString() {
         return list.toString();
     }
+
+    /**
+     * Print each token on a separate line
+     */
+    public void print() {
+        Iterator<IToken> it = list.iterator();
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
 }

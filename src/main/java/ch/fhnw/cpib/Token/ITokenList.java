@@ -6,5 +6,5 @@ public interface ITokenList {
     void reset();
     IToken nextToken();
     String toString();
-
+    void print();
 }

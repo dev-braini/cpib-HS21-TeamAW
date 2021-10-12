@@ -21,5 +21,7 @@ public class Compiler {
         System.out.println("OUTPUT (ITokenList):");
         System.out.println("---------------------");
         System.out.println(tokenList.toString());
+        System.out.println("---------------------");
+        tokenList.print();
     }
 }
