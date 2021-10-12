@@ -5,7 +5,7 @@ import ch.fhnw.cpib.Scanner.Scanner;
 import ch.fhnw.cpib.Token.ITokenList;
 
 public class Compiler {
-    private static final String IML_TEST_CODE = "program Add17()\nglobal\n  var x:int32\ndo\n  debugin x init;\n  x := x + 17;\n  debugout x\nendprogram";
+    private static final String IML_TEST_CODE = "//I'm a super program\nprogram Add17()\nglobal\n  var x:int32\ndo\n  debugin x init;\n  x := x + 17;\n  debugout x\nendprogram";
 
     public static void main(String[] args) throws LexicalError {
         ITokenList tokenList;
