@@ -3,20 +3,22 @@ package ch.fhnw.cpib.Token;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import static java.lang.String.format;
+
 /**
  * The TokenList is implemented using a linked list.
  * These offer the advantage that, compared to an ArrayList,
  * the elements can be added and deleted more quickly.
  */
 public class TokenList implements ITokenList {
-    private LinkedList<IToken> list;
+    private final LinkedList<IToken> list;
     private Iterator<IToken> iterator;
 
     /**
      * Constructor initializes the linked list
      */
     public TokenList() {
-        list = new LinkedList<IToken>();
+        list = new LinkedList<>();
     }
 
     /**
@@ -63,9 +65,11 @@ public class TokenList implements ITokenList {
      * Print each token on a separate line
      */
     public void print() {
-        Iterator<IToken> it = list.iterator();
-        while(it.hasNext()) {
-            System.out.println(it.next());
+        int count = 0;
+        String nrFormat = "%0" + String.valueOf(list.size()).length() + "d";
+
+        for (IToken iToken : list) {
+            System.out.printf("%s: %s%n", format(nrFormat, ++count), iToken);
         }
     }
 }
