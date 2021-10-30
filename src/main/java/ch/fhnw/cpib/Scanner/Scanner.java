@@ -17,8 +17,7 @@ public class Scanner {
     private final List<String> symbols = Arrays.asList("(", ")", ",", ";", ":", "=", "*", "+", "-", "/", "<", ">", "&", "|", "?");
     public Map<String, Token> keywords = new HashMap<>();
     public Scanner() {
-
-        //Terminals
+        // Token
         keywords.put("(",new Token(Terminals.LPAREN));
         keywords.put(")",new Token(Terminals.RPAREN));
         keywords.put(",",new Token(Terminals.COMMA));
@@ -48,7 +47,7 @@ public class Scanner {
         keywords.put("not", new Token(Terminals.NOTOPR));
         keywords.put("skip", new Token(Terminals.SKIP));
 
-        //Operators
+        // Operators
         keywords.put("+", new Operator(Terminals.ADDOPR, Operators.PLUS));
         keywords.put("-", new Operator(Terminals.ADDOPR, Operators.MINUS));
         keywords.put("*", new Operator(Terminals.MULTOPR, Operators.TIMES));
@@ -65,29 +64,39 @@ public class Scanner {
         keywords.put("divE", new Operator(Terminals.MULTOPR, Operators.DIV_E));
         keywords.put("modE", new Operator(Terminals.MULTOPR, Operators.MOD_E));
 
-        //Types
+        // Types
         keywords.put("int64", new Type(Types.INT64));
         keywords.put("bool", new Type(Types.BOOL));
 
-        //MechModes
+        // MechModes
         keywords.put("copy", new MechMode(MechModes.COPY));
         keywords.put("ref", new MechMode(MechModes.REF));
 
-        //Literals
+        // Literals
         keywords.put("true", new Literal(true));
         keywords.put("false", new Literal(false));
 
-        //ChangeModes
+        // ChangeModes
         keywords.put("const", new ChangeMode(ChangeModes.CONST));
         keywords.put("var", new ChangeMode(ChangeModes.VAR));
 
-        //FlowModes
+        // FlowModes
         keywords.put("in", new FlowMode(FlowModes.IN));
         keywords.put("out", new FlowMode(FlowModes.OUT));
         keywords.put("inout", new FlowMode(FlowModes.INOUT));
 
-        tokenList = new TokenList();
+        // Case Construct
+        keywords.put("switch", new Token(Terminals.SWITCH));
+        keywords.put("case", new Token(Terminals.CASE));
+        keywords.put("defaultcase", new Token(Terminals. DEFAULTCASE));
+        keywords.put("endvase", new Token(Terminals.ENDCASE));
+        keywords.put("endswitch", new Token(Terminals.ENDSWITCH));
 
+        // Conditional Expression
+        keywords.put("?", new Token(Terminals.QUESTIONMARK));
+
+
+        tokenList = new TokenList();
     }
 
     public ITokenList scan(CharSequence cs) throws LexicalError {

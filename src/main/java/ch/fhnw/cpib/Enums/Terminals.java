@@ -28,6 +28,7 @@ public enum Terminals {
     PROGRAM,
     TYPE,
     CALL,
+    MONADICOPR,
     DEBUGIN,
     DEBUGOUT,
     PROC,
@@ -44,6 +45,20 @@ public enum Terminals {
     LITERAL,
     IDENT,
 
-    SENTINEL;
+    SENTINEL,
+
+    /**
+     * Case Constructs
+     */
+    SWITCH,
+    CASE,
+    DEFAULTCASE,
+    ENDCASE,
+    ENDSWITCH,
+
+    /**
+     * Conditional Expressions
+     */
+    QUESTIONMARK
 
 }
