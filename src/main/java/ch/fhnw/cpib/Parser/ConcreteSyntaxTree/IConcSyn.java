@@ -1,7 +1,10 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
+import ch.fhnw.cpib.Enums.MechModes;
+import ch.fhnw.cpib.Enums.ChangeModes;
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 import ch.fhnw.cpib.Token.Ident;
+import ch.fhnw.cpib.Token.MonadicOpr;
 
 import java.util.ArrayList;
 
@@ -161,15 +164,16 @@ public interface IConcSyn {
         IAbsSyn.ITypedIdent toAbsSyn();
     }
 
-    /* interface IChangeModeNTS extends IProduction {
-        Changemode toAbsSyn();
-    } */
 
-    /* interface IMechModeNTS extends IProduction {
-        Mechmode toAbsSyn();
-    } */
+    interface IChangeModeNTS extends IProduction {
+        ChangeModes toAbsSyn();
+    }
 
-    /* interface IMonadicOpr extends IProduction {
-        Monadicopr toAbsSyn();
-    } */
+    interface IMechModeNTS extends IProduction {
+        MechModes toAbsSyn();
+    }
+
+    interface IMonadicOpr extends IProduction {
+        MonadicOpr toAbsSyn();
+    }
 }
