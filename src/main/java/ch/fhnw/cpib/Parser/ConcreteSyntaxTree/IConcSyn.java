@@ -1,9 +1,9 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
-import ch.fhnw.cpib.Token.Token;
+import ch.fhnw.cpib.Token.Ident;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public interface IConcSyn {
 
@@ -11,179 +11,164 @@ public interface IConcSyn {
         String toString(String indent);
     }
 
-    interface IOptionalGlobalInits extends IProduction {
-        List<Token> toAbsSyn();
-    }
-
-    interface IBlockCmd extends IProduction {
-        List<IAbsSyn.ICommand> toAbsSyn();
-    }
-
-    interface ICmd extends IProduction {
-        IAbsSyn.ICommand toAbsSyn();
-    }
-
-
-
-    interface IDeclaration extends IProduction {
-        IAbsSyn.IDeclaration toAbsSyn();
-    }
-
-    interface IDeclarations extends IProduction {
-        List<IAbsSyn.IDeclaration> toAbsSyn();
-    }
-
-    interface IOptionalLocalStorageDeclarations extends IProduction {
-        List<IAbsSyn.IDeclaration> toAbsSyn();
-    }
-
-    interface IRepeatingOptionalDeclarations extends IProduction {
-        List<IAbsSyn.IDeclaration> toAbsSyn();
-    }
-
-    interface IRepeatingOptionalStorageDeclarations extends IProduction {
-        List<IAbsSyn.IDeclaration> toAbsSyn();
-    }
-
-    interface IExpression extends IProduction {
-        IAbsSyn.IExpression toAbsSyn();
-    }
-
-    interface IExpressionList extends IProduction {
-        List<IAbsSyn.IExpression> toAbsSyn();
-    }
-
-    interface IFactor extends IProduction {
-        IAbsSyn.IExpression toAbsSyn();
-    }
-
-    interface IGlobalImport extends IProduction {
-        IAbsSyn.IGlobalImport toAbsSyn();
-    }
-
-    interface IIdents extends IProduction {
-        List<Token> toAbsSyn();
-    }
-
-    interface IMonadicOperator extends IProduction {
-        Token toAbsSyn();
-    }
-
-    interface IOptionalCHANGEMODE extends IProduction {
-        Token toAbsSyn();
-    }
-
-    interface IOptionalExpressions extends IProduction {
-        List<IAbsSyn.IExpression> toAbsSyn();
-    }
-
-    interface IOptionalFLOWMODE extends IProduction {
-        Token toAbsSyn();
-    }
-
-    interface IOptionalGlobalDeclarations extends IProduction {
-        List<IAbsSyn.IDeclaration> toAbsSyn();
-    }
-
-    interface IOptionalGlobalImports extends IProduction {
-        List<IAbsSyn.IGlobalImport> toAbsSyn();
-    }
-
-    interface IOptionalIdent extends IProduction {
-        IAbsSyn.IExpression toAbsSyn(Token ident);
-    }
-
-
-
-    interface IOptionalMECHMODE extends IProduction {
-        Token toAbsSyn();
-    }
-
-    interface IOptionalParameters extends IProduction {
-        List<IAbsSyn.IParameter> toAbsSyn();
-    }
-
-    interface IOptionalProgramParameters extends IProduction {
-        List<IAbsSyn.IProgramParameter> toAbsSyn();
-    }
-
-    interface IParameter extends IProduction {
-        IAbsSyn.IParameter toAbsSyn();
-    }
-
-    interface IParameterList extends IProduction {
-        List<IAbsSyn.IParameter> toAbsSyn();
-    }
-
-    interface IProgamParameterList  extends IProduction {
-        List<IAbsSyn.IProgramParameter> toAbsSyn();
-    }
-
     interface IProgram extends IProduction {
         IAbsSyn.IProgram toAbsSyn();
     }
 
-    interface IRepADDOPRterm3 extends IProduction {
-        IAbsSyn.IExpression toAbsSyn(IAbsSyn.IExpression dyadicExpr);
+    interface ICaseNTS extends IProduction {
+        ArrayList<IAbsSyn.ICase> toAbsSyn(ArrayList<IAbsSyn.ICase> tmp);
     }
 
-    interface IRepBOOLOPRterm1 extends IProduction {
-        IAbsSyn.IExpression toAbsSyn(ITerm1 t1);
+    interface ICmd extends IProduction {
+        IAbsSyn.ICmd toAbsSyn();
     }
 
-    interface IRepeatingOptionalCase extends IProduction {
-        List<IAbsSyn.ICase> toAbsSyn();
+    /* interface IChangeModeNTS extends IProduction {
+        Changemode toAbsSyn();
+    } */
+
+    interface IStoDecl extends IProduction{
+        IAbsSyn.IStoDecl toAbsSyn();
     }
 
-    interface IRepeatingOptionalCmds extends IProduction {
-        List<IAbsSyn.ICommand> toAbsSyn();
+    interface ITerm0NTS extends IProduction {
+        IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr expr);
     }
 
-    interface IRepeatingOptionalExpressions extends IProduction {
-        List<IAbsSyn.IExpression> toAbsSyn();
+    interface ITerm0 extends IProduction {
+        IAbsSyn.IExpr toAbsSyn();
     }
-
-    interface IRepeatingOptionalGlobalImports extends IProduction {
-        List<IAbsSyn.IGlobalImport> toAbsSyn();
-    }
-
-    interface IRepeatingOptionalIdents extends IProduction {
-        List<Token> toAbsSyn();
-    }
-
-    interface IRepeatingOptionalParameters extends IProduction {
-        List<IAbsSyn.IParameter> toAbsSyn();
-    }
-
-    interface IRepeatingOptionalProgramParameters extends IProduction {
-        List<IAbsSyn.IProgramParameter> toAbsSyn();
-    }
-
-    interface IRepMULTOPRfactor extends IProduction {
-        IAbsSyn.IExpression toAbsSyn(IFactor factor);
-    }
-
-    interface IRepRELOPRterm2 extends IProduction{
-        IAbsSyn.IExpression toAbsSyn(ITerm2 t2);
-    }
-
+    
     interface ITerm1 extends IProduction {
-        IAbsSyn.IExpression toAbsSyn();
+        IAbsSyn.IExpr toAbsSyn();
+    }
+    
+    interface ITerm1NTS extends IProduction {
+        IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr expr);
     }
 
     interface ITerm2 extends IProduction {
-        IAbsSyn.IExpression toAbsSyn();
+        IAbsSyn.IExpr toAbsSyn();
     }
-
+    
+    interface ITerm2NTS extends IProduction {
+        IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr expr);
+    }
+    
     interface ITerm3 extends IProduction {
-        IAbsSyn.IExpression toAbsSyn();
+        IAbsSyn.IExpr toAbsSyn();
     }
-
-    interface ITypeDeclaration extends IProduction {
-        IAbsSyn.ITypeDeclaration toAbsSyn();
+    
+    interface ITerm3NTS extends IProduction {
+        IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr expr);
     }
-
+    
+    interface IProcDeclNTS extends IProduction {
+        ArrayList<IAbsSyn.IStoDecl> toAbsSyn();
+    }
     interface ITypedIdent extends IProduction {
         IAbsSyn.ITypedIdent toAbsSyn();
+    }
+
+    interface ICpsStoDecl extends IProduction {
+        ArrayList<IAbsSyn.IStoDecl> toAbsSyn();
+    }
+
+    interface ICpsDeclNTS extends IProduction {
+        ArrayList<IAbsSyn.IDecl> toAbsSyn(ArrayList<IAbsSyn.IDecl> tmp);
+    }
+
+    interface ICpsDecl extends IProduction {
+        ArrayList<IAbsSyn.IDecl> toAbsSyn();
+    }
+
+    interface ICpsCmdNTS extends IProduction {
+        ArrayList<IAbsSyn.ICmd> toAbsSyn(ArrayList<IAbsSyn.ICmd> tmp);
+    }
+
+    /* interface ICpsCmd extends IProduction {
+        CpsCmd toAbsSyn();
+    } */
+
+    interface ICondExprNTS extends IProduction {
+        IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr expr);
+    }
+
+    interface IExprListLparenNTS extends IProduction {
+        ArrayList<IAbsSyn.IExpr> toAbsSyn();
+    }
+    interface IExprList extends IProduction {
+        ArrayList<IAbsSyn.IExpr> toAbsSyn();
+    }
+
+    interface IExpr extends IProduction {
+        IAbsSyn.IExpr toAbsSyn();
+    }
+
+    interface IDefaultCaseNTS extends IProduction {
+        IAbsSyn.IDefaultCase toAbsSyn();
+    }
+
+    interface IDecl extends IProduction {
+        IAbsSyn.IDecl toAbsSyn();
+    }
+
+    interface ICpsStoDeclNTS extends IProduction {
+        ArrayList<IAbsSyn.IStoDecl> toAbsSyn(ArrayList<IAbsSyn.IStoDecl> tmp);
+    }
+
+    /* interface IMechModeNTS extends IProduction {
+        Mechmode toAbsSyn();
+    } */
+
+    interface IIfelseNTS extends IProduction {
+        IAbsSyn.ICpsCmd toAbsSyn();
+    }
+
+    interface IGlobalNTS extends IProduction {
+        ArrayList<IAbsSyn.IDecl> toAbsSyn();
+    }
+
+    interface IFunDeclNTS extends IProduction {
+        ArrayList<IAbsSyn.IStoDecl> toAbsSyn();
+    }
+
+    interface IFactorNTS extends IProduction {
+        IAbsSyn.IFactor toAbsSyn(Ident ident);
+    }
+    interface IFactor extends IProduction {
+        IAbsSyn.IFactor toAbsSyn();
+    }
+
+    interface IExprListNTS extends IProduction {
+        ArrayList<IAbsSyn.IExpr> toAbsSyn(ArrayList<IAbsSyn.IExpr> tmp);
+    }
+
+    /* interface IMonadicOpr extends IProduction {
+        Monadicopr toAbsSyn();
+    } */
+
+    interface IParam extends IProduction {
+        IAbsSyn.IParam toAbsSyn();
+    }
+    
+    interface IParamListNTS extends IProduction {
+        ArrayList<IAbsSyn.IParam> toAbsSyn();
+    }
+
+    interface IParamList extends IProduction {
+        ArrayList<IAbsSyn.IParam> toAbsSyn();
+    }
+    
+    interface IParamNTS extends IProduction {
+        ArrayList<IAbsSyn.IParam> toAbsSyn(ArrayList<IAbsSyn.IParam> tmp);
+    }
+
+    interface IProcDecl extends IProduction {
+        IAbsSyn.IDecl toAbsSyn();
+    }
+
+    interface IRepMULTOPRfactor {
+        IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr exprLeft);
     }
 }

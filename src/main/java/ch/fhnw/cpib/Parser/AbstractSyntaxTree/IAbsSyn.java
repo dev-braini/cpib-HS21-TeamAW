@@ -1,7 +1,32 @@
 package ch.fhnw.cpib.Parser.AbstractSyntaxTree;
 
 public interface IAbsSyn {
+
+    interface ICmd {
+
+    }
+
+    interface IStoDecl {
+
+    }
+
     interface IExpr {
+
+    }
+
+    interface IDecl {
+
+    }
+
+    interface IDefaultCase {
+
+    }
+
+    interface IFactor {
+
+    }
+
+    interface IParam {
 
     }
 
@@ -9,39 +34,15 @@ public interface IAbsSyn {
 
     }
 
-    interface ICommand {
-
-    }
-
-    interface IDeclaration {
-
-    }
-
-    interface IExpression {
-
-    }
-
-    interface IGlobalImport {
-
-    }
-
-    interface IParameter {
-
-    }
-
-    interface IProgramParameter {
-
-    }
-
-    interface ICase {
-
-    }
-
-    interface ITypeDeclaration {
+    interface ICpsCmd {
 
     }
 
     interface ITypedIdent {
+
+    }
+
+    interface ICase {
 
     }
 }
