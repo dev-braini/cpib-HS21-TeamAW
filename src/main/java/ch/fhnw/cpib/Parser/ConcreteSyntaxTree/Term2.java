@@ -1,15 +1,15 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
-import ch.fhnw.cpib.Parser.AbstractSyntaxTree.AbsSyn;
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
-public class RepMULTOPRfactorEps implements IRepMULTOPRfactor {
-    private RepMULTOPRfactorEps() {
+// term2 ::= term3 term2NTS
+public class Term2 implements IConcSyn.ITerm2 {
+    public Term2() {
 
     }
 
     @Override
-    public IAbsSyn.IExpr toAbsSyn(AbsSyn.IExpr exprLeft) {
+    public IAbsSyn.IExpr toAbsSyn() {
         return null;
     }
 

@@ -2,9 +2,9 @@ package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
-// term3 ::= factor term3NTS
-public class Term3 implements IConcSyn.ITerm3 {
-	public Term3() {
+//term1 ::= term2 term1NTS
+public class Term1 implements IConcSyn.ITerm1 {
+	public Term1() {
 
 	}
 

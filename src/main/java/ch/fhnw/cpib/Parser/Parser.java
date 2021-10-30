@@ -57,8 +57,8 @@ public class Parser implements IParser {
         throw new GrammarError(this.token + ", " + Terminals.PROGRAM);
     }
 
-    private IConcSyn.IRepMULTOPRfactor repMULTOPRfactor() throws GrammarError {
-        /*if (terminal == Terminals.MULTOPR) {
+    /*private IConcSyn.IRepMULTOPRfactor repMULTOPRfactor() throws GrammarError {
+        if (terminal == Terminals.MULTOPR) {
             System.out.println("repMULTOPRfactor ::= MULTOPR factor repMULTOPRfactor");
             IOperators.MultOprs opr = ((IToken.MultOpr)consume(Terminals.MULTOPR)).getOpr();
             ConcSyn.IFactor factor = factor();
@@ -69,10 +69,10 @@ public class Parser implements IParser {
             return new RepMULTOPRfactorEps();
         } else {
             throw  new GrammarError("auxTerm3");
-        }*/
+        }
 
         return null;
-    }
+    }*/
 
     private IConcSyn.IFactor factor() {
         return null;
