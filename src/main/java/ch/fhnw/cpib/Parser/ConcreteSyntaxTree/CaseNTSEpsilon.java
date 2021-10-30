@@ -1,15 +1,16 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
+import java.util.ArrayList;
 
-// program ::= PROGRAM IDENT globalNTS DO cpsCmd ENDPROGRAM
-public class Program implements IConcSyn.IProgram {
-    public Program() {
+// caseNTS::= ε
+public class CaseNTSEpsilon implements IConcSyn.ICaseNTS {
+    public CaseNTSEpsilon() {
 
     }
 
     @Override
-    public IAbsSyn.IProgram toAbsSyn() {
+    public ArrayList<IAbsSyn.ICase> toAbsSyn(ArrayList<IAbsSyn.ICase> tmp) {
         return null;
     }
 

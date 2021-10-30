@@ -1,15 +1,16 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
+import java.util.ArrayList;
 
-// term0NTS ::= ε
-public class Term0NTSEpsilon implements IConcSyn.ITerm0NTS {
-	public Term0NTSEpsilon() {
+// paramListNTS ::= param paramNTS
+public class ParamListNTSParam implements IConcSyn.IParamListNTS {
+	public ParamListNTSParam() {
 
 	}
 
 	@Override
-	public IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr expr) {
+	public ArrayList<IAbsSyn.IParam> toAbsSyn() {
 		return null;
 	}
 

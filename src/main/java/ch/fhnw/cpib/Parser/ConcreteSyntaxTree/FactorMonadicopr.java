@@ -2,14 +2,14 @@ package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
-// program ::= PROGRAM IDENT globalNTS DO cpsCmd ENDPROGRAM
-public class Program implements IConcSyn.IProgram {
-    public Program() {
+// factor ::= monadicOpr factor
+public class FactorMonadicopr implements IConcSyn.IFactor {
+    public FactorMonadicopr() {
 
     }
 
     @Override
-    public IAbsSyn.IProgram toAbsSyn() {
+    public IAbsSyn.IFactor toAbsSyn() {
         return null;
     }
 

@@ -2,7 +2,7 @@ package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
-//term1NTS::= RELOPR term2
+// term1NTS::= RELOPR term2
 public class Term1NTSRelopr implements IConcSyn.ITerm1NTS {
 	public Term1NTSRelopr() {
 

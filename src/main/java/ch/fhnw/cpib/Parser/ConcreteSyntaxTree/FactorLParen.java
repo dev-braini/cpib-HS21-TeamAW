@@ -2,14 +2,14 @@ package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
-// program ::= PROGRAM IDENT globalNTS DO cpsCmd ENDPROGRAM
-public class Program implements IConcSyn.IProgram {
-    public Program() {
+// factor ::= LPAREN expr RPAREN
+public class FactorLParen implements IConcSyn.IFactor {
+    public FactorLParen() {
 
     }
 
     @Override
-    public IAbsSyn.IProgram toAbsSyn() {
+    public IAbsSyn.IFactor toAbsSyn() {
         return null;
     }
 

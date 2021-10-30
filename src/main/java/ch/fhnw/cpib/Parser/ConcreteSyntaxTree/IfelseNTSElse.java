@@ -2,14 +2,14 @@ package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
-// program ::= PROGRAM IDENT globalNTS DO cpsCmd ENDPROGRAM
-public class Program implements IConcSyn.IProgram {
-    public Program() {
+// ifelseNTS ::= ELSE cpsCmd
+public class IfelseNTSElse implements IConcSyn.IIfelseNTS {
+    public IfelseNTSElse() {
 
     }
 
     @Override
-    public IAbsSyn.IProgram toAbsSyn() {
+    public IAbsSyn.ICpsCmd toAbsSyn() {
         return null;
     }
 

@@ -2,7 +2,7 @@ package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
-//term2NTS ::= ε
+// term2NTS ::= ε
 public class Term2NTSEpsilon implements IConcSyn.ITerm2NTS {
 	public Term2NTSEpsilon() {
 

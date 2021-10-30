@@ -1,15 +1,16 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
+import java.util.ArrayList;
 
-// program ::= PROGRAM IDENT globalNTS DO cpsCmd ENDPROGRAM
-public class Program implements IConcSyn.IProgram {
-    public Program() {
+// procDeclNTS ::= LOCAL cpsStoDecl
+public class ProcDeclNTSLocal implements IConcSyn.IProcDeclNTS {
+    public ProcDeclNTSLocal() {
 
     }
 
     @Override
-    public IAbsSyn.IProgram toAbsSyn() {
+    public ArrayList<IAbsSyn.IStoDecl> toAbsSyn() {
         return null;
     }
 

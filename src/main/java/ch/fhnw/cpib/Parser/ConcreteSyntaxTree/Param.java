@@ -2,14 +2,14 @@ package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
-// term0NTS ::= ε
-public class Term0NTSEpsilon implements IConcSyn.ITerm0NTS {
-	public Term0NTSEpsilon() {
+// param ::= mechModeNTS changeModeNTS typedIdent
+public class Param implements IConcSyn.IParam {
+	public Param() {
 
 	}
 
 	@Override
-	public IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr expr) {
+	public IAbsSyn.IParam toAbsSyn() {
 		return null;
 	}
 

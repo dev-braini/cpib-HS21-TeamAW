@@ -2,7 +2,7 @@ package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
-//term3NTS ::= MULTOPR factor term3NTS
+// term3NTS ::= MULTOPR factor term3NTS
 public class Term3NTSMultopr implements IConcSyn.ITerm3NTS {
 	public Term3NTSMultopr() {
 

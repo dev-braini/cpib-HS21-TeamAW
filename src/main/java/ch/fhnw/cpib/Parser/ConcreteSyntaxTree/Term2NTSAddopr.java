@@ -2,7 +2,7 @@ package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
-//term2NTS ::= ADDOPR term3 term2NTS
+// term2NTS ::= ADDOPR term3 term2NTS
 public class Term2NTSAddopr implements IConcSyn.ITerm2NTS {
 	public Term2NTSAddopr() {
 

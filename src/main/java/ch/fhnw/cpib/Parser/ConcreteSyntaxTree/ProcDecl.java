@@ -2,14 +2,14 @@ package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
-// program ::= PROGRAM IDENT globalNTS DO cpsCmd ENDPROGRAM
-public class Program implements IConcSyn.IProgram {
-    public Program() {
+// procDecl ::= PROC IDENT paramList procDeclNTS DO cpsCmd ENDPROC
+public class ProcDecl implements IConcSyn.IProcDecl {
+    public ProcDecl() {
 
     }
 
     @Override
-    public IAbsSyn.IProgram toAbsSyn() {
+    public IAbsSyn.IDecl toAbsSyn() {
         return null;
     }
 

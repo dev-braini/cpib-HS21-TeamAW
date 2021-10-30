@@ -1,15 +1,16 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
+import ch.fhnw.cpib.Token.Ident;
 
-// program ::= PROGRAM IDENT globalNTS DO cpsCmd ENDPROGRAM
-public class Program implements IConcSyn.IProgram {
-    public Program() {
+// factorNTS ::= INIT
+public class FactorNTSInit implements IConcSyn.IFactorNTS {
+    public FactorNTSInit() {
 
     }
 
     @Override
-    public IAbsSyn.IProgram toAbsSyn() {
+    public IAbsSyn.IFactor toAbsSyn(Ident ident) {
         return null;
     }
 

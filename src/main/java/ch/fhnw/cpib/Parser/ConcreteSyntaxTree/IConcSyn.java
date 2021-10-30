@@ -86,9 +86,9 @@ public interface IConcSyn {
         ArrayList<IAbsSyn.ICmd> toAbsSyn(ArrayList<IAbsSyn.ICmd> tmp);
     }
 
-    /* interface ICpsCmd extends IProduction {
-        CpsCmd toAbsSyn();
-    } */
+    interface ICpsCmd extends IProduction {
+        IAbsSyn.ICpsCmd toAbsSyn();
+    }
 
     interface ICondExprNTS extends IProduction {
         IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr expr);
@@ -129,6 +129,10 @@ public interface IConcSyn {
         ArrayList<IAbsSyn.IDecl> toAbsSyn();
     }
 
+    interface IFunDecl extends IProduction {
+        IAbsSyn.IDecl toAbsSyn();
+    }
+
     interface IFunDeclNTS extends IProduction {
         ArrayList<IAbsSyn.IStoDecl> toAbsSyn();
     }
@@ -166,9 +170,5 @@ public interface IConcSyn {
 
     interface IProcDecl extends IProduction {
         IAbsSyn.IDecl toAbsSyn();
-    }
-
-    interface IRepMULTOPRfactor {
-        IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr exprLeft);
     }
 }
