@@ -2,10 +2,13 @@ package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
-public class Program implements IConcSyn.IProgram {
+public class TypedIdentImpl implements IConcSyn.ITypedIdent {
+    public TypedIdentImpl() {
+
+    }
 
     @Override
-    public IAbsSyn.IProgram toAbsSyn() {
+    public IAbsSyn.ITypedIdent toAbsSyn() {
         return null;
     }
 
