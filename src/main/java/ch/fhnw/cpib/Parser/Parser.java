@@ -79,6 +79,7 @@ public class Parser implements IParser {
     private GrammarError GrammarException(Terminals... expectedTerminals) {
         String terminals =  Arrays.stream(expectedTerminals).map(Object::toString).collect(Collectors.joining(", "));
 
+        // TODO: Add linenumbers?
         return new GrammarError("Terminal found: " + token.getTerminal() + ", Terminal(s) expected: " + terminals);
     }
     
