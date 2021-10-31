@@ -5,8 +5,12 @@ import java.util.ArrayList;
 
 // exprListLparenNTS ::= expr exprListNTS
 public class ExprListLparenNTSExpr implements IConcSyn.IExprListLparenNTS {
-    public ExprListLparenNTSExpr() {
+    private final IConcSyn.IExpr expr;
+    private final IConcSyn.IExprListNTS exprListNTS;
 
+    public ExprListLparenNTSExpr(final IConcSyn.IExpr expr, final IConcSyn.IExprListNTS exprListNTS) {
+        this.expr = expr;
+        this.exprListNTS = exprListNTS;
     }
 
     @Override

@@ -5,8 +5,10 @@ import ch.fhnw.cpib.Token.Ident;
 
 // factorNTS ::= exprList
 public class FactorNTSExprList implements IConcSyn.IFactorNTS {
-    public FactorNTSExprList() {
+    private final IConcSyn.IExprList exprList;
 
+    public FactorNTSExprList(final IConcSyn.IExprList exprList) {
+        this.exprList = exprList;
     }
 
     @Override

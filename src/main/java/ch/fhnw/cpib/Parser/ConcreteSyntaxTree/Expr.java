@@ -4,8 +4,12 @@ import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
 // expr ::= term0 condExprNTS
 public class Expr implements IConcSyn.IExpr {
-    public Expr() {
+    private final IConcSyn.ITerm0 term0;
+    private final IConcSyn.ICondExprNTS condExprNTS;
 
+    public Expr(final IConcSyn.ITerm0 term0, final IConcSyn.ICondExprNTS condExprNTS) {
+        this.term0 = term0;
+        this.condExprNTS = condExprNTS;
     }
 
     @Override

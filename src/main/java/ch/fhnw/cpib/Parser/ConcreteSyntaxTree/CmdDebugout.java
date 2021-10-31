@@ -1,11 +1,16 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
+import ch.fhnw.cpib.Token.IToken;
 
 // cmd ::= DEBUGOUT expr
 public class CmdDebugout implements IConcSyn.ICmd {
-	public CmdDebugout() {
+	private final IToken debugout;
+	private final IConcSyn.IExpr expr;
 
+	public CmdDebugout(final IToken debugout, final IConcSyn.IExpr expr) {
+		this.debugout = debugout;
+		this.expr = expr;
 	}
 
 	@Override

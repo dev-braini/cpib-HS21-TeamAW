@@ -4,8 +4,12 @@ import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
 // factor ::= monadicOpr factor
 public class FactorMonadicopr implements IConcSyn.IFactor {
-    public FactorMonadicopr() {
+    private final IConcSyn.IMonadicOpr monadicOpr;
+    private final IConcSyn.IFactor factor;
 
+    public FactorMonadicopr(final IConcSyn.IMonadicOpr monadicOpr, final IConcSyn.IFactor factor) {
+        this.monadicOpr = monadicOpr;
+        this.factor = factor;
     }
 
     @Override

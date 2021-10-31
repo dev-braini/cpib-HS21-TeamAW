@@ -4,8 +4,10 @@ import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
 // stoDecl ::= typedIdent
 public class StoDeclTypedIdent implements IConcSyn.IStoDecl {
-	public StoDeclTypedIdent() {
+	private final IConcSyn.ITypedIdent typedIdent;
 
+	public StoDeclTypedIdent(final IConcSyn.ITypedIdent typedIdent) {
+		this.typedIdent = typedIdent;
 	}
 
 	@Override

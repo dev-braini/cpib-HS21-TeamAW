@@ -4,8 +4,12 @@ import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
 // term3 ::= factor term3NTS
 public class Term3 implements IConcSyn.ITerm3 {
-	public Term3() {
+	private final IConcSyn.IFactor factor;
+	private final IConcSyn.ITerm3NTS term3NTS;
 
+	public Term3(final IConcSyn.IFactor factor, final IConcSyn.ITerm3NTS term3NTS) {
+		this.factor = factor;
+		this.term3NTS = term3NTS;
 	}
 
 	@Override

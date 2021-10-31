@@ -4,8 +4,12 @@ import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
 // cpsCmd ::= cmd cpsCmdNTS
 public class CpsCmd implements IConcSyn.ICpsCmd {
-    public CpsCmd() {
+    private final IConcSyn.ICmd cmd;
+    private final IConcSyn.ICpsCmdNTS cpsCmdNTS;
 
+    public CpsCmd(final IConcSyn.ICmd cmd, final IConcSyn.ICpsCmdNTS cpsCmdNTS) {
+        this.cmd = cmd;
+        this.cpsCmdNTS = cpsCmdNTS;
     }
 
     @Override

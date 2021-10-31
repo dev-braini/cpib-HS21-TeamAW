@@ -4,8 +4,10 @@ import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
 // decl ::= stoDecl
 public class DeclSto implements IConcSyn.IDecl {
-    public DeclSto() {
+    private final IConcSyn.IStoDecl stoDecl;
 
+    public DeclSto(final IConcSyn.IStoDecl stoDecl) {
+        this.stoDecl = stoDecl;
     }
 
     @Override

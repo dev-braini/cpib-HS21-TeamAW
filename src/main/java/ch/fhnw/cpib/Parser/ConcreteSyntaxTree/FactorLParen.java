@@ -1,11 +1,18 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
+import ch.fhnw.cpib.Token.IToken;
 
 // factor ::= LPAREN expr RPAREN
 public class FactorLParen implements IConcSyn.IFactor {
-    public FactorLParen() {
+    private final IToken lparen;
+    private final IConcSyn.IExpr expr;
+    private final IToken rparen;
 
+    public FactorLParen(final IToken lparen, final IConcSyn.IExpr expr, final IToken rparen) {
+        this.lparen = lparen;
+        this.expr = expr;
+        this.rparen = rparen;
     }
 
     @Override
