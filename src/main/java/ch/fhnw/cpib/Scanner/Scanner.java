@@ -89,7 +89,7 @@ public class Scanner {
         keywords.put("switch", new Token(Terminals.SWITCH));
         keywords.put("case", new Token(Terminals.CASE));
         keywords.put("defaultcase", new Token(Terminals. DEFAULTCASE));
-        keywords.put("endvase", new Token(Terminals.ENDCASE));
+        keywords.put("endcase", new Token(Terminals.ENDCASE));
         keywords.put("endswitch", new Token(Terminals.ENDSWITCH));
 
         // Conditional Expression
