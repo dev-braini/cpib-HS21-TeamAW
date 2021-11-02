@@ -50,32 +50,6 @@ public class Parser implements IParser {
         return program;
     }
 
-    /*private IConcSyn.IProgram program() throws GrammarError {
-        if (this.terminal == Terminals.PROGRAM) {
-            return new Program();
-        }
-
-        throw new GrammarError(this.token + ", " + Terminals.PROGRAM);
-    }*/
-
-    /*private IConcSyn.IRepMULTOPRfactor repMULTOPRfactor() throws GrammarError {
-        if (terminal == Terminals.MULTOPR) {
-            System.out.println("repMULTOPRfactor ::= MULTOPR factor repMULTOPRfactor");
-            IOperators.MultOprs opr = ((IToken.MultOpr)consume(Terminals.MULTOPR)).getOpr();
-            ConcSyn.IFactor factor = factor();
-            ConcSyn.IRepMULTOPRfactor repMULTOPRfactor= repMULTOPRfactor();
-            return new RepMULTOPRfactorOpr(opr, factor, repMULTOPRfactor);
-        } else if (terminal == Terminals.DO || terminal == Terminals.ADDOPR){
-            // System.out.println("repMULTOPRfactor ::= epsilon");
-            return new RepMULTOPRfactorEps();
-        } else {
-            throw  new GrammarError("auxTerm3");
-        }
-
-        return null;
-    }*/
-
-
     private GrammarError GrammarException(Terminals... expectedTerminals) {
         String terminals =  Arrays.stream(expectedTerminals).map(Object::toString).collect(Collectors.joining(", "));
 
