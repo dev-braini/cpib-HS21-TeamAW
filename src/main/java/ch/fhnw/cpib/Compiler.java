@@ -1,13 +1,15 @@
 package ch.fhnw.cpib;
 
+import ch.fhnw.cpib.Errors.GrammarError;
 import ch.fhnw.cpib.Errors.LexicalError;
+import ch.fhnw.cpib.Parser.Parser;
 import ch.fhnw.cpib.Scanner.Scanner;
 import ch.fhnw.cpib.Token.ITokenList;
 
 public class Compiler {
-    private static final String IML_TEST_CODE = "//I'm a super program\nprogram Add17()\nglobal\n  var x:int32\ndo\n  debugin x init;\n  x := x + 17;\n  debugout x\nendprogram";
+    private static final String IML_TEST_CODE = "//I'm a super program\nprogram Add17\nglobal\n var x:int64\ndo\n  debugin x init;\n  x := x + 17;\n  debugout x\n endprogram \n";
 
-    public static void main(String[] args) throws LexicalError {
+    public static void main(String[] args) throws LexicalError, GrammarError {
         ITokenList tokenList;
         Scanner scanner = new Scanner();
         tokenList = scanner.scan(IML_TEST_CODE);
@@ -21,5 +23,8 @@ public class Compiler {
         System.out.println(tokenList.toString());
         System.out.println("---------------------");
         tokenList.print();
+
+        Parser parser = new Parser(tokenList);
+        parser.parse();
     }
 }
