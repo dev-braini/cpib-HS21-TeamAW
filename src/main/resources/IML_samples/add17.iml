@@ -1,0 +1,9 @@
+//I'm a super program
+program Add17
+global
+ var x:int64
+do
+  debugin x init;
+  x := x + 17;
+  debugout x
+ endprogram
