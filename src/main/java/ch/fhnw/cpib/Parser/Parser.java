@@ -528,7 +528,7 @@ public class Parser implements IParser {
                 IConcSyn.IExpr expr2 = expr();
                 return new CondExprNTSQuestionmark(questionmark, expr1, colon, expr2);
             case COMMA:
-                case RPAREN:
+            case RPAREN:
             case COLON:
             case ENDSWITCH:
             case DEFAULTCASE:
