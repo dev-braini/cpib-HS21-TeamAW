@@ -63,6 +63,11 @@ public class Scanner {
         keywords.put("|?", new Operator(Terminals.RELOPR, Operators.COR));
         keywords.put("divE", new Operator(Terminals.MULTOPR, Operators.DIV_E));
         keywords.put("modE", new Operator(Terminals.MULTOPR, Operators.MOD_E));
+        keywords.put("/\\", new Operator(Terminals.BOOLOPR, Operators.AND));
+        keywords.put("\\/", new Operator(Terminals.BOOLOPR, Operators.OR));
+        keywords.put("/\\?", new Operator(Terminals.BOOLOPR, Operators.CAND));
+        keywords.put("\\/?", new Operator(Terminals.BOOLOPR, Operators.COR));
+
 
         // Types
         keywords.put("int64", new Type(Types.INT64));

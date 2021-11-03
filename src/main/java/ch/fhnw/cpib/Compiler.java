@@ -10,8 +10,8 @@ import java.io.*;
 
 public class Compiler {
     /* ATTENTION: IML needs a blank line at the end */
-    private static final String IML_TEST_CODE_FILE = "add17.iml";
-
+    //private static final String IML_TEST_CODE_FILE = "add17.iml";
+    private static final String IML_TEST_CODE_FILE = "Add17Proc4.iml";
     public static void main(String[] args) throws LexicalError, GrammarError, FileNotFoundException {
 
         // read iml code sample
