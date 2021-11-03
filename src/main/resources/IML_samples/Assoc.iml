@@ -1,0 +1,9 @@
+program Assoc
+  global x:int64
+do
+  debugin x init ;
+
+  debugout x - (x - x) ;
+  debugout (x - x) - x ;
+  debugout x - x - x // - is defined to be left-associative
+endprogram

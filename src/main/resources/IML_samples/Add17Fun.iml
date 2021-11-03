@@ -1,0 +1,12 @@
+program Add17Fun
+global
+  fun f(x:int64) returns y:int64
+  do
+    y init := x + 17
+  endfun;
+
+  var x:int64
+do
+  debugin x init;
+  debugout f(x)
+endprogram

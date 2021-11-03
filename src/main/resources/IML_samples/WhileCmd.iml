@@ -1,0 +1,10 @@
+program WhileCmd
+global
+  var x:int64
+do
+  debugin x init;
+  while x > 0 do
+    x := x - 1
+  endwhile;
+  debugout x
+endprogram

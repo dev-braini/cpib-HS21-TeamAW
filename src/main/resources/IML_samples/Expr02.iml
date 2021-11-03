@@ -1,0 +1,12 @@
+program Expr02
+global
+  x:int64;
+  y:int64;
+  z:int64
+do
+  debugin x init;
+  debugin y init;
+  debugin z init;
+  debugout x < y /\? y < z
+
+endprogram

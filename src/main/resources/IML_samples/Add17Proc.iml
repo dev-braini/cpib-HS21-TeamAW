@@ -1,0 +1,14 @@
+program Add17Proc
+global
+  proc p(in copy x:int64, out copy y:int64)
+  do
+    y init := x + 17
+  endproc;
+
+  var a:int64;
+  var b:int64
+do
+  debugin a init;
+  call p(a, b init);
+  debugout b
+endprogram

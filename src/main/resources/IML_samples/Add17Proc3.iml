@@ -1,0 +1,15 @@
+program Add17Proc3
+global
+  proc p(inout copy x:int64)
+  do
+    x := x + 17
+  endproc;
+
+  var a:int64
+do
+  debugin a init;
+  call p(a);
+  call p(a);
+  call p(a);
+  debugout a
+endprogram

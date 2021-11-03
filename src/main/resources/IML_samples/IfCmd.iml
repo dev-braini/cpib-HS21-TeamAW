@@ -1,0 +1,13 @@
+program IfCmd
+global
+  x:int64;
+  y:int64
+do
+  debugin x init;
+  if x > 0 then
+    y init := 5
+  else
+    y init := 7
+  endif;
+  debugout y
+endprogram
