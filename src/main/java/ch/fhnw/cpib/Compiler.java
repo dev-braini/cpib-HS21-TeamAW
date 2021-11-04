@@ -11,7 +11,7 @@ import java.io.*;
 public class Compiler {
     /* ATTENTION: IML needs a blank line at the end */
     //private static final String IML_TEST_CODE_FILE = "add17.iml";
-    private static final String IML_TEST_CODE_FILE = "Expr02.iml";
+    private static final String IML_TEST_CODE_FILE = "CalcMin.iml";
     public static void main(String[] args) throws LexicalError, GrammarError, FileNotFoundException {
 
         // read iml code sample
@@ -31,7 +31,10 @@ public class Compiler {
         System.out.println(tokenList.toString());
         System.out.println("---------------------");
         tokenList.print();
+        System.out.println("\n");
 
+        System.out.println("OUTPUT (Parser):");
+        System.out.println("---------------------");
         Parser parser = new Parser(tokenList);
         parser.parse();
     }

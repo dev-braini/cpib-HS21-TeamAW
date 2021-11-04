@@ -1,0 +1,13 @@
+program calcMin
+global
+  in1: int64;
+  in2: int64;
+  min: int64
+do
+  debugin in1 init; 
+  debugin in2 init;
+
+  min init := in1 < in2 ? in1 : in2;
+
+  debugout min
+endprogram

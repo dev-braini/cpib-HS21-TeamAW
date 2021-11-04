@@ -212,7 +212,6 @@ public class Scanner {
     }
 
     private boolean checkIfToken(String string) {
-        System.out.println("I'm checking " + string);
         if (keywords.containsKey(string)) {
             Token token = keywords.get(string);
             tokenList.add(token);
