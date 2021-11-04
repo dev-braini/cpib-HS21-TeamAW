@@ -8,5 +8,4 @@ do
   debugin y init;
   debugin z init;
   debugout x < y /\? y < z
-
-endprogram
+  endprogram

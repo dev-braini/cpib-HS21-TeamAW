@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class Scanner {
     private final ITokenList tokenList;
-    private final List<String> symbols = Arrays.asList("(", ")", ",", ";", ":", "=", "*", "+", "-", "/", "<", ">", "&", "|", "?");
+    private final List<String> symbols = Arrays.asList("(", ")", ",", ";", ":", "=", "*", "+", "-", "/", "<", ">", "&", "|", "?","\\");
     public Map<String, Token> keywords = new HashMap<>();
     public Scanner() {
         // Token
@@ -67,6 +67,7 @@ public class Scanner {
         keywords.put("\\/", new Operator(Terminals.BOOLOPR, Operators.OR));
         keywords.put("/\\?", new Operator(Terminals.BOOLOPR, Operators.CAND));
         keywords.put("\\/?", new Operator(Terminals.BOOLOPR, Operators.COR));
+
 
 
         // Types
@@ -211,6 +212,7 @@ public class Scanner {
     }
 
     private boolean checkIfToken(String string) {
+        System.out.println("I'm checking " + string);
         if (keywords.containsKey(string)) {
             Token token = keywords.get(string);
             tokenList.add(token);

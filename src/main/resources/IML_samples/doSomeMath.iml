@@ -18,7 +18,7 @@ do
         output := input - 2
       else
         output := input + 2
-      endif;
+      endif
     endcase
   endswitch;
   debugout output
