@@ -22,21 +22,34 @@ public class Compiler {
         Scanner scanner = new Scanner();
         tokenList = scanner.scan(imlCode);
 
-        System.out.println("INPUT (IML):");
-        System.out.println("---------------------");
+        System.out.println("+-----------------------+");
+        System.out.println("| INPUT (IML):          |");
+        System.out.println("+-----------------------+");
         System.out.println(imlCode + "\n");
 
-        System.out.println("OUTPUT (ITokenList):");
-        System.out.println("---------------------");
+        System.out.println("+-----------------------+");
+        System.out.println("| OUTPUT (ITokenList):  |");
+        System.out.println("+-----------------------+");
         System.out.println(tokenList.toString());
-        System.out.println("---------------------");
+        System.out.println("-------------------------");
         tokenList.print();
         System.out.println("\n");
 
-        System.out.println("OUTPUT (Parser):");
-        System.out.println("---------------------");
+        System.out.println("+-----------------------+");
+        System.out.println("| OUTPUT (Parser):      |");
+        System.out.println("+-----------------------+");
         Parser parser = new Parser(tokenList);
         parser.parse();
+
+        System.out.println("\n");
+        System.out.println("+-----------------------+");
+        System.out.println("| Concrete Syntax Tree: |");
+        System.out.println("+-----------------------+");
+
+        System.out.println("\n");
+        System.out.println("+-----------------------+");
+        System.out.println("| Abstract Syntax Tree: |");
+        System.out.println("+-----------------------+");
     }
 
     private static StringBuilder readIMLCode() throws FileNotFoundException {
