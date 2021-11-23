@@ -46,8 +46,11 @@ public class Parser implements IParser {
 
         // TODO: Static Analysis
 
+        // TODO: MANDATORY
         // TODO: scope checking
         // TODO: types
+
+        // TODO: OPTIONAL - LUXUS :)
         // TODO: initialization
         // TODO: constants and variables
         // TODO: flow analysis
