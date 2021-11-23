@@ -44,8 +44,14 @@ public class Parser implements IParser {
         // take the last bite
         consume(Terminals.SENTINEL);
 
-        // TODO: TypeChecking
-        // TODO: InitChecking
+        // TODO: Static Analysis
+
+        // TODO: scope checking
+        // TODO: types
+        // TODO: initialization
+        // TODO: constants and variables
+        // TODO: flow analysis
+        // TODO: aliasing analysis
 
         return program;
     }
