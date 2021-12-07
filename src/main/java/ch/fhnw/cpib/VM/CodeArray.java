@@ -3,7 +3,7 @@
 
 package ch.fhnw.cpib.VM;
 
-import ch.fhnw.lederer.virtualmachineFS2015.IInstructions.IInstr;
+import ch.fhnw.cpib.VM.IInstructions.IInstr;
 
 public class CodeArray implements ICodeArray {
     private IInstr[] code;

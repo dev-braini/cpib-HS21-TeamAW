@@ -3,7 +3,7 @@
 
 package ch.fhnw.cpib.VM;
 
-import ch.fhnw.lederer.virtualmachineFS2015.IInstructions.*;
+import ch.fhnw.cpib.VM.IInstructions.*;
 
 public class VirtualMachine implements IVirtualMachine {
 

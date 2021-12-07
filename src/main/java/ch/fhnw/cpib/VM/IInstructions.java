@@ -3,7 +3,7 @@
 
 package ch.fhnw.cpib.VM;
 
-import ch.fhnw.lederer.virtualmachineFS2015.IVirtualMachine.ExecutionError;
+import ch.fhnw.cpib.VM.IVirtualMachine.ExecutionError;
 
 // idea: the compiler should not need a reference to the VM object
 

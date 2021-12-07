@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import ch.fhnw.lederer.virtualmachineFS2015.IVirtualMachine.ExecutionError;
+import ch.fhnw.cpib.VM.IVirtualMachine.ExecutionError;
 
 class InputUtility {
 
