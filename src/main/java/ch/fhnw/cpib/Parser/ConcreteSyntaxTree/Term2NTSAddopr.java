@@ -1,7 +1,9 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.AddExpr;
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 import ch.fhnw.cpib.Token.IToken;
+import ch.fhnw.cpib.Token.Operator;
 
 // term2NTS ::= ADDOPR term3 term2NTS
 public class Term2NTSAddopr implements IConcSyn.ITerm2NTS {
@@ -17,11 +19,7 @@ public class Term2NTSAddopr implements IConcSyn.ITerm2NTS {
 
 	@Override
 	public IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr expr) {
-		return null;
-	}
-
-	@Override
-	public String toString(String indent) {
-		return null;
+        IAbsSyn.IExpr expr2 = new AddExpr((Operator)addopr, expr, term3.toAbsSyn());
+        return term2NTS.toAbsSyn(expr2);
 	}
 }

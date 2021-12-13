@@ -5,19 +5,14 @@ import ch.fhnw.cpib.Token.MonadicOpr;
 
 // monadicOpr ::= NOT
 public class MonadicOprNot implements IConcSyn.IMonadicOpr {
-    private final IToken not;
+    private final IToken not_;
 
-    public MonadicOprNot(final IToken not) {
-        this.not = not;
+    public MonadicOprNot(final IToken not_) {
+        this.not_ = not_;
     }
 
     @Override
     public MonadicOpr toAbsSyn() {
-        return null;
-    }
-
-    @Override
-    public String toString(String indent) {
-        return null;
+        return new MonadicOpr(not_);
     }
 }

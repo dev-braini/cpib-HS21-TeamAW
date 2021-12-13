@@ -5,17 +5,10 @@ import java.util.ArrayList;
 
 // globalNTS ::= ε
 public class GlobalNTSEpsilon implements IConcSyn.IGlobalNTS {
-    public GlobalNTSEpsilon() {
-
-    }
+    public GlobalNTSEpsilon() { }
 
     @Override
     public ArrayList<IAbsSyn.IDecl> toAbsSyn() {
-        return null;
-    }
-
-    @Override
-    public String toString(String indent) {
-        return null;
+        return new ArrayList<>();
     }
 }

@@ -7,19 +7,15 @@ import java.util.ArrayList;
 
 // exprList ::= LPAREN exprListLparenNTS RPAREN
 public class ExprList implements IConcSyn.IExprList {
-    private final IToken lparen;
     private final IConcSyn.IExprListLparenNTS exprListLparenNTS;
-    private final IToken rparen;
 
     public ExprList(final IToken lparen, final IConcSyn.IExprListLparenNTS exprListLparenNTS, final IToken rparen) {
-        this.lparen = lparen;
         this.exprListLparenNTS = exprListLparenNTS;
-        this.rparen = rparen;
     }
 
     @Override
     public ArrayList<IAbsSyn.IExpr> toAbsSyn() {
-        return null;
+        return exprListLparenNTS.toAbsSyn();
     }
 
     @Override

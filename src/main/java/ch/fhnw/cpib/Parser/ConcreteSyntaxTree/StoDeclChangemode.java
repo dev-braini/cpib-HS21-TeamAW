@@ -1,11 +1,13 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.StoDecl;
+import ch.fhnw.cpib.Token.ChangeMode;
 import ch.fhnw.cpib.Token.IToken;
 
 // stoDecl ::= CHANGEMODE typedIdent
 public class StoDeclChangemode implements IConcSyn.IStoDecl {
-	private final IToken changemode;
+	private final IToken               changemode;
 	private final IConcSyn.ITypedIdent typedIdent;
 
     public StoDeclChangemode(final IToken changemode, final IConcSyn.ITypedIdent typedIdent) {
@@ -15,11 +17,6 @@ public class StoDeclChangemode implements IConcSyn.IStoDecl {
 
     @Override
 	public IAbsSyn.IStoDecl toAbsSyn() {
-		return null;
-	}
-
-	@Override
-	public String toString(String indent) {
-		return null;
+        return new StoDecl((ChangeMode)changemode, typedIdent.toAbsSyn());
 	}
 }

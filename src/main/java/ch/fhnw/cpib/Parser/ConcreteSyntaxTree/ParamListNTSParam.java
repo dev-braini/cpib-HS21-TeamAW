@@ -15,11 +15,9 @@ public class ParamListNTSParam implements IConcSyn.IParamListNTS {
 
 	@Override
 	public ArrayList<IAbsSyn.IParam> toAbsSyn() {
-		return null;
-	}
+        ArrayList<IAbsSyn.IParam> tmp = new ArrayList<>();
+        tmp.add(param.toAbsSyn());
 
-	@Override
-	public String toString(String indent) {
-		return null;
+        return paramNTS.toAbsSyn(tmp);
 	}
 }

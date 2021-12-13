@@ -1,6 +1,7 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Enums.MechModes;
+import ch.fhnw.cpib.Token.MechMode;
 
 // mechModeNTS::= ε
 public class MechModeNTSEpsilon implements IConcSyn.IMechModeNTS {
@@ -9,12 +10,7 @@ public class MechModeNTSEpsilon implements IConcSyn.IMechModeNTS {
     }
 
     @Override
-    public MechModes toAbsSyn() {
-        return null;
-    }
-
-    @Override
-    public String toString(String indent) {
+    public MechMode toAbsSyn() {
         return null;
     }
 }

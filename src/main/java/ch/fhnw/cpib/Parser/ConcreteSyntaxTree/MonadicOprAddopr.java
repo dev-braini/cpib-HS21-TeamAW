@@ -13,11 +13,6 @@ public class MonadicOprAddopr implements IConcSyn.IMonadicOpr {
 
     @Override
     public MonadicOpr toAbsSyn() {
-        return null;
-    }
-
-    @Override
-    public String toString(String indent) {
-        return null;
+        return new MonadicOpr(addopr);
     }
 }

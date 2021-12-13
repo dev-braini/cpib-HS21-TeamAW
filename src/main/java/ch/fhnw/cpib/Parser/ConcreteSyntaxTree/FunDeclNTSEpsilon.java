@@ -5,17 +5,10 @@ import java.util.ArrayList;
 
 // funDeclNTS ::= ε
 public class FunDeclNTSEpsilon implements IConcSyn.IFunDeclNTS {
-    public FunDeclNTSEpsilon() {
-
-    }
+    public FunDeclNTSEpsilon() { }
 
     @Override
     public ArrayList<IAbsSyn.IStoDecl> toAbsSyn() {
-        return null;
-    }
-
-    @Override
-    public String toString(String indent) {
-        return null;
+        return new ArrayList<>();
     }
 }

@@ -1,6 +1,7 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.SkipCmd;
 import ch.fhnw.cpib.Token.IToken;
 
 // cmd ::= SKIP
@@ -13,11 +14,6 @@ public class CmdSkip implements IConcSyn.ICmd {
 
 	@Override
 	public IAbsSyn.ICmd toAbsSyn() {
-		return null;
-	}
-
-	@Override
-	public String toString(String indent) {
-		return null;
+        return new SkipCmd();
 	}
 }

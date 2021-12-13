@@ -7,24 +7,18 @@ import java.util.ArrayList;
 
 // cpsDeclNTS ::= SEMICOLON decl cpsDeclNTS
 public class CpsDeclNTSSemicolon implements IConcSyn.ICpsDeclNTS {
-    private final IToken semicolon;
-    private final IConcSyn.IDecl decl;
+    private final IConcSyn.IDecl       decl;
     private final IConcSyn.ICpsDeclNTS cpsDeclNTS;
 
     public CpsDeclNTSSemicolon(final IToken semicolon, final IConcSyn.IDecl decl,
                                final IConcSyn.ICpsDeclNTS cpsDeclNTS) {
-        this.semicolon = semicolon;
-        this.decl = decl;
+        this.decl       = decl;
         this.cpsDeclNTS = cpsDeclNTS;
     }
 
     @Override
     public ArrayList<IAbsSyn.IDecl> toAbsSyn(ArrayList<IAbsSyn.IDecl> tmp) {
-        return null;
-    }
-
-    @Override
-    public String toString(String indent) {
-        return null;
+        tmp.add(decl.toAbsSyn());
+        return cpsDeclNTS.toAbsSyn(tmp);
     }
 }

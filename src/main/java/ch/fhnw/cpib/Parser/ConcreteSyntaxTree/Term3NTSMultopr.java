@@ -1,7 +1,9 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.MultExpr;
 import ch.fhnw.cpib.Token.IToken;
+import ch.fhnw.cpib.Token.Operator;
 
 // term3NTS ::= MULTOPR factor term3NTS
 public class Term3NTSMultopr implements IConcSyn.ITerm3NTS {
@@ -17,11 +19,7 @@ public class Term3NTSMultopr implements IConcSyn.ITerm3NTS {
 
 	@Override
 	public IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr expr) {
-		return null;
-	}
-
-	@Override
-	public String toString(String indent) {
-		return null;
+        IAbsSyn.IExpr expr2 = new MultExpr((Operator)multopr, expr, factor.toAbsSyn());
+        return term3NTS.toAbsSyn(expr2);
 	}
 }

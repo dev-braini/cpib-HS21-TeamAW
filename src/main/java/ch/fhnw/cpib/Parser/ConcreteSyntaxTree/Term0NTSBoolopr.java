@@ -1,7 +1,9 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.BoolExpr;
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 import ch.fhnw.cpib.Token.IToken;
+import ch.fhnw.cpib.Token.Operator;
 
 // term0NTS ::= BOOLOPR term1 term0NTS
 public class Term0NTSBoolopr implements IConcSyn.ITerm0NTS {
@@ -17,7 +19,8 @@ public class Term0NTSBoolopr implements IConcSyn.ITerm0NTS {
 
 	@Override
 	public IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr expr) {
-		return null;
+        IAbsSyn.IExpr expr2 = new BoolExpr((Operator)boolopr, expr, term1.toAbsSyn());
+        return term0NTS.toAbsSyn(expr2);
 	}
 
 	@Override

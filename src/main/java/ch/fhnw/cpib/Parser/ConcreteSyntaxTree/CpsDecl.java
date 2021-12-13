@@ -5,21 +5,19 @@ import java.util.ArrayList;
 
 // cpsDecl ::= decl cpsDeclNTS
 public class CpsDecl implements IConcSyn.ICpsDecl {
-    private final IConcSyn.IDecl decl;
+    private final IConcSyn.IDecl       decl;
     private final IConcSyn.ICpsDeclNTS cpsDeclNTS;
 
     public CpsDecl(final IConcSyn.IDecl decl, final IConcSyn.ICpsDeclNTS cpsDeclNTS) {
-        this.decl = decl;
+        this.decl       = decl;
         this.cpsDeclNTS = cpsDeclNTS;
     }
 
     @Override
     public ArrayList<IAbsSyn.IDecl> toAbsSyn() {
-        return null;
-    }
+        ArrayList<IAbsSyn.IDecl> tmp = new ArrayList<>();
+        tmp.add(decl.toAbsSyn());
 
-    @Override
-    public String toString(String indent) {
-        return null;
+        return cpsDeclNTS.toAbsSyn(tmp);
     }
 }

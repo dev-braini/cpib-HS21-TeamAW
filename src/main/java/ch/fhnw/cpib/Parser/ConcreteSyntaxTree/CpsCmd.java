@@ -2,6 +2,8 @@ package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
+import java.util.ArrayList;
+
 // cpsCmd ::= cmd cpsCmdNTS
 public class CpsCmd implements IConcSyn.ICpsCmd {
     private final IConcSyn.ICmd cmd;
@@ -14,11 +16,9 @@ public class CpsCmd implements IConcSyn.ICpsCmd {
 
     @Override
     public IAbsSyn.ICpsCmd toAbsSyn() {
-        return null;
-    }
+        ArrayList<IAbsSyn.ICmd> tmp = new ArrayList<>();
+        tmp.add(cmd.toAbsSyn());
 
-    @Override
-    public String toString(String indent) {
-        return null;
+        return new ch.fhnw.cpib.Parser.AbstractSyntaxTree.CpsCmd(cpsCmdNTS.toAbsSyn(tmp));
     }
 }

@@ -5,17 +5,10 @@ import java.util.ArrayList;
 
 // exprListLparenNTS ::= ε
 public class ExprListLparenNTSEpsilon implements IConcSyn.IExprListLparenNTS {
-    public ExprListLparenNTSEpsilon() {
-
-    }
+    public ExprListLparenNTSEpsilon() { }
 
     @Override
     public ArrayList<IAbsSyn.IExpr> toAbsSyn() {
-        return null;
-    }
-
-    @Override
-    public String toString(String indent) {
-        return null;
+        return new ArrayList<>();
     }
 }

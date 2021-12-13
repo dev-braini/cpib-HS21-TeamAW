@@ -5,17 +5,10 @@ import java.util.ArrayList;
 
 // cpsDeclNTS ::= ε
 public class CpsDeclNTSEpsilon implements IConcSyn.ICpsDeclNTS {
-    public CpsDeclNTSEpsilon() {
-
-    }
+    public CpsDeclNTSEpsilon() { }
 
     @Override
     public ArrayList<IAbsSyn.IDecl> toAbsSyn(ArrayList<IAbsSyn.IDecl> tmp) {
-        return null;
-    }
-
-    @Override
-    public String toString(String indent) {
-        return null;
+        return tmp;
     }
 }

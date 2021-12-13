@@ -1,14 +1,32 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
-import ch.fhnw.cpib.Enums.MechModes;
-import ch.fhnw.cpib.Enums.ChangeModes;
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
-import ch.fhnw.cpib.Token.Ident;
-import ch.fhnw.cpib.Token.MonadicOpr;
+import ch.fhnw.cpib.Token.*;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public interface IConcSyn {
+    interface IProduction {
+        default String toString(String indent) {
+            String subindent = indent + " ";
+            String s = "";
+            try {
+                Field[] fields = this.getClass().getDeclaredFields();
+                for (Field field : fields) {
+                    if(field.getType() == IToken.class) {
+                        s += indent + field.get(this) + "\n";
+                    } else if (field.get(this) instanceof IConcSyn.IProduction) {
+                        s += ((IConcSyn.IProduction)field.get(this)).toString(subindent);
+                    }
+                }
+            } catch (IllegalArgumentException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            return s;
+        }
+    }
+
     interface ICaseNTS extends IProduction {
         ArrayList<IAbsSyn.ICase> toAbsSyn(ArrayList<IAbsSyn.ICase> tmp);
     }
@@ -70,7 +88,7 @@ public interface IConcSyn {
     }
 
     interface IFactor extends IProduction {
-        IAbsSyn.IFactor toAbsSyn();
+        IAbsSyn.IExpr toAbsSyn();
     }
 
     interface IFactorNTS extends IProduction {
@@ -115,10 +133,6 @@ public interface IConcSyn {
 
     interface IProcDeclNTS extends IProduction {
         ArrayList<IAbsSyn.IStoDecl> toAbsSyn();
-    }
-
-    interface IProduction {
-        String toString(String indent);
     }
 
     interface IProgram extends IProduction {
@@ -166,11 +180,11 @@ public interface IConcSyn {
 
 
     interface IChangeModeNTS extends IProduction {
-        ChangeModes toAbsSyn();
+        ChangeMode toAbsSyn();
     }
 
     interface IMechModeNTS extends IProduction {
-        MechModes toAbsSyn();
+        MechMode toAbsSyn();
     }
 
     interface IMonadicOpr extends IProduction {

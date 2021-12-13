@@ -4,17 +4,10 @@ import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
 // condExprNTS ::= ε
 public class CondExprNTSEpsilon implements IConcSyn.ICondExprNTS {
-	public CondExprNTSEpsilon() {
-
-	}
+	public CondExprNTSEpsilon() { }
 
 	@Override
 	public IAbsSyn.IExpr toAbsSyn(IAbsSyn.IExpr expr) {
-		return null;
-	}
-
-	@Override
-	public String toString(String indent) {
-		return null;
+        return expr;
 	}
 }

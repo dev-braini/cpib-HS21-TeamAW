@@ -5,17 +5,10 @@ import java.util.ArrayList;
 
 // caseNTS::= ε
 public class CaseNTSEpsilon implements IConcSyn.ICaseNTS {
-    public CaseNTSEpsilon() {
-
-    }
+    public CaseNTSEpsilon() { }
 
     @Override
     public ArrayList<IAbsSyn.ICase> toAbsSyn(ArrayList<IAbsSyn.ICase> tmp) {
-        return null;
-    }
-
-    @Override
-    public String toString(String indent) {
-        return null;
+        return tmp;
     }
 }

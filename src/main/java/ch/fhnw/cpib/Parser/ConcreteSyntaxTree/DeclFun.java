@@ -12,11 +12,6 @@ public class DeclFun implements IConcSyn.IDecl {
 
     @Override
     public IAbsSyn.IDecl toAbsSyn() {
-        return null;
-    }
-
-    @Override
-    public String toString(String indent) {
-        return null;
+        return funDecl.toAbsSyn();
     }
 }

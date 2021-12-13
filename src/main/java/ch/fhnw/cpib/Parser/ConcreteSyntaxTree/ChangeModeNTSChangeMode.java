@@ -1,6 +1,6 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
-import ch.fhnw.cpib.Enums.ChangeModes;
+import ch.fhnw.cpib.Token.ChangeMode;
 import ch.fhnw.cpib.Token.IToken;
 
 // changeModeNTS ::= CHANGEMODE
@@ -12,12 +12,7 @@ public class ChangeModeNTSChangeMode implements IConcSyn.IChangeModeNTS {
     }
 
     @Override
-    public ChangeModes toAbsSyn() {
-        return null;
-    }
-
-    @Override
-    public String toString(String indent) {
-        return null;
+    public ChangeMode toAbsSyn() {
+        return (ChangeMode)changemode;
     }
 }

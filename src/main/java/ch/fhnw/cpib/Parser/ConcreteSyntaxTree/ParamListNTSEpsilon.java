@@ -5,17 +5,10 @@ import java.util.ArrayList;
 
 // paramListNTS ::= ε
 public class ParamListNTSEpsilon implements IConcSyn.IParamListNTS {
-	public ParamListNTSEpsilon() {
-
-	}
+	public ParamListNTSEpsilon() { }
 
 	@Override
 	public ArrayList<IAbsSyn.IParam> toAbsSyn() {
-		return null;
-	}
-
-	@Override
-	public String toString(String indent) {
-		return null;
+        return new ArrayList<>();
 	}
 }
