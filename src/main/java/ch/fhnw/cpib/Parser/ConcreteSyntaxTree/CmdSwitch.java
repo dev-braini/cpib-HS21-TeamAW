@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 // cmd ::= SWITCH expr caseNTS defaultCaseNTS ENDSWITCH
 public class CmdSwitch implements IConcSyn.ICmd {
-	private final IConcSyn.IExpr           expr;
-	private final IConcSyn.ICaseNTS        caseNTS;
-	private final IConcSyn.IDefaultCaseNTS defaultCaseNTS;
+    public final IConcSyn.IExpr           expr;
+    public final IConcSyn.ICaseNTS        caseNTS;
+    public final IConcSyn.IDefaultCaseNTS defaultCaseNTS;
 
 	public CmdSwitch(final IToken switch_, final IConcSyn.IExpr expr, final IConcSyn.ICaseNTS caseNTS,
 					 final IConcSyn.IDefaultCaseNTS defaultCaseNTS, final IToken endswitch) {

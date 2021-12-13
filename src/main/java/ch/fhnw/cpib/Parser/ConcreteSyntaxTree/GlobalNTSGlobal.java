@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 // globalNTS ::= GLOBAL cpsDecl
 public class GlobalNTSGlobal implements IConcSyn.IGlobalNTS {
-    private final IConcSyn.ICpsDecl cpsDecl;
+    public final IConcSyn.ICpsDecl cpsDecl;
 
     public GlobalNTSGlobal(final IToken global, final IConcSyn.ICpsDecl cpsDecl) {
         this.cpsDecl = cpsDecl;

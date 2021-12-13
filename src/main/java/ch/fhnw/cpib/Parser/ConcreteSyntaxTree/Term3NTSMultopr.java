@@ -7,9 +7,9 @@ import ch.fhnw.cpib.Token.Operator;
 
 // term3NTS ::= MULTOPR factor term3NTS
 public class Term3NTSMultopr implements IConcSyn.ITerm3NTS {
-	private final IToken multopr;
-	private final IConcSyn.IFactor factor;
-	private final IConcSyn.ITerm3NTS term3NTS;
+    public final IToken multopr;
+    public final IConcSyn.IFactor factor;
+    public final IConcSyn.ITerm3NTS term3NTS;
 
 	public Term3NTSMultopr(final IToken multopr, final IConcSyn.IFactor factor, final IConcSyn.ITerm3NTS term3NTS) {
 		this.multopr = multopr;

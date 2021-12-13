@@ -5,7 +5,7 @@ import ch.fhnw.cpib.Token.MonadicOpr;
 
 // monadicOpr ::= ADDOPR
 public class MonadicOprAddopr implements IConcSyn.IMonadicOpr {
-    private final IToken addopr;
+    public final IToken addopr;
 
     public MonadicOprAddopr(final IToken addopr) {
         this.addopr = addopr;

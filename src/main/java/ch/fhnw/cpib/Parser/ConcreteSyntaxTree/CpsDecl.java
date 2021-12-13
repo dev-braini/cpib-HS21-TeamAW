@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 // cpsDecl ::= decl cpsDeclNTS
 public class CpsDecl implements IConcSyn.ICpsDecl {
-    private final IConcSyn.IDecl       decl;
-    private final IConcSyn.ICpsDeclNTS cpsDeclNTS;
+    public final IConcSyn.IDecl       decl;
+    public final IConcSyn.ICpsDeclNTS cpsDeclNTS;
 
     public CpsDecl(final IConcSyn.IDecl decl, final IConcSyn.ICpsDeclNTS cpsDeclNTS) {
         this.decl       = decl;

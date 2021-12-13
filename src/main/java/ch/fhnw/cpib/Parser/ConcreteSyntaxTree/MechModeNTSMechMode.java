@@ -6,7 +6,7 @@ import ch.fhnw.cpib.Token.MechMode;
 
 // mechModeNTS ::= MECHMODE
 public class MechModeNTSMechMode implements IConcSyn.IMechModeNTS {
-    private final IToken mechmode;
+    public final IToken mechmode;
 
     public MechModeNTSMechMode(final IToken mechmode) {
         this.mechmode = mechmode;

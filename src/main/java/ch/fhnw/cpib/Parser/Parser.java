@@ -2,6 +2,7 @@ package ch.fhnw.cpib.Parser;
 
 import ch.fhnw.cpib.Enums.Terminals;
 import ch.fhnw.cpib.Errors.GrammarError;
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.AbsSyn;
 import ch.fhnw.cpib.Parser.ConcreteSyntaxTree.*;
 import ch.fhnw.cpib.Token.IToken;
 import ch.fhnw.cpib.Token.ITokenList;
@@ -38,7 +39,7 @@ public class Parser implements IParser {
         }
     }
 
-    public IConcSyn.IProgram parse() throws GrammarError {
+    public AbsSyn parse() throws GrammarError {
         ConcSyn.IProgram program = program();
 
         // take the last bite
@@ -56,7 +57,18 @@ public class Parser implements IParser {
         // TODO: flow analysis
         // TODO: aliasing analysis
 
-        return program;
+        System.out.println("+-----------------------+");
+        System.out.println("| Concrete Syntax Tree: |");
+        System.out.println("+-----------------------+");
+        System.out.println(program.toString(""));
+
+        System.out.println("+-----------------------+");
+        System.out.println("| Concrete Syntax Tree: |");
+        System.out.println("+-----------------------+");
+        AbsSyn absSyn = new AbsSyn(program);
+        System.out.println(absSyn.toString());
+
+        return absSyn;
     }
 
     private GrammarError GrammarException(Terminals... expectedTerminals) {

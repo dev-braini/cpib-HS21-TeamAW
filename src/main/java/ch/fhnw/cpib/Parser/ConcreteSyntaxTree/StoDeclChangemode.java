@@ -7,8 +7,8 @@ import ch.fhnw.cpib.Token.IToken;
 
 // stoDecl ::= CHANGEMODE typedIdent
 public class StoDeclChangemode implements IConcSyn.IStoDecl {
-	private final IToken               changemode;
-	private final IConcSyn.ITypedIdent typedIdent;
+    public final IToken               changemode;
+    public final IConcSyn.ITypedIdent typedIdent;
 
     public StoDeclChangemode(final IToken changemode, final IConcSyn.ITypedIdent typedIdent) {
 		this.changemode = changemode;

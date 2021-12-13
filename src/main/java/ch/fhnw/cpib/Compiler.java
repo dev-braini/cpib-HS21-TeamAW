@@ -2,6 +2,7 @@ package ch.fhnw.cpib;
 
 import ch.fhnw.cpib.Errors.GrammarError;
 import ch.fhnw.cpib.Errors.LexicalError;
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.AbsSyn;
 import ch.fhnw.cpib.Parser.Parser;
 import ch.fhnw.cpib.Scanner.Scanner;
 import ch.fhnw.cpib.Token.ITokenList;
@@ -18,9 +19,18 @@ public class Compiler {
         StringBuilder imlCode = readIMLCode();
 
 
-        ITokenList tokenList;
+        ITokenList tokenList = null;
         Scanner scanner = new Scanner();
-        tokenList = scanner.scan(imlCode);
+
+        try {
+            tokenList = scanner.scan(imlCode);
+        } catch (LexicalError e) {
+            System.out.println("Scanner error");
+            e.printStackTrace();
+        }
+
+        Parser parser = new Parser(tokenList);
+        AbsSyn absSyn = null;
 
         System.out.println("+-----------------------+");
         System.out.println("| INPUT (IML):          |");
@@ -35,21 +45,7 @@ public class Compiler {
         tokenList.print();
         System.out.println("\n");
 
-        System.out.println("+-----------------------+");
-        System.out.println("| OUTPUT (Parser):      |");
-        System.out.println("+-----------------------+");
-        Parser parser = new Parser(tokenList);
-        parser.parse();
-
-        System.out.println("\n");
-        System.out.println("+-----------------------+");
-        System.out.println("| Concrete Syntax Tree: |");
-        System.out.println("+-----------------------+");
-
-        System.out.println("\n");
-        System.out.println("+-----------------------+");
-        System.out.println("| Abstract Syntax Tree: |");
-        System.out.println("+-----------------------+");
+        absSyn = parser.parse();
     }
 
     private static StringBuilder readIMLCode() throws FileNotFoundException {

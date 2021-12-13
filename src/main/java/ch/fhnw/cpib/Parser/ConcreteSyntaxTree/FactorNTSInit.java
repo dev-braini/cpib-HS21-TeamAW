@@ -7,7 +7,6 @@ import ch.fhnw.cpib.Token.Ident;
 
 // factorNTS ::= INIT
 public class FactorNTSInit implements IConcSyn.IFactorNTS {
-
     public FactorNTSInit(final IToken init) { }
 
     @Override

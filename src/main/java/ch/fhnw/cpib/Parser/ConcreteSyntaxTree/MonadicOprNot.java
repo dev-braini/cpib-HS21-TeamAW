@@ -5,7 +5,7 @@ import ch.fhnw.cpib.Token.MonadicOpr;
 
 // monadicOpr ::= NOT
 public class MonadicOprNot implements IConcSyn.IMonadicOpr {
-    private final IToken not_;
+    public final IToken not_;
 
     public MonadicOprNot(final IToken not_) {
         this.not_ = not_;

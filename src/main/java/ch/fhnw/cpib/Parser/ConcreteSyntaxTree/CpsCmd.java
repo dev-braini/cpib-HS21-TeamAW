@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 // cpsCmd ::= cmd cpsCmdNTS
 public class CpsCmd implements IConcSyn.ICpsCmd {
-    private final IConcSyn.ICmd cmd;
-    private final IConcSyn.ICpsCmdNTS cpsCmdNTS;
+    public final IConcSyn.ICmd cmd;
+    public final IConcSyn.ICpsCmdNTS cpsCmdNTS;
 
     public CpsCmd(final IConcSyn.ICmd cmd, final IConcSyn.ICpsCmdNTS cpsCmdNTS) {
         this.cmd = cmd;

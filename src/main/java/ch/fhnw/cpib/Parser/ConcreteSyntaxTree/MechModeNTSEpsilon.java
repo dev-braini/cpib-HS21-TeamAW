@@ -5,9 +5,7 @@ import ch.fhnw.cpib.Token.MechMode;
 
 // mechModeNTS::= ε
 public class MechModeNTSEpsilon implements IConcSyn.IMechModeNTS {
-    public MechModeNTSEpsilon() {
-
-    }
+    public MechModeNTSEpsilon() { }
 
     @Override
     public MechMode toAbsSyn() {

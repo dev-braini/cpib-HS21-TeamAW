@@ -6,8 +6,8 @@ import ch.fhnw.cpib.Token.IToken;
 
 // condExprNTS ::= QUESTIONMARK expr COLON expr
 public class CondExprNTSQuestionmark implements IConcSyn.ICondExprNTS {
-	private final IConcSyn.IExpr expr1;
-	private final IConcSyn.IExpr expr2;
+    public final IConcSyn.IExpr expr1;
+    public final IConcSyn.IExpr expr2;
 
 	public CondExprNTSQuestionmark(final IToken questionmark, final IConcSyn.IExpr expr1, final IToken colon,
 								   final IConcSyn.IExpr expr2) {

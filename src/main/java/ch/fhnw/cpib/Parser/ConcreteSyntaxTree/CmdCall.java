@@ -7,8 +7,8 @@ import ch.fhnw.cpib.Token.Ident;
 
 // cmd ::= CALL IDENT exprList
 public class CmdCall implements IConcSyn.ICmd {
-	private final IToken             ident;
-	private final IConcSyn.IExprList exprList;
+    public final IToken             ident;
+    public final IConcSyn.IExprList exprList;
 
 	public CmdCall(final IToken call, final IToken ident, final IConcSyn.IExprList exprList) {
 		this.ident    = ident;

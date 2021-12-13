@@ -7,8 +7,8 @@ import ch.fhnw.cpib.Token.Operator;
 
 // term1NTS::= RELOPR term2
 public class Term1NTSRelopr implements IConcSyn.ITerm1NTS {
-	private final IToken          relopr;
-	private final IConcSyn.ITerm2 term2;
+    public final IToken          relopr;
+    public final IConcSyn.ITerm2 term2;
 
 	public Term1NTSRelopr(final IToken relopr, final IConcSyn.ITerm2 term2) {
 		this.relopr = relopr;

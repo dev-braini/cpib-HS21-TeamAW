@@ -7,8 +7,8 @@ import java.lang.reflect.Field;
 
 // expr ::= term0 condExprNTS
 public class Expr implements IConcSyn.IExpr {
-    private final IConcSyn.ITerm0 term0;
-    private final IConcSyn.ICondExprNTS condExprNTS;
+    public final IConcSyn.ITerm0 term0;
+    public final IConcSyn.ICondExprNTS condExprNTS;
 
     public Expr(final IConcSyn.ITerm0 term0, final IConcSyn.ICondExprNTS condExprNTS) {
         this.term0 = term0;

@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 // cpsStoDecl ::= stoDecl cpsStoDeclNTS
 public class CpsStoDecl implements IConcSyn.ICpsStoDecl {
-    private final IConcSyn.IStoDecl       stoDecl;
-    private final IConcSyn.ICpsStoDeclNTS cpsStoDeclNTS;
+    public final IConcSyn.IStoDecl       stoDecl;
+    public final IConcSyn.ICpsStoDeclNTS cpsStoDeclNTS;
 
     public CpsStoDecl(final IConcSyn.IStoDecl stoDecl, final IConcSyn.ICpsStoDeclNTS cpsStoDeclNTS) {
         this.stoDecl       = stoDecl;

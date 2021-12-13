@@ -88,7 +88,7 @@ public interface IConcSyn {
     }
 
     interface IFactor extends IProduction {
-        IAbsSyn.IExpr toAbsSyn();
+        IAbsSyn.IFactor toAbsSyn();
     }
 
     interface IFactorNTS extends IProduction {

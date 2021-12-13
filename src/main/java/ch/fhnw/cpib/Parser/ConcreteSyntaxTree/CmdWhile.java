@@ -6,11 +6,11 @@ import ch.fhnw.cpib.Token.IToken;
 
 // cmd ::= WHILE expr DO cpsCmd ENDWHILE
 public class CmdWhile implements IConcSyn.ICmd {
-	final IToken           while_;
-	final IConcSyn.IExpr   expr;
-	final IToken           do_;
-	final IConcSyn.ICpsCmd cpsCmd;
-	final IToken           endwhile;
+    public final IToken           while_;
+    public final IConcSyn.IExpr   expr;
+    public final IToken           do_;
+    public final IConcSyn.ICpsCmd cpsCmd;
+    public final IToken           endwhile;
 
 	public CmdWhile(final IToken while_, final IConcSyn.IExpr expr, final IToken do_,
 					final IConcSyn.ICpsCmd cpsCmd, final IToken endwhile) {

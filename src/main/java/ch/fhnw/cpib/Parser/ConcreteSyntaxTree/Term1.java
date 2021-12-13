@@ -4,8 +4,8 @@ import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
 // term1 ::= term2 term1NTS
 public class Term1 implements IConcSyn.ITerm1 {
-	private final IConcSyn.ITerm2    term2;
-	private final IConcSyn.ITerm1NTS term1NTS;
+    public final IConcSyn.ITerm2    term2;
+    public final IConcSyn.ITerm1NTS term1NTS;
 
 	public Term1(final IConcSyn.ITerm2 term2, final IConcSyn.ITerm1NTS term1NTS) {
 		this.term2    = term2;

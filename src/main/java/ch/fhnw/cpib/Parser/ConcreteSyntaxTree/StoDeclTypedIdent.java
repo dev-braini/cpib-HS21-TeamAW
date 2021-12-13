@@ -5,7 +5,7 @@ import ch.fhnw.cpib.Parser.AbstractSyntaxTree.StoDecl;
 
 // stoDecl ::= typedIdent
 public class StoDeclTypedIdent implements IConcSyn.IStoDecl {
-	private final IConcSyn.ITypedIdent typedIdent;
+    public final IConcSyn.ITypedIdent typedIdent;
 
 	public StoDeclTypedIdent(final IConcSyn.ITypedIdent typedIdent) {
 		this.typedIdent = typedIdent;

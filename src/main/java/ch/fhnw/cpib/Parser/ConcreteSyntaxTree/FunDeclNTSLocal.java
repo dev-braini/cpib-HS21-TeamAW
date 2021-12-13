@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 // funDeclNTS ::= LOCAL cpsStoDecl
 public class FunDeclNTSLocal implements IConcSyn.IFunDeclNTS {
-    private final IConcSyn.ICpsStoDecl cpsStoDecl;
+    public final IConcSyn.ICpsStoDecl cpsStoDecl;
 
     public FunDeclNTSLocal(final IToken local, final IConcSyn.ICpsStoDecl cpsStoDecl) {
         this.cpsStoDecl = cpsStoDecl;

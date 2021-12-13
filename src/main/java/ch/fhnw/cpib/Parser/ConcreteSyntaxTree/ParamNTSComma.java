@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 // paramNTS ::= COMMA param paramNTS
 public class ParamNTSComma implements IConcSyn.IParamNTS {
-	private final IConcSyn.IParam    param;
-	private final IConcSyn.IParamNTS paramNTS;
+    public final IConcSyn.IParam    param;
+    public final IConcSyn.IParamNTS paramNTS;
 
 	public ParamNTSComma(final IToken comma, final IConcSyn.IParam param, final IConcSyn.IParamNTS paramNTS) {
 		this.param    = param;

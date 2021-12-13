@@ -7,7 +7,7 @@ import ch.fhnw.cpib.Token.Literal;
 
 // factor ::= LITERAL
 public class FactorLiteral implements IConcSyn.IFactor {
-    private final IToken literal;
+    public final IToken literal;
 
     public FactorLiteral(final IToken literal) {
         this.literal = literal;

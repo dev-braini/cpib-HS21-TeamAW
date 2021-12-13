@@ -6,7 +6,7 @@ import ch.fhnw.cpib.Token.IToken;
 
 // defaultCaseNTS ::= DEFAULTCASE COLON cpsCmd ENDCASE
 public class DefaultCaseNTSDefaultcase implements IConcSyn.IDefaultCaseNTS {
-    private final IConcSyn.ICpsCmd cpsCmd;
+    public final IConcSyn.ICpsCmd cpsCmd;
 
     public DefaultCaseNTSDefaultcase(final IToken defaultcase, final IToken colon, final IConcSyn.ICpsCmd cpsCmd,
                                      final IToken endcase) {

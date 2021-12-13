@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 // cpsDeclNTS ::= SEMICOLON decl cpsDeclNTS
 public class CpsDeclNTSSemicolon implements IConcSyn.ICpsDeclNTS {
-    private final IConcSyn.IDecl       decl;
-    private final IConcSyn.ICpsDeclNTS cpsDeclNTS;
+    public final IConcSyn.IDecl       decl;
+    public final IConcSyn.ICpsDeclNTS cpsDeclNTS;
 
     public CpsDeclNTSSemicolon(final IToken semicolon, final IConcSyn.IDecl decl,
                                final IConcSyn.ICpsDeclNTS cpsDeclNTS) {
