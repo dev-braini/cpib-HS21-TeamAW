@@ -57,16 +57,17 @@ public class Parser implements IParser {
         // TODO: flow analysis
         // TODO: aliasing analysis
 
+        System.out.println("\n");
         System.out.println("+-----------------------+");
         System.out.println("| Concrete Syntax Tree: |");
         System.out.println("+-----------------------+");
         System.out.println(program.toString(""));
 
         System.out.println("+-----------------------+");
-        System.out.println("| Concrete Syntax Tree: |");
+        System.out.println("| Abstract Syntax Tree: |");
         System.out.println("+-----------------------+");
         AbsSyn absSyn = new AbsSyn(program);
-        System.out.println(absSyn.toString());
+        System.out.println(absSyn);
 
         return absSyn;
     }
