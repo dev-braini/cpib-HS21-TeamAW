@@ -14,7 +14,6 @@ public class Compiler {
     //private static final String IML_TEST_CODE_FILE = "add17.iml";
     private static final String IML_TEST_CODE_FILE = "doSomeMath.iml";
     public static void main(String[] args) throws LexicalError, GrammarError, FileNotFoundException {
-
         // read iml code sample
         StringBuilder imlCode = readIMLCode();
 
@@ -45,6 +44,9 @@ public class Compiler {
         tokenList.print();
         System.out.println("\n");
 
+        System.out.println("+-----------------------+");
+        System.out.println("| OUTPUT (Parser):      |");
+        System.out.println("+-----------------------+");
         absSyn = parser.parse();
     }
 
