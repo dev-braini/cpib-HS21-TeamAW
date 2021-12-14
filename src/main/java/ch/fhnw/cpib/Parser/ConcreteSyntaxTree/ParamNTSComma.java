@@ -1,6 +1,7 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.Param;
 import ch.fhnw.cpib.Token.IToken;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class ParamNTSComma implements IConcSyn.IParamNTS {
 	}
 
 	@Override
-	public ArrayList<IAbsSyn.IParam> toAbsSyn(ArrayList<IAbsSyn.IParam> tmp) {
+	public ArrayList<Param> toAbsSyn(ArrayList<Param> tmp) {
         tmp.add(param.toAbsSyn());
         return paramNTS.toAbsSyn(tmp);
 	}

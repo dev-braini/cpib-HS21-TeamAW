@@ -1,6 +1,8 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.Param;
+
 import java.util.ArrayList;
 
 // paramListNTS ::= param paramNTS
@@ -14,8 +16,8 @@ public class ParamListNTSParam implements IConcSyn.IParamListNTS {
 	}
 
 	@Override
-	public ArrayList<IAbsSyn.IParam> toAbsSyn() {
-        ArrayList<IAbsSyn.IParam> tmp = new ArrayList<>();
+	public ArrayList<Param> toAbsSyn() {
+        ArrayList<Param> tmp = new ArrayList<>();
         tmp.add(param.toAbsSyn());
 
         return paramNTS.toAbsSyn(tmp);

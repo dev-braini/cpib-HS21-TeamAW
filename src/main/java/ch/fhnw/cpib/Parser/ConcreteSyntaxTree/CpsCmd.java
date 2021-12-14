@@ -15,7 +15,7 @@ public class CpsCmd implements IConcSyn.ICpsCmd {
     }
 
     @Override
-    public IAbsSyn.ICpsCmd toAbsSyn() {
+    public ch.fhnw.cpib.Parser.AbstractSyntaxTree.CpsCmd toAbsSyn() {
         ArrayList<IAbsSyn.ICmd> tmp = new ArrayList<>();
         tmp.add(cmd.toAbsSyn());
 

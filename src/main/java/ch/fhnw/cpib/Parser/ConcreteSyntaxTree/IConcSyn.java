@@ -1,6 +1,10 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
-import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.*;
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.CpsCmd;
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.Param;
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.Program;
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.TypedIdent;
 import ch.fhnw.cpib.Token.*;
 
 import java.lang.reflect.Field;
@@ -28,7 +32,7 @@ public interface IConcSyn {
     }
 
     interface ICaseNTS extends IProduction {
-        ArrayList<IAbsSyn.ICase> toAbsSyn(ArrayList<IAbsSyn.ICase> tmp);
+        ArrayList<Case> toAbsSyn(ArrayList<Case> tmp);
     }
 
     interface ICmd extends IProduction {
@@ -40,7 +44,7 @@ public interface IConcSyn {
     }
 
     interface ICpsCmd extends IProduction {
-        IAbsSyn.ICpsCmd toAbsSyn();
+        CpsCmd toAbsSyn();
     }
 
     interface ICpsCmdNTS extends IProduction {
@@ -56,11 +60,11 @@ public interface IConcSyn {
     }
 
     interface ICpsStoDecl extends IProduction {
-        ArrayList<IAbsSyn.IStoDecl> toAbsSyn();
+        ArrayList<StoDecl> toAbsSyn();
     }
 
     interface ICpsStoDeclNTS extends IProduction {
-        ArrayList<IAbsSyn.IStoDecl> toAbsSyn(ArrayList<IAbsSyn.IStoDecl> tmp);
+        ArrayList<StoDecl> toAbsSyn(ArrayList<StoDecl> tmp);
     }
 
     interface IDecl extends IProduction {
@@ -68,7 +72,7 @@ public interface IConcSyn {
     }
 
     interface IDefaultCaseNTS extends IProduction {
-        IAbsSyn.IDefaultCase toAbsSyn();
+        DefaultCase toAbsSyn();
     }
 
     interface IExpr extends IProduction {
@@ -100,7 +104,7 @@ public interface IConcSyn {
     }
 
     interface IFunDeclNTS extends IProduction {
-        ArrayList<IAbsSyn.IStoDecl> toAbsSyn();
+        ArrayList<StoDecl> toAbsSyn();
     }
 
     interface IGlobalNTS extends IProduction {
@@ -108,23 +112,23 @@ public interface IConcSyn {
     }
 
     interface IIfelseNTS extends IProduction {
-        IAbsSyn.ICpsCmd toAbsSyn();
+        CpsCmd toAbsSyn();
     }
 
     interface IParam extends IProduction {
-        IAbsSyn.IParam toAbsSyn();
+        Param toAbsSyn();
     }
 
     interface IParamNTS extends IProduction {
-        ArrayList<IAbsSyn.IParam> toAbsSyn(ArrayList<IAbsSyn.IParam> tmp);
+        ArrayList<Param> toAbsSyn(ArrayList<Param> tmp);
     }
 
     interface IParamList extends IProduction {
-        ArrayList<IAbsSyn.IParam> toAbsSyn();
+        ArrayList<Param> toAbsSyn();
     }
 
     interface IParamListNTS extends IProduction {
-        ArrayList<IAbsSyn.IParam> toAbsSyn();
+        ArrayList<Param> toAbsSyn();
     }
 
     interface IProcDecl extends IProduction {
@@ -132,15 +136,15 @@ public interface IConcSyn {
     }
 
     interface IProcDeclNTS extends IProduction {
-        ArrayList<IAbsSyn.IStoDecl> toAbsSyn();
+        ArrayList<StoDecl> toAbsSyn();
     }
 
     interface IProgram extends IProduction {
-        IAbsSyn.IProgram toAbsSyn();
+        Program toAbsSyn();
     }
 
     interface IStoDecl extends IProduction {
-        IAbsSyn.IStoDecl toAbsSyn();
+        StoDecl toAbsSyn();
     }
     interface ITerm0 extends IProduction {
         IAbsSyn.IExpr toAbsSyn();
@@ -175,7 +179,7 @@ public interface IConcSyn {
     }
 
     interface ITypedIdent extends IProduction {
-        IAbsSyn.ITypedIdent toAbsSyn();
+        TypedIdent toAbsSyn();
     }
 
 

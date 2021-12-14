@@ -1,7 +1,6 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.DefaultCase;
-import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 import ch.fhnw.cpib.Token.IToken;
 
 // defaultCaseNTS ::= DEFAULTCASE COLON cpsCmd ENDCASE
@@ -20,7 +19,7 @@ public class DefaultCaseNTSDefaultcase implements IConcSyn.IDefaultCaseNTS {
     }
 
     @Override
-    public IAbsSyn.IDefaultCase toAbsSyn() {
+    public DefaultCase toAbsSyn() {
         return new DefaultCase(cpsCmd.toAbsSyn());
     }
 }

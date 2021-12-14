@@ -1,6 +1,5 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
-import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.StoDecl;
 import ch.fhnw.cpib.Token.ChangeMode;
 import ch.fhnw.cpib.Token.IToken;
@@ -16,7 +15,7 @@ public class StoDeclChangemode implements IConcSyn.IStoDecl {
     }
 
     @Override
-	public IAbsSyn.IStoDecl toAbsSyn() {
+	public StoDecl toAbsSyn() {
         return new StoDecl((ChangeMode)changemode, typedIdent.toAbsSyn());
 	}
 }

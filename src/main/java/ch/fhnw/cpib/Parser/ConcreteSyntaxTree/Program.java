@@ -24,7 +24,7 @@ public class Program implements IConcSyn.IProgram {
     }
 
     @Override
-    public IAbsSyn.IProgram toAbsSyn() {
+    public ch.fhnw.cpib.Parser.AbstractSyntaxTree.Program toAbsSyn() {
         return new ch.fhnw.cpib.Parser.AbstractSyntaxTree.Program((Ident)ident, globalNTS.toAbsSyn(), cpsCmd.toAbsSyn());
     }
 }

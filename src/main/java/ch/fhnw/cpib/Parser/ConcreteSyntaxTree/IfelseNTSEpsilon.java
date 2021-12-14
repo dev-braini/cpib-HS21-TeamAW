@@ -10,7 +10,7 @@ public class IfelseNTSEpsilon implements IConcSyn.IIfelseNTS {
     public IfelseNTSEpsilon() { }
 
     @Override
-    public IAbsSyn.ICpsCmd toAbsSyn() {
+    public CpsCmd toAbsSyn() {
         return new CpsCmd(new ArrayList<>());
     }
 }

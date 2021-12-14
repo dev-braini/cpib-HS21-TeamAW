@@ -12,7 +12,7 @@ public class StoDeclTypedIdent implements IConcSyn.IStoDecl {
 	}
 
 	@Override
-	public IAbsSyn.IStoDecl toAbsSyn() {
+	public StoDecl toAbsSyn() {
         return new StoDecl(typedIdent.toAbsSyn());
 	}
 }

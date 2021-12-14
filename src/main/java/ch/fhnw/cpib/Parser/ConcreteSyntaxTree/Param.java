@@ -1,7 +1,5 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
-import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
-
 // param ::= mechModeNTS changeModeNTS typedIdent
 public class Param implements IConcSyn.IParam {
     protected final IConcSyn.IMechModeNTS   mechModeNTS;
@@ -16,7 +14,7 @@ public class Param implements IConcSyn.IParam {
 	}
 
 	@Override
-	public IAbsSyn.IParam toAbsSyn() {
+	public ch.fhnw.cpib.Parser.AbstractSyntaxTree.Param toAbsSyn() {
         return new ch.fhnw.cpib.Parser.AbstractSyntaxTree.Param(
                 mechModeNTS.toAbsSyn(),
                 changeModeNTS.toAbsSyn(),

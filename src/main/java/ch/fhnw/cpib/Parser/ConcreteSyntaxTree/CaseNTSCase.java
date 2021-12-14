@@ -27,7 +27,7 @@ public class CaseNTSCase implements IConcSyn.ICaseNTS {
     }
 
     @Override
-    public ArrayList<IAbsSyn.ICase> toAbsSyn(ArrayList<IAbsSyn.ICase> tmp) {
+    public ArrayList<Case> toAbsSyn(ArrayList<Case> tmp) {
         tmp.add(new Case((Literal)literal, cpsCmd.toAbsSyn()));
         return caseNTS.toAbsSyn(tmp);
     }

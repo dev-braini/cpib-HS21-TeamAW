@@ -1,5 +1,6 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.Case;
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.SwitchCmd;
 import ch.fhnw.cpib.Token.IToken;
@@ -25,7 +26,7 @@ public class CmdSwitch implements IConcSyn.ICmd {
 
 	@Override
 	public IAbsSyn.ICmd toAbsSyn() {
-        ArrayList<IAbsSyn.ICase> tmp = new ArrayList<>();
+        ArrayList<Case> tmp = new ArrayList<>();
         return new SwitchCmd(expr.toAbsSyn(), caseNTS.toAbsSyn(tmp), defaultCaseNTS.toAbsSyn());
 	}
 }

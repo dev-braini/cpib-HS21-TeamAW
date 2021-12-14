@@ -1,6 +1,7 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.StoDecl;
 
 import java.util.ArrayList;
 
@@ -15,8 +16,8 @@ public class CpsStoDecl implements IConcSyn.ICpsStoDecl {
     }
 
     @Override
-    public ArrayList<IAbsSyn.IStoDecl> toAbsSyn() {
-        ArrayList<IAbsSyn.IStoDecl> tmp = new ArrayList<>();
+    public ArrayList<StoDecl> toAbsSyn() {
+        ArrayList<StoDecl> tmp = new ArrayList<>();
         tmp.add(stoDecl.toAbsSyn());
         return cpsStoDeclNTS.toAbsSyn(tmp);
     }

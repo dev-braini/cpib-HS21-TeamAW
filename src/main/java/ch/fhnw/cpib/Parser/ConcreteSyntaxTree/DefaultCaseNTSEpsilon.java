@@ -1,13 +1,13 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
-import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.DefaultCase;
 
 // defaultCaseNTS ::= ε
 public class DefaultCaseNTSEpsilon implements IConcSyn.IDefaultCaseNTS {
     public DefaultCaseNTSEpsilon() { }
 
     @Override
-    public IAbsSyn.IDefaultCase toAbsSyn() {
+    public DefaultCase toAbsSyn() {
         return null;
     }
 }

@@ -1,5 +1,6 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
+import ch.fhnw.cpib.Parser.AbstractSyntaxTree.CpsCmd;
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 import ch.fhnw.cpib.Token.IToken;
 
@@ -14,7 +15,7 @@ public class IfelseNTSElse implements IConcSyn.IIfelseNTS {
     }
 
     @Override
-    public IAbsSyn.ICpsCmd toAbsSyn() {
+    public CpsCmd toAbsSyn() {
         return cpsCmd.toAbsSyn();
     }
 }

@@ -1,6 +1,5 @@
 package ch.fhnw.cpib.Parser.ConcreteSyntaxTree;
 
-import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 import ch.fhnw.cpib.Token.IToken;
 import ch.fhnw.cpib.Token.Ident;
 import ch.fhnw.cpib.Token.Type;
@@ -18,7 +17,7 @@ public class TypedIdent implements IConcSyn.ITypedIdent {
 	}
 
 	@Override
-	public IAbsSyn.ITypedIdent toAbsSyn() {
+	public ch.fhnw.cpib.Parser.AbstractSyntaxTree.TypedIdent toAbsSyn() {
         return new ch.fhnw.cpib.Parser.AbstractSyntaxTree.TypedIdent((Ident)ident, (Type)type);
 	}
 }
