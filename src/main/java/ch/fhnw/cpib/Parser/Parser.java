@@ -1,7 +1,7 @@
 package ch.fhnw.cpib.Parser;
 
 import ch.fhnw.cpib.Enums.Terminals;
-import ch.fhnw.cpib.Errors.GrammarError;
+import ch.fhnw.cpib.Errors.*;
 import ch.fhnw.cpib.Helper.ConsoleWriter;
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.AbsSyn;
 import ch.fhnw.cpib.Parser.ConcreteSyntaxTree.*;
@@ -42,7 +42,7 @@ public class Parser implements IParser {
         }
     }
 
-    public AbsSyn parse() throws GrammarError {
+    public AbsSyn parse() throws GrammarError/*,  NameAlreadyDeclaredError, NameNotDeclaredError, NameAlreadyGloballyDeclaredError, LRValError, InvalidParamCountError, AlreadyInitializedError, CaseAlreadyDeclaredError, DefaultCaseBoolOverkillError, TypeCheckError, NotInitializedError, GlobalInitializationProhibitedError, CannotAssignToConstError*/ {
         IConcSyn.IProgram program = program();
 
         // take the last bite
