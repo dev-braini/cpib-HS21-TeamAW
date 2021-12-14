@@ -83,6 +83,17 @@ public interface IInstructions {
         }
     }
 
+    // load immediate value (value -> stack)
+    // added by TeamAW
+    class LoadImBool implements IInstr {
+        protected boolean value;
+        public LoadImBool(boolean value) { this.value= value; }
+        public String toString() { return "LoadImBool(" + value + ")"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new LoadImBoolExec(value);
+        }
+    }
+
     // load address relative to frame pointer (address -> stack)
     class LoadAddrRel implements IInstr {
         protected int relAddress;
@@ -90,6 +101,17 @@ public interface IInstructions {
         public String toString() { return "LoadAddrRel(" + relAddress + ")"; }
         public IExecInstr toExecInstr(VirtualMachine vm) {
             return vm.new LoadAddrRelExec(relAddress);
+        }
+    }
+
+    // load address absolute(address -> stack)
+    // added by TeamAW
+    class LoadAddrAbs implements IInstr {
+        protected int absAddress;
+        public LoadAddrAbs(int relAddress) { this.absAddress= relAddress; }
+        public String toString() { return "LoadAddrRel(" + absAddress + ")"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new LoadAddrAbsExec(absAddress);
         }
     }
 
@@ -117,6 +139,14 @@ public interface IInstructions {
         public String toString() { return "NegInt"; }
         public IExecInstr toExecInstr(VirtualMachine vm) {
             return vm.new NegIntExec();
+        }
+    }
+
+    // added by TeamAW
+    class NegBool implements IInstr {
+        public String toString() { return "NegBool"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new NegBoolExec();
         }
     }
 
@@ -154,6 +184,36 @@ public interface IInstructions {
         public String toString() { return "ModTruncInt"; }
         public IExecInstr toExecInstr(VirtualMachine vm) {
             return vm.new ModTruncIntExec();
+        }
+    }
+
+    // added by TeamAW
+    class DivEuclInt implements IInstr {
+        public String toString() { return "DivEuclInt"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new DivEuclIntExec();
+        }
+    }
+    // added by TeamAW
+    class ModEuclInt implements IInstr {
+        public String toString() { return "ModEuclInt"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new ModEuclIntExec();
+        }
+    }
+
+    // added by TeamAW
+    class DivFloorInt implements IInstr {
+        public String toString() { return "DivFloorInt"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new DivFloorIntExec();
+        }
+    }
+    // added by TeamAW
+    class ModFloorInt implements IInstr {
+        public String toString() { return "ModFloorInt"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new ModFloorIntExec();
         }
     }
 
@@ -199,8 +259,39 @@ public interface IInstructions {
         }
     }
 
-    // jump instructions
+    // added by Team AW
+    class AndBool implements IInstr {
+        public String toString() { return "AndBool"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new AndBoolExec();
+        }
+    }
 
+    // added by Team AW
+    class OrBool implements IInstr {
+        public String toString() { return "OrBool"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new OrBoolExec();
+        }
+    }
+
+    // added by Team AW
+    class CAndBool implements IInstr {
+        public String toString() { return "CAndBool"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new CAndBoolExec();
+        }
+    }
+
+    // added by Team AW
+    class COrBool implements IInstr {
+        public String toString() { return "COrBool"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new COrBoolExec();
+        }
+    }
+
+    // jump instructions
     class UncondJump implements IInstr {
         protected int jumpAddr;
         public UncondJump(int jumpAddr) { this.jumpAddr= jumpAddr; }
@@ -216,6 +307,16 @@ public interface IInstructions {
         public String toString() { return "CondJump(" + jumpAddr + ")"; }
         public IExecInstr toExecInstr(VirtualMachine vm) {
             return vm.new CondJumpExec(jumpAddr);
+        }
+    }
+
+    // added by TeamAW
+    class RelJump implements IInstr {
+        protected int jumpAddr;
+        public RelJump(int jumpAddr) { this.jumpAddr= jumpAddr; }
+        public String toString() { return "RelJump(" + jumpAddr + ") + index"; }
+        public IExecInstr toExecInstr(VirtualMachine vm) {
+            return vm.new RelJumpExec(jumpAddr);
         }
     }
 

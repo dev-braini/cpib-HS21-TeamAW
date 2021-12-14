@@ -161,6 +161,21 @@ public class VirtualMachine implements IVirtualMachine {
         }
     }
 
+    // load immediate value (value -> stack)
+    // added by TeamAW
+    public class LoadImBoolExec extends LoadImBool implements IExecInstr {
+        public LoadImBoolExec(boolean value) { super(value); }
+
+        public void execute() throws ExecutionError
+        {
+            // remove following check if use ep
+            if (sp > hp) { throw new ExecutionError(SP_OVER_HP); }
+            store[sp]= Data.boolNew(value);
+            sp= sp + 1;
+            pc= pc + 1;
+        }
+    }
+
     // load address relative to frame pointer (address -> stack)
     public class LoadAddrRelExec extends LoadAddrRel implements IExecInstr {
         public LoadAddrRelExec(int relAddress) { super(relAddress); }
@@ -170,6 +185,22 @@ public class VirtualMachine implements IVirtualMachine {
             // remove following check if use ep
             if (sp > hp) { throw new ExecutionError(SP_OVER_HP); }
             store[sp]= Data.intNew(fp + relAddress);
+            sp= sp + 1;
+            pc= pc + 1;
+        }
+    }
+
+
+    // load address absolute (address -> stack)
+    // added by TeamAW
+    public class LoadAddrAbsExec extends LoadAddrAbs implements IExecInstr {
+        public LoadAddrAbsExec(int absAddress) { super(absAddress); }
+
+        public void execute() throws ExecutionError
+        {
+            // remove following check if use ep
+            if (sp > hp) { throw new ExecutionError(SP_OVER_HP); }
+            store[sp]= Data.intNew(absAddress);
             sp= sp + 1;
             pc= pc + 1;
         }
@@ -204,6 +235,15 @@ public class VirtualMachine implements IVirtualMachine {
         public void execute()
         {
             store[sp-1]= Data.intInv(store[sp-1]);
+            pc= pc + 1;
+        }
+    }
+
+    // added by TeamAW
+    public class NegBoolExec extends NegBool implements IExecInstr {
+        public void execute()
+        {
+            store[sp-1]= Data.boolInv(store[sp-1]);
             pc= pc + 1;
         }
     }
@@ -251,6 +291,46 @@ public class VirtualMachine implements IVirtualMachine {
         {
             sp= sp - 1;
             store[sp-1]= Data.intModTrunc(store[sp-1], store[sp]);
+            pc= pc + 1;
+        }
+    }
+
+    // added by TeamAW
+    public class DivEuclIntExec extends DivEuclInt implements IExecInstr {
+        public void execute() throws ExecutionError
+        {
+            sp= sp - 1;
+            store[sp-1]= Data.intDivEucl(store[sp-1], store[sp]);
+            pc= pc + 1;
+        }
+    }
+
+    // added by TeamAW
+    public class ModEuclIntExec extends ModEuclInt implements IExecInstr {
+        public void execute() throws ExecutionError
+        {
+            sp= sp - 1;
+            store[sp-1]= Data.intModEucl(store[sp-1], store[sp]);
+            pc= pc + 1;
+        }
+    }
+
+    // added by TeamAW
+    public class DivFloorIntExec extends DivFloorInt implements IExecInstr {
+        public void execute() throws ExecutionError
+        {
+            sp= sp - 1;
+            store[sp-1]= Data.intDivFloor(store[sp-1], store[sp]);
+            pc= pc + 1;
+        }
+    }
+
+    // added by TeamAW
+    public class ModFloorIntExec extends ModFloorInt implements IExecInstr {
+        public void execute() throws ExecutionError
+        {
+            sp= sp - 1;
+            store[sp-1]= Data.intModFloor(store[sp-1], store[sp]);
             pc= pc + 1;
         }
     }
@@ -309,8 +389,47 @@ public class VirtualMachine implements IVirtualMachine {
         }
     }
 
-    // jump instructions
+    // added by TeamAW
+    public class AndBoolExec extends AndBool implements IExecInstr {
+        public void execute()
+        {
+            sp= sp - 1;
+            store[sp-1]= Data.boolAnd(store[sp-1], store[sp]);
+            pc= pc + 1;
+        }
+    }
 
+    // added by TeamAW
+    public class OrBoolExec extends OrBool implements IExecInstr {
+        public void execute()
+        {
+            sp= sp - 1;
+            store[sp-1]= Data.boolOr(store[sp-1], store[sp]);
+            pc= pc + 1;
+        }
+    }
+
+    // added by TeamAW
+    public class CAndBoolExec extends CAndBool implements IExecInstr {
+        public void execute()
+        {
+            sp= sp - 1;
+            store[sp-1]= Data.boolCAnd(store[sp-1], store[sp]);
+            pc= pc + 1;
+        }
+    }
+
+    // added by TeamAW
+    public class COrBoolExec extends COrBool implements IExecInstr {
+        public void execute()
+        {
+            sp= sp - 1;
+            store[sp-1]= Data.boolCOr(store[sp-1], store[sp]);
+            pc= pc + 1;
+        }
+    }
+
+    // jump instructions
     public class UncondJumpExec extends UncondJump implements IExecInstr {
         public UncondJumpExec(int jumpAddr) { super(jumpAddr); }
 
@@ -327,6 +446,19 @@ public class VirtualMachine implements IVirtualMachine {
         {
             sp= sp - 1;
             pc= (Data.boolGet(store[sp])) ? pc + 1 : jumpAddr;
+        }
+    }
+
+    // added by TeamAW
+    public class RelJumpExec extends RelJump implements IExecInstr {
+        public RelJumpExec(int jumpAddr) { super(jumpAddr); }
+
+        public void execute()
+        {
+            // Read index from store
+            int index = Data.intGet(store[sp - 1]);
+            sp= sp - 1;
+            pc= jumpAddr + index;
         }
     }
 
