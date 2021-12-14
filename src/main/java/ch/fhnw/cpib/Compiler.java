@@ -2,6 +2,7 @@ package ch.fhnw.cpib;
 
 import ch.fhnw.cpib.Errors.GrammarError;
 import ch.fhnw.cpib.Errors.LexicalError;
+import ch.fhnw.cpib.Helper.ConsoleWriter;
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.AbsSyn;
 import ch.fhnw.cpib.Parser.Parser;
 import ch.fhnw.cpib.Scanner.Scanner;
@@ -17,9 +18,9 @@ public class Compiler {
         // read iml code sample
         StringBuilder imlCode = readIMLCode();
 
-
         ITokenList tokenList = null;
         Scanner scanner = new Scanner();
+        ConsoleWriter cw = new ConsoleWriter();
 
         try {
             tokenList = scanner.scan(imlCode);
@@ -31,22 +32,11 @@ public class Compiler {
         Parser parser = new Parser(tokenList);
         AbsSyn absSyn = null;
 
-        System.out.println("+-----------------------+");
-        System.out.println("| INPUT (IML):          |");
-        System.out.println("+-----------------------+");
-        System.out.println(imlCode + "\n");
-
-        System.out.println("+-----------------------+");
-        System.out.println("| OUTPUT (ITokenList):  |");
-        System.out.println("+-----------------------+");
-        System.out.println(tokenList.toString());
-        System.out.println("-------------------------");
+        cw.write("INPUT (IML)", String.valueOf(imlCode));
+        cw.write("TokenList (horizontal)", tokenList.toString());
+        cw.write("TokenList (vertical)");
         tokenList.print();
-        System.out.println("\n");
-
-        System.out.println("+-----------------------+");
-        System.out.println("| OUTPUT (Parser):      |");
-        System.out.println("+-----------------------+");
+        cw.write("OUTPUT (Parser)");
         absSyn = parser.parse();
     }
 

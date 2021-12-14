@@ -2,6 +2,7 @@ package ch.fhnw.cpib.Parser;
 
 import ch.fhnw.cpib.Enums.Terminals;
 import ch.fhnw.cpib.Errors.GrammarError;
+import ch.fhnw.cpib.Helper.ConsoleWriter;
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.AbsSyn;
 import ch.fhnw.cpib.Parser.ConcreteSyntaxTree.*;
 import ch.fhnw.cpib.Token.IToken;
@@ -18,12 +19,14 @@ public class Parser implements IParser {
     private final ITokenList tokenList;
     private IToken token;
     private Terminals terminal;
+    private ConsoleWriter cw;
 
     public Parser(ITokenList tokenList){
         this.tokenList = tokenList;
         this.tokenList.reset();
         token = tokenList.nextToken();
         terminal = token.getTerminal();
+        cw = new ConsoleWriter();
     }
 
     private IToken consume(Terminals expectedTerminal) throws GrammarError {
@@ -57,17 +60,11 @@ public class Parser implements IParser {
         // TODO: flow analysis
         // TODO: aliasing analysis
 
-        System.out.println("\n");
-        System.out.println("+-----------------------+");
-        System.out.println("| Concrete Syntax Tree: |");
-        System.out.println("+-----------------------+");
-        System.out.println(program.toString(""));
+        cw.write("Concrete Syntax Tree", program.toString(""));
 
-        System.out.println("+-----------------------+");
-        System.out.println("| Abstract Syntax Tree: |");
-        System.out.println("+-----------------------+");
         AbsSyn absSyn = new AbsSyn(program);
-        System.out.println(absSyn.toString());
+
+        cw.write("Abstract Syntax Tree", absSyn.toString());
 
         return absSyn;
     }
