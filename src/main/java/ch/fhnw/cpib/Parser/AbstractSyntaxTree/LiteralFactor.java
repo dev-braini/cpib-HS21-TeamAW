@@ -33,10 +33,15 @@ public class LiteralFactor extends AbsSynTreeNode implements IAbsSyn.IFactor {
 		return LRVal.RVAL;
 	}
 
-	@Override
-	public Type getType() {
-		return literal.getType();
-	}
+    @Override
+    public Type getType() {
+        return literal.getType();
+    }
+
+    @Override
+    public Types getTypeValue() {
+        return getType().getValue();
+    }
 
 	@Override
 	public void doTypeChecking() throws TypeCheckError {
@@ -57,14 +62,14 @@ public class LiteralFactor extends AbsSynTreeNode implements IAbsSyn.IFactor {
 			} else if (literal.getTypeValue() == Types.INT64) {
 				codeArray.put(codeArrayPointer, new IInstructions.LoadImInt(literal.getInteger()));
 			} else {
-				throw new RuntimeException("WTF, unknown type found????");
+				throw new RuntimeException("Unknown type found");
 			}
 		}
 		codeArrayPointer++;
 	}
 
 	@Override
-	public String toString(String indent) { System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> toString(): " + indent);
+	public String toString(String indent) {
 		String nameIndent = indent;
 		String argumentIndent = indent + " ";
 		String s = "";

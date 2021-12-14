@@ -92,7 +92,7 @@ public class AddExpr extends AbsSynTreeNode implements IAbsSyn.IExpr {
 	}
 
 	@Override
-	public String toString(String indent) { System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> toString(): " + indent);
+	public String toString(String indent) {
 		String nameIndent = indent;
 		String argumentIndent = indent + " ";
 		String subIndent = indent + "  ";

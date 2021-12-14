@@ -80,7 +80,7 @@ public class AssignCmd extends AbsSynTreeNode implements IAbsSyn.ICmd {
 				address = localLocations.get(factor.ident.getValue());
 				codeArray.put(codeArrayPointer, new IInstructions.LoadAddrRel(address));
 			} else {
-				throw new RuntimeException("WTF, no location found for variable " + factor.ident.getValue() + " ?????");
+				throw new RuntimeException("No location found for variable " + factor.ident.getValue() + " ?????");
 			}
 		}
 		codeArrayPointer++;
@@ -108,7 +108,7 @@ public class AssignCmd extends AbsSynTreeNode implements IAbsSyn.ICmd {
 	}
 
 	@Override
-	public String toString(String indent) { System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> toString(): " + indent);
+	public String toString(String indent) {
 		String nameIndent = indent;
 		String argumentIndent = indent + " ";
 		String subIndent = indent + "  ";

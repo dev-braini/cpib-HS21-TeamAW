@@ -102,7 +102,7 @@ public class IfCmd extends AbsSynTreeNode implements IAbsSyn.ICmd {
 	}
 
 	@Override
-	public String toString(String indent) { System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> toString(): " + indent);
+	public String toString(String indent) {
 		String nameIndent = indent;
 		String argumentIndent = indent + " ";
 		String subIndent = indent + "  ";

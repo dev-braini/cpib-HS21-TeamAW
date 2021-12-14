@@ -125,7 +125,7 @@ public class Program extends AbsSynTreeNode {
 	}
 
 	@Override
-	public String toString(String indent) { System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> toString(): " + indent);
+	public String toString(String indent) {
 		String nameIndent = indent;
 		String argumentIndent = indent + " ";
 		String subIndent = indent + "  ";

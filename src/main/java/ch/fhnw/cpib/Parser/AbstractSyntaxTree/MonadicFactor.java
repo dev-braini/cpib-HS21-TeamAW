@@ -1,10 +1,12 @@
 package ch.fhnw.cpib.Parser.AbstractSyntaxTree;
 
+import ch.fhnw.cpib.Enums.Operators;
+import ch.fhnw.cpib.Enums.Terminals;
 import ch.fhnw.cpib.Enums.Types;
 import ch.fhnw.cpib.Errors.*;
 import ch.fhnw.cpib.Enums.LRVal;
 import ch.fhnw.cpib.Token.MonadicOpr;
-import token.Monadicopr;
+import ch.fhnw.cpib.Token.Operator;
 import ch.fhnw.cpib.Token.Type;
 import ch.fhnw.cpib.VM.ICodeArray.CodeTooSmallError;
 import ch.fhnw.cpib.VM.IInstructions;
@@ -56,9 +58,9 @@ public class MonadicFactor extends AbsSynTreeNode implements IAbsSyn.IFactor {
 	public void doTypeChecking() throws TypeCheckError {
 		factor.doTypeChecking();
 		
-		if(monadicOpr.getOperator() == token.Token.NOTOPR && factor.getTypeValue() != Types.BOOL)
+		if(monadicOpr.getOperator().getTerminal() == Terminals.NOTOPR && factor.getTypeValue() != Types.BOOL)
 			throw new TypeCheckError(new Type(Types.BOOL), factor.getType());
-		if(monadicOpr.getOperator() instanceof token.Addopr && factor.getTypeValue() != Types.INT64)
+		if(monadicOpr.getOperator() instanceof Operator && factor.getTypeValue() != Types.INT64)
 			throw new TypeCheckError(new Type(Types.INT64), factor.getType());
 	}
 
@@ -76,9 +78,9 @@ public class MonadicFactor extends AbsSynTreeNode implements IAbsSyn.IFactor {
 		
 		// Negate it
 		if(!simulateOnly) {
-			if(monadicOpr.getOperator() == token.Token.NOTOPR) {
+			if(monadicOpr.getOperator().getTerminal() == Terminals.NOTOPR) {
 				codeArray.put(codeArrayPointer, new IInstructions.NegBool());
-			} else if(monadicOpr.getOperator() instanceof token.Addopr && (token.Addopr)monadicOpr.getOperator() == token.Addopr.MINUS) {
+			} else if(monadicOpr.getOperator() instanceof Operator && ((Operator) monadicOpr.getOperator()).getValue() == Operators.MINUS) {
 				codeArray.put(codeArrayPointer, new IInstructions.NegInt());		
 			} else {
 				throw new RuntimeException("UNSUPPORTED MONADIC OPERATOR!");
@@ -88,7 +90,7 @@ public class MonadicFactor extends AbsSynTreeNode implements IAbsSyn.IFactor {
 	}
 
 	@Override
-	public String toString(String indent) { System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> toString(): " + indent);
+	public String toString(String indent) {
 		String nameIndent = indent;
 		String argumentIndent = indent + " ";
 		String subIndent = indent + "  ";

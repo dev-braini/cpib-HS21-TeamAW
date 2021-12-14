@@ -59,14 +59,14 @@ public class DebugOutCmd extends AbsSynTreeNode implements IAbsSyn.ICmd {
 			} else if (expr.getTypeValue() == Types.INT64) {
 				codeArray.put(codeArrayPointer, new IInstructions.OutputInt(indicator));
 			} else {
-				throw new RuntimeException("WTF, strange type???");
+				throw new RuntimeException("No type found");
 			}
 		}
 		codeArrayPointer++;
 	}
 
 	@Override
-	public String toString(String indent) { System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> toString(): " + indent);
+	public String toString(String indent) {
 		String nameIndent = indent;
 		String argumentIndent = indent + " ";
 		String subIndent = indent + "  ";

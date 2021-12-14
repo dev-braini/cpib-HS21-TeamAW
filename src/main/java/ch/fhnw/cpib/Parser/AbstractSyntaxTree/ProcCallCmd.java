@@ -2,7 +2,6 @@ package ch.fhnw.cpib.Parser.AbstractSyntaxTree;
 
 import ch.fhnw.cpib.Errors.*;
 import ch.fhnw.cpib.Token.Ident;
-import token.Ident;
 import ch.fhnw.cpib.Enums.LRVal;
 import ch.fhnw.cpib.Token.Type;
 import ch.fhnw.cpib.VM.ICodeArray.CodeTooSmallError;
@@ -118,7 +117,7 @@ public class ProcCallCmd extends AbsSynTreeNode implements IAbsSyn.ICmd {
 						address = localLocations.get(factor.ident.getValue());
 						codeArray.put(codeArrayPointer, new IInstructions.LoadAddrRel(address));
 					} else {
-						throw new RuntimeException("WTF, no location found for variable " + factor.ident.getValue() + " ?????");
+						throw new RuntimeException("No location found for variable " + factor.ident.getValue() + " ?????");
 					}
 				}
 				codeArrayPointer++;
@@ -150,7 +149,7 @@ public class ProcCallCmd extends AbsSynTreeNode implements IAbsSyn.ICmd {
 	}
 	
 	@Override
-	public String toString(String indent) { System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> toString(): " + indent);
+	public String toString(String indent) {
 		String nameIndent = indent;
 		String argumentIndent = indent + " ";
 		String subIndent = indent + "  ";

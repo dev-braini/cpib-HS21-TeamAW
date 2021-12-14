@@ -73,7 +73,7 @@ public class DebugInCmd extends AbsSynTreeNode implements IAbsSyn.ICmd {
 				address = localLocations.get(factor.ident.getValue());
 				codeArray.put(codeArrayPointer, new IInstructions.LoadAddrRel(address));
 			} else {
-				throw new RuntimeException("WTF, no location found for variable " + factor.ident.getValue() + " ?????");
+				throw new RuntimeException("No location found for variable " + factor.ident.getValue() + " ?????");
 			}
 		}
 		codeArrayPointer++;
@@ -83,14 +83,14 @@ public class DebugInCmd extends AbsSynTreeNode implements IAbsSyn.ICmd {
 			} else if (factor.getTypeValue() == Types.INT64) {
 				codeArray.put(codeArrayPointer, new IInstructions.InputInt(factor.ident.getValue()));
 			} else {
-				throw new RuntimeException("WTF, strange type???");
+				throw new RuntimeException("No type found");
 			}
 		}
 		codeArrayPointer++;
 	}
 
 	@Override
-	public String toString(String indent) { System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> toString(): " + indent);
+	public String toString(String indent) {
 		String nameIndent = indent;
 		String argumentIndent = indent + " ";
 		String subIndent = indent + "  ";

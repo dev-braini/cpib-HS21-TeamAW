@@ -136,7 +136,7 @@ public class FunCallFactor extends IdentFactor{
 						address = localLocations.get(factor.ident.getValue());
 						codeArray.put(codeArrayPointer, new IInstructions.LoadAddrRel(address));
 					} else {
-						throw new RuntimeException("WTF, no location found for variable " + factor.ident.getValue() + " ?????");
+						throw new RuntimeException("No location found for variable " + factor.ident.getValue() + " ?????");
 					}
 				}
 				codeArrayPointer++;
@@ -167,7 +167,7 @@ public class FunCallFactor extends IdentFactor{
 	}
 
 	@Override
-	public String toString(String indent) { System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> toString(): " + indent);
+	public String toString(String indent) {
 		String nameIndent = indent;
 		String argumentIndent = indent + " ";
 		String subIndent = indent + "  ";
