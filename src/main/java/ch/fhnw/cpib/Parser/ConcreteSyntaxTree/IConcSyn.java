@@ -139,7 +139,7 @@ public interface IConcSyn {
         IAbsSyn.IProgram toAbsSyn();
     }
 
-    interface IStoDecl extends IProduction{
+    interface IStoDecl extends IProduction {
         IAbsSyn.IStoDecl toAbsSyn();
     }
     interface ITerm0 extends IProduction {

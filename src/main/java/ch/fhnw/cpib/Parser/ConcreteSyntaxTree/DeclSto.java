@@ -12,6 +12,6 @@ public class DeclSto implements IConcSyn.IDecl {
 
     @Override
     public IAbsSyn.IDecl toAbsSyn() {
-        return (IAbsSyn.IDecl) stoDecl.toAbsSyn();
+        return stoDecl.toAbsSyn();
     }
 }
