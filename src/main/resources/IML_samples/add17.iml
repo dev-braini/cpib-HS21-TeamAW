@@ -6,4 +6,4 @@ do
   debugin x init;
   x := x + 17;
   debugout x
- endprogram
+endprogram
