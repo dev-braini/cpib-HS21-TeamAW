@@ -1,6 +1,7 @@
 package ch.fhnw.cpib.Token;
 
 import ch.fhnw.cpib.Enums.Terminals;
+import ch.fhnw.cpib.Enums.Types;
 
 public class Literal extends Token{
     private Boolean bool = null;
@@ -60,5 +61,15 @@ public class Literal extends Token{
         this.bool = null;
         this.integer = null;
         this.string = string;
+    }
+
+    public Type getType() {
+        return new Type(getTypeValue());
+    }
+
+    public Types getTypeValue() {
+        if (bool != null) return Types.BOOL;
+        else if (integer != null) return Types.INT64;
+        return null;
     }
 }

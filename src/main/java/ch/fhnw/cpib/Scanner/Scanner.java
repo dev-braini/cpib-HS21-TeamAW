@@ -63,6 +63,10 @@ public class Scanner {
         keywords.put("|?", new Operator(Terminals.RELOPR, Operators.COR));
         keywords.put("divE", new Operator(Terminals.MULTOPR, Operators.DIV_E));
         keywords.put("modE", new Operator(Terminals.MULTOPR, Operators.MOD_E));
+        keywords.put("divT", new Operator(Terminals.MULTOPR, Operators.DIV_T));
+        keywords.put("modT", new Operator(Terminals.MULTOPR, Operators.MOD_T));
+        keywords.put("divF", new Operator(Terminals.MULTOPR, Operators.DIV_F));
+        keywords.put("modF", new Operator(Terminals.MULTOPR, Operators.MOD_F));
         keywords.put("/\\", new Operator(Terminals.BOOLOPR, Operators.AND));
         keywords.put("\\/", new Operator(Terminals.BOOLOPR, Operators.OR));
         keywords.put("/\\?", new Operator(Terminals.BOOLOPR, Operators.CAND));

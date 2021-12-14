@@ -3,7 +3,7 @@ package ch.fhnw.cpib.Token;
 import ch.fhnw.cpib.Enums.MechModes;
 import ch.fhnw.cpib.Enums.Terminals;
 
-public class MechMode extends Token{
+public class MechMode extends Token {
     private final MechModes value;
 
     public MechMode(MechModes value){
