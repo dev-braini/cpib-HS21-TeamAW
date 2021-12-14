@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 // cpsCmdNTS ::= SEMICOLON cmd cpsCmdNTS
 public class CpsCmdNTSSemicolon implements IConcSyn.ICpsCmdNTS {
-    public final IConcSyn.ICmd       cmd;
-    public final IConcSyn.ICpsCmdNTS cpsCmdNTS;
+    protected final IConcSyn.ICmd       cmd;
+    protected final IConcSyn.ICpsCmdNTS cpsCmdNTS;
 
     public CpsCmdNTSSemicolon(final IToken semicolon, final IConcSyn.ICmd cmd, final IConcSyn.ICpsCmdNTS cpsCmdNTS) {
         this.cmd       = cmd;

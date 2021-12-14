@@ -7,9 +7,9 @@ import ch.fhnw.cpib.Token.Operator;
 
 // term0NTS ::= BOOLOPR term1 term0NTS
 public class Term0NTSBoolopr implements IConcSyn.ITerm0NTS {
-    public final IToken boolopr;
-    public final IConcSyn.ITerm1 term1;
-    public final IConcSyn.ITerm0NTS term0NTS;
+    protected final IToken boolopr;
+    protected final IConcSyn.ITerm1 term1;
+    protected final IConcSyn.ITerm0NTS term0NTS;
 
 	public Term0NTSBoolopr(final IToken boolopr, final IConcSyn.ITerm1 term1, final IConcSyn.ITerm0NTS term0NTS) {
 		this.boolopr = boolopr;

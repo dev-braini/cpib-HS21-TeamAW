@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 // paramList ::= LPAREN paramListNTS RPAREN
 public class ParamList implements IConcSyn.IParamList {
-    public final IConcSyn.IParamListNTS paramListNTS;
+    protected final IConcSyn.IParamListNTS paramListNTS;
 
 	public ParamList(final IToken lparen, final IConcSyn.IParamListNTS paramListNTS, final IToken rparen) {
 		this.paramListNTS = paramListNTS;

@@ -6,7 +6,7 @@ import ch.fhnw.cpib.Token.IToken;
 
 // cmd ::= DEBUGOUT expr
 public class CmdDebugout implements IConcSyn.ICmd {
-    public final IConcSyn.IExpr expr;
+    protected final IConcSyn.IExpr expr;
 
 	public CmdDebugout(final IToken debugout, final IConcSyn.IExpr expr) {
 		this.expr = expr;

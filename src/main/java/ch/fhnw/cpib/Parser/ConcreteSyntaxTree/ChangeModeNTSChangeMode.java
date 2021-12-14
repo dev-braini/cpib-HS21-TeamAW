@@ -5,7 +5,7 @@ import ch.fhnw.cpib.Token.IToken;
 
 // changeModeNTS ::= CHANGEMODE
 public class ChangeModeNTSChangeMode implements IConcSyn.IChangeModeNTS {
-    public final IToken changemode;
+    protected final IToken changemode;
 
     public ChangeModeNTSChangeMode(final IToken changemode) {
         this.changemode = changemode;

@@ -4,7 +4,7 @@ import ch.fhnw.cpib.Parser.AbstractSyntaxTree.IAbsSyn;
 
 // decl ::= funDecl
 public class DeclFun implements IConcSyn.IDecl {
-    public final IConcSyn.IFunDecl funDecl;
+    protected final IConcSyn.IFunDecl funDecl;
 
     public DeclFun(final IConcSyn.IFunDecl funDecl) {
         this.funDecl = funDecl;

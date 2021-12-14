@@ -6,8 +6,8 @@ import ch.fhnw.cpib.Token.IToken;
 
 // cmd ::= expr BECOMES expr
 public class CmdExpr implements IConcSyn.ICmd {
-    public final IConcSyn.IExpr expr;
-    public final IConcSyn.IExpr expr2;
+    protected final IConcSyn.IExpr expr;
+    protected final IConcSyn.IExpr expr2;
 
 	public CmdExpr(final IConcSyn.IExpr expr, final IToken becomes, final IConcSyn.IExpr expr2) {
 		this.expr  = expr;

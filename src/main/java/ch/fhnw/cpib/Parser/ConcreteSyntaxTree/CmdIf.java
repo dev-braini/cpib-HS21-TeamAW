@@ -6,9 +6,9 @@ import ch.fhnw.cpib.Token.IToken;
 
 // cmd ::= IF expr THEN cpsCmd ifelseNTS ENDIF
 public class CmdIf implements IConcSyn.ICmd {
-    public final IConcSyn.IExpr      expr;
-    public final IConcSyn.ICpsCmd    cpsCmd;
-    public final IConcSyn.IIfelseNTS ifelseNTS;
+    protected final IConcSyn.IExpr      expr;
+    protected final IConcSyn.ICpsCmd    cpsCmd;
+    protected final IConcSyn.IIfelseNTS ifelseNTS;
 
 	public CmdIf(final IToken if_, final IConcSyn.IExpr expr, final IToken then, final IConcSyn.ICpsCmd cpsCmd,
 				 final IConcSyn.IIfelseNTS ifelseNTS, final IToken endif) {

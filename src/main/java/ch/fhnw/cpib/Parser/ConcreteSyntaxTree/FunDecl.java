@@ -6,11 +6,11 @@ import ch.fhnw.cpib.Token.Ident;
 
 // funDecl ::= FUN IDENT paramList RETURNS stoDecl funDeclNTS DO cpsCmd ENDFUN
 public class FunDecl implements IConcSyn.IFunDecl {
-    public final IToken               ident;
-    public final IConcSyn.IParamList  paramList;
-    public final IConcSyn.IStoDecl    stoDecl;
-    public final IConcSyn.IFunDeclNTS funDeclNTS;
-    public final IConcSyn.ICpsCmd     cpsCmd;
+    protected final IToken               ident;
+    protected final IConcSyn.IParamList  paramList;
+    protected final IConcSyn.IStoDecl    stoDecl;
+    protected final IConcSyn.IFunDeclNTS funDeclNTS;
+    protected final IConcSyn.ICpsCmd     cpsCmd;
 
     public FunDecl(final IToken fun, final IToken ident, final IConcSyn.IParamList paramList, final IToken returns,
                    final IConcSyn.IStoDecl stoDecl, final IConcSyn.IFunDeclNTS funDeclNTS, final IToken do_,

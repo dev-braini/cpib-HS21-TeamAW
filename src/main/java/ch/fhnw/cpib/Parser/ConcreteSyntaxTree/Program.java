@@ -6,9 +6,9 @@ import ch.fhnw.cpib.Token.Ident;
 
 // program ::= PROGRAM IDENT globalNTS DO cpsCmd ENDPROGRAM
 public class Program implements IConcSyn.IProgram {
-    private final IToken              ident;
-    private final IConcSyn.IGlobalNTS globalNTS;
-    private final IConcSyn.ICpsCmd    cpsCmd;
+    protected final IToken              ident;
+    protected final IConcSyn.IGlobalNTS globalNTS;
+    protected final IConcSyn.ICpsCmd    cpsCmd;
 
     public Program(final IToken program, final IToken ident, final IConcSyn.IGlobalNTS globalNTS,
                    final IToken do_, final IConcSyn.ICpsCmd cpsCmd, final IToken endprogram) {

@@ -6,8 +6,8 @@ import ch.fhnw.cpib.Token.Ident;
 
 // factor ::= IDENT factorNTS
 public class FactorIdent implements IConcSyn.IFactor {
-    public final IToken              ident;
-    public final IConcSyn.IFactorNTS factorNTS;
+    protected final IToken              ident;
+    protected final IConcSyn.IFactorNTS factorNTS;
 
     public FactorIdent(final IToken ident, final IConcSyn.IFactorNTS factorNTS) {
         this.ident     = ident;

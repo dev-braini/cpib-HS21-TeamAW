@@ -6,7 +6,7 @@ import ch.fhnw.cpib.Token.Ident;
 
 // factorNTS ::= exprList
 public class FactorNTSExprList implements IConcSyn.IFactorNTS {
-    public final IConcSyn.IExprList exprList;
+    protected final IConcSyn.IExprList exprList;
 
     public FactorNTSExprList(final IConcSyn.IExprList exprList) {
         this.exprList = exprList;

@@ -6,7 +6,7 @@ import ch.fhnw.cpib.Token.IToken;
 
 // cmd ::= SKIP
 public class CmdSkip implements IConcSyn.ICmd {
-    public final IToken skip;
+    protected final IToken skip;
 
 	public CmdSkip(final IToken skip) {
 		this.skip = skip;
