@@ -26,7 +26,7 @@ public class Literal extends Token{
         if (bool != null) {
             return "(LITERAL, BoolVal " + bool + ")";
         } else if (integer != null) {
-            return "(LITERAL, Int32Val " + integer + ")";
+            return "(LITERAL, Int64Val " + integer + ")";
         } else {
             return "";
         }
