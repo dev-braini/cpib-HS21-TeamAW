@@ -1,8 +1,8 @@
 package ch.fhnw.cpib.Parser.AbstractSyntaxTree;
 
 import ch.fhnw.cpib.Enums.LRVal;
+import ch.fhnw.cpib.Enums.Types;
 import ch.fhnw.cpib.Errors.*;
-import ch.fhnw.cpib.Parser.ConcreteSyntaxTree.TypedIdent;
 import ch.fhnw.cpib.Token.Type;
 import ch.fhnw.cpib.VM.ICodeArray;
 
@@ -20,28 +20,29 @@ public interface IAbsSyn {
         void addIInstrToCodeArray(HashMap<String, Integer> localLocations, boolean simulateOnly) throws ICodeArray.CodeTooSmallError;
     }
 
-    interface ICmd {
+    interface ICmd extends IAbsSynTreeNode {
 
     }
 
-    interface IStoDecl {
+    interface IStoDecl extends IDecl{
 
     }
 
-    interface IExpr {
-        public Type getType();
-        public LRVal getLRValue();
+    interface IExpr extends IAbsSynTreeNode {
+        Type getType();
+        Types getTypeValue();
+        LRVal getLRValue();
     }
 
-    interface IDecl {
-        public String getIdentString();
+    interface IDecl extends IAbsSynTreeNode {
+        String getIdentString();
     }
 
     interface IDefaultCase {
 
     }
 
-    interface IFactor {
+    interface IFactor extends IExpr {
 
     }
 
