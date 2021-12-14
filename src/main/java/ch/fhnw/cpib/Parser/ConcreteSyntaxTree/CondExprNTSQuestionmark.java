@@ -6,13 +6,17 @@ import ch.fhnw.cpib.Token.IToken;
 
 // condExprNTS ::= QUESTIONMARK expr COLON expr
 public class CondExprNTSQuestionmark implements IConcSyn.ICondExprNTS {
+    protected final IToken         questionmark;
     protected final IConcSyn.IExpr expr1;
+    protected final IToken         colon;
     protected final IConcSyn.IExpr expr2;
 
 	public CondExprNTSQuestionmark(final IToken questionmark, final IConcSyn.IExpr expr1, final IToken colon,
 								   final IConcSyn.IExpr expr2) {
-		this.expr1 = expr1;
-		this.expr2 = expr2;
+        this.questionmark = questionmark;
+		this.expr1        = expr1;
+        this.colon        = colon;
+		this.expr2        = expr2;
 	}
 
 	@Override

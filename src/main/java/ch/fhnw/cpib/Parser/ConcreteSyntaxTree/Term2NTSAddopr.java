@@ -7,13 +7,13 @@ import ch.fhnw.cpib.Token.Operator;
 
 // term2NTS ::= ADDOPR term3 term2NTS
 public class Term2NTSAddopr implements IConcSyn.ITerm2NTS {
-    protected final IToken addopr;
-    protected final IConcSyn.ITerm3 term3;
+    protected final IToken             addopr;
+    protected final IConcSyn.ITerm3    term3;
     protected final IConcSyn.ITerm2NTS term2NTS;
 
 	public Term2NTSAddopr(final IToken addopr, final IConcSyn.ITerm3 term3, final IConcSyn.ITerm2NTS term2NTS) {
-		this.addopr = addopr;
-		this.term3 = term3;
+		this.addopr   = addopr;
+		this.term3    = term3;
 		this.term2NTS = term2NTS;
 	}
 

@@ -9,14 +9,20 @@ import java.util.ArrayList;
 
 // caseNTS::= CASE LITERAL COLON cpsCmd ENDCASE caseNTS
 public class CaseNTSCase implements IConcSyn.ICaseNTS {
+    protected final IToken            case_;
     protected final IToken            literal;
+    protected final IToken            colon;
     protected final IConcSyn.ICpsCmd  cpsCmd;
+    protected final IToken            endcase;
     protected final IConcSyn.ICaseNTS caseNTS;
 
     public CaseNTSCase(final IToken case_, final IToken literal, final IToken colon, final IConcSyn.ICpsCmd cpsCmd,
                        final IToken endcase, final IConcSyn.ICaseNTS caseNTS) {
+        this.case_   = case_;
         this.literal = literal;
+        this.colon   = colon;
         this.cpsCmd  = cpsCmd;
+        this.endcase = endcase;
         this.caseNTS = caseNTS;
     }
 

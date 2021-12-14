@@ -6,10 +6,12 @@ import ch.fhnw.cpib.Token.IToken;
 
 // cmd ::= DEBUGOUT expr
 public class CmdDebugout implements IConcSyn.ICmd {
+    protected final IToken            debugout;
     protected final IConcSyn.IExpr expr;
 
 	public CmdDebugout(final IToken debugout, final IConcSyn.IExpr expr) {
-		this.expr = expr;
+        this.debugout = debugout;
+		this.expr     = expr;
 	}
 
 	@Override

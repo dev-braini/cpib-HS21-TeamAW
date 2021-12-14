@@ -7,11 +7,11 @@ import java.lang.reflect.Field;
 
 // expr ::= term0 condExprNTS
 public class Expr implements IConcSyn.IExpr {
-    protected final IConcSyn.ITerm0 term0;
+    protected final IConcSyn.ITerm0       term0;
     protected final IConcSyn.ICondExprNTS condExprNTS;
 
     public Expr(final IConcSyn.ITerm0 term0, final IConcSyn.ICondExprNTS condExprNTS) {
-        this.term0 = term0;
+        this.term0       = term0;
         this.condExprNTS = condExprNTS;
     }
 

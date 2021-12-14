@@ -7,10 +7,12 @@ import java.util.ArrayList;
 
 // exprListNTS ::= COMMA expr exprListNTS
 public class ExprListNTSComma implements IConcSyn.IExprListNTS {
+    protected final IToken                comma;
     protected final IConcSyn.IExpr        expr;
     protected final IConcSyn.IExprListNTS exprListNTS;
 
     public ExprListNTSComma(final IToken comma, final IConcSyn.IExpr expr, final IConcSyn.IExprListNTS exprListNTS) {
+        this.comma       = comma;
         this.expr        = expr;
         this.exprListNTS = exprListNTS;
     }

@@ -8,10 +8,12 @@ import ch.fhnw.cpib.Token.Type;
 // typedIdent ::= IDENT COLON TYPE
 public class TypedIdent implements IConcSyn.ITypedIdent {
     protected final IToken ident;
+    protected final IToken colon;
     protected final IToken type;
 
 	public TypedIdent(final IToken ident, final IToken colon, final IToken type) {
-		this.ident = ident;
+        this.ident = ident;
+        this.colon = colon;
 		this.type  = type;
 	}
 

@@ -6,10 +6,14 @@ import ch.fhnw.cpib.Token.IToken;
 
 // factor ::= LPAREN expr RPAREN
 public class FactorLParen implements IConcSyn.IFactor {
+    protected final IToken         lparen;
     protected final IConcSyn.IExpr expr;
+    protected final IToken         rparen;
 
     public FactorLParen(final IToken lparen, final IConcSyn.IExpr expr, final IToken rparen) {
-        this.expr = expr;
+        this.lparen = lparen;
+        this.expr   = expr;
+        this.rparen = rparen;
     }
 
     @Override

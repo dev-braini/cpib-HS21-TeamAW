@@ -7,9 +7,11 @@ import java.util.ArrayList;
 
 // procDeclNTS ::= LOCAL cpsStoDecl
 public class ProcDeclNTSLocal implements IConcSyn.IProcDeclNTS {
+    protected final IToken               local;
     protected final IConcSyn.ICpsStoDecl cpsStoDecl;
 
     public ProcDeclNTSLocal(final IToken local, final IConcSyn.ICpsStoDecl cpsStoDecl) {
+        this.local      = local;
         this.cpsStoDecl = cpsStoDecl;
     }
 
