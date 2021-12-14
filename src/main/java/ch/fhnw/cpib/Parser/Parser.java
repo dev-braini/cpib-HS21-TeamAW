@@ -40,7 +40,7 @@ public class Parser implements IParser {
     }
 
     public AbsSyn parse() throws GrammarError {
-        ConcSyn.IProgram program = program();
+        IConcSyn.IProgram program = program();
 
         // take the last bite
         consume(Terminals.SENTINEL);
