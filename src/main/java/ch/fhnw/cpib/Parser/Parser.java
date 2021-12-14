@@ -67,7 +67,7 @@ public class Parser implements IParser {
         System.out.println("| Abstract Syntax Tree: |");
         System.out.println("+-----------------------+");
         AbsSyn absSyn = new AbsSyn(program);
-        System.out.println(absSyn);
+        System.out.println(absSyn.toString());
 
         return absSyn;
     }
