@@ -5,7 +5,6 @@ global
 do
   debugin input init;
   output init := 1;
-  input init := 5;
 
   switch input
     case 2:
