@@ -78,7 +78,7 @@ public class SwitchCmd extends AbsSynTreeNode implements IAbsSyn.ICmd {
 		
 		// check for each case, if the type of the literal is the same as the type of the expression
 		for(Case c : cases) {
-			if(expr.getType() != c.getType())
+			if(expr.getType().getValue() != c.getType().getValue())
 				throw new TypeCheckError(expr.getType(), c.getType());
 		}
 	}

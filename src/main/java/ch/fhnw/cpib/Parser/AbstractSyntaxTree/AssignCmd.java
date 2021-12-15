@@ -41,7 +41,7 @@ public class AssignCmd extends AbsSynTreeNode implements IAbsSyn.ICmd {
 		exprLeft.doTypeChecking();
 		exprRight.doTypeChecking();
 		
-		if(exprLeft.getType() != exprRight.getType())
+		if(exprLeft.getType().getValue() != exprRight.getType().getValue())
 			throw new TypeCheckError(exprLeft.getType(), exprRight.getType());		
 	}
 
@@ -59,7 +59,8 @@ public class AssignCmd extends AbsSynTreeNode implements IAbsSyn.ICmd {
 			typedIdent = globalStoresNamespace.get(factor.ident.getValue());
 		}
 		// If this is a const and it is already initialized (once written to), throw an error
-		if(typedIdent.getConst() && typedIdent.getInit())
+        assert typedIdent != null;
+        if(typedIdent.getConst() && typedIdent.getInit())
 			throw new CannotAssignToConstError(factor.ident);		
 		
 		exprLeft.doInitChecking(globalProtected);

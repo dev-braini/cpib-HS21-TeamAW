@@ -75,12 +75,13 @@ public class InitFactor extends IdentFactor{
 			typedIdent = globalStoresNamespace.get(ident.getValue());
 			isGlobal = true;
 		}
+        assert typedIdent != null;
 		if(init) {
 			// If this is a global variable, and we try to initialize it in a protected scope, throw an error
 			if(globalProtected && isGlobal)
 				throw new GlobalInitializationProhibitedError(typedIdent.getIdent());
 			// Throw an error if this typedIdent is already initialized
-			if(typedIdent.getInit()) {
+            if(typedIdent.getInit()) {
 				throw new  AlreadyInitializedError(typedIdent.getIdent());
 			} else {
 				typedIdent.setInit();
