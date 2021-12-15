@@ -51,22 +51,26 @@ public class Compiler {
         try { absSyn = parser.parse(); }
         catch (GrammarError e) {
             System.out.println("Parser error"); e.printStackTrace(); }
-        catch (NameAlreadyDeclaredError | NameAlreadyGloballyDeclaredError | NameNotDeclaredError e)            { System.out.println("Namespace check error"); e.printStackTrace(); } catch (LRValError e) {
+        catch (NameAlreadyDeclaredError | NameAlreadyGloballyDeclaredError | NameNotDeclaredError e) {
+            System.out.println("Namespace check error"); e.printStackTrace(); }
+        catch (LRValError e) {
             System.out.println("LRVal check error"); e.printStackTrace(); }
         catch (InvalidParamCountError e) {
             System.out.println("Param check error"); e.printStackTrace(); }
-        catch (AlreadyInitializedError | NotInitializedError e) {
+        catch (AlreadyInitializedError | NotInitializedError | GlobalInitializationProhibitedError e) {
             System.out.println("Init check error"); e.printStackTrace(); }
         catch (DefaultCaseBoolOverkillError | CaseAlreadyDeclaredError e) {
-            System.out.println("Switch case error"); e.printStackTrace(); } catch (TypeCheckError e)                      { System.out.println("Type check error"); e.printStackTrace(); } catch (GlobalInitializationProhibitedError e) { System.out.println("Init check error"); e.printStackTrace(); }
+            System.out.println("Switch case error"); e.printStackTrace(); }
+        catch (TypeCheckError e) {
+            System.out.println("Type check error"); e.printStackTrace(); }
         catch (CannotAssignToConstError e) {
             System.out.println("Const error"); e.printStackTrace(); }
 
-        assert absSyn != null;
 
         /**
          * Start VM
          */
+        assert absSyn != null;
         try {
             cw.write("Generate code array");
             ICodeArray codeArray = absSyn.getCodeArray();
