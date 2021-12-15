@@ -19,5 +19,4 @@ public abstract class AbsSynTreeNode implements IAbsSyn.IAbsSynTreeNode {
         if(localStoresNamespace.containsKey(ident.getValue()))
             localStoresNamespace.get(ident.getValue()).setInit();
     }
-
 }

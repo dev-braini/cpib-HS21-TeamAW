@@ -103,13 +103,13 @@ public class IfCmd extends AbsSynTreeNode implements IAbsSyn.ICmd {
 
 	@Override
 	public String toString(String indent) {
-		String nameIndent = indent;
 		String argumentIndent = indent + " ";
 		String subIndent = indent + "  ";
-		String s = "";
-		s += nameIndent + this.getClass().getName() + "\n";
-		if(localStoresNamespace != null)
-			s += argumentIndent + "[localStoresNamespace]: " + localStoresNamespace.keySet().stream().map(Object::toString).collect(Collectors.joining(",")) + "\n";		
+		String s = indent + this.getClass().getSimpleName() + "\n";
+		if(localStoresNamespace != null) {
+            s += argumentIndent + "[localStoresNamespace]: " + localStoresNamespace.keySet().stream().map(Object::toString).collect(Collectors.joining(",")) + "\n";
+        }
+        		
 		s += argumentIndent + "<expr>:\n";
 		s += expr.toString(subIndent);
 		s += argumentIndent + "<ifCpsCmd>:\n";
