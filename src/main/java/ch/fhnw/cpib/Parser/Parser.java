@@ -42,29 +42,28 @@ public class Parser implements IParser {
         }
     }
 
-    public AbsSyn parse() throws GrammarError/*,  NameAlreadyDeclaredError, NameNotDeclaredError, NameAlreadyGloballyDeclaredError, LRValError, InvalidParamCountError, AlreadyInitializedError, CaseAlreadyDeclaredError, DefaultCaseBoolOverkillError, TypeCheckError, NotInitializedError, GlobalInitializationProhibitedError, CannotAssignToConstError*/ {
+    public AbsSyn parse() throws GrammarError, NameAlreadyDeclaredError, NameNotDeclaredError, NameAlreadyGloballyDeclaredError, LRValError, InvalidParamCountError, AlreadyInitializedError, CaseAlreadyDeclaredError, DefaultCaseBoolOverkillError, TypeCheckError, NotInitializedError, GlobalInitializationProhibitedError, CannotAssignToConstError {
         IConcSyn.IProgram program = program();
 
         // take the last bite
         consume(Terminals.SENTINEL);
 
-        // TODO: Static Analysis
-
-        // TODO: MANDATORY
-        // TODO: scope checking
-        // TODO: types
-
-        // TODO: OPTIONAL - LUXUS :)
-        // TODO: initialization
-        // TODO: constants and variables
-        // TODO: flow analysis
-        // TODO: aliasing analysis
-
         cw.write("Concrete Syntax Tree", program.toString(""));
-
         AbsSyn absSyn = new AbsSyn(program);
 
         cw.write("Abstract Syntax Tree", absSyn.toString());
+
+        cw.write("SCOPE CHECK");
+        absSyn.doScopeChecking();
+        System.out.println("...scope check ✔");
+
+        cw.write("TYPE CHECK");
+        absSyn.doTypeChecking();
+        System.out.println("...type check ✔");
+
+        cw.write("INIT CHECK");
+        absSyn.doInitChecking();
+        System.out.println("...init check ✔");
 
         return absSyn;
     }
