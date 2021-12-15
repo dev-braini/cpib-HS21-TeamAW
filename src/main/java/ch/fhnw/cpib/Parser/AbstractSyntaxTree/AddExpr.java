@@ -61,7 +61,7 @@ public class AddExpr extends AbsSynTreeNode implements IAbsSyn.IExpr {
 		
 		if(exprLeft.getTypeValue() == Types.BOOL)
 			throw new TypeCheckError(new Type(Types.INT64), exprLeft.getType());
-		if(exprLeft.getType() != exprRight.getType())
+		if(exprLeft.getType().getValue() != exprRight.getType().getValue())
 			throw new TypeCheckError(exprLeft.getType(), exprRight.getType());
 	}
 
