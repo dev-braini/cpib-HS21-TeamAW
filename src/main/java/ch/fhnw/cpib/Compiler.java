@@ -1,8 +1,8 @@
 package ch.fhnw.cpib;
 
 import ch.fhnw.cpib.Errors.*;
-import ch.fhnw.cpib.Helper.ConsoleWriter;
-import ch.fhnw.cpib.Helper.IMLReader;
+import ch.fhnw.cpib.Helper.*;
+import ch.fhnw.cpib.VM.*;
 import ch.fhnw.cpib.Parser.AbstractSyntaxTree.AbsSyn;
 import ch.fhnw.cpib.Parser.Parser;
 import ch.fhnw.cpib.Scanner.Scanner;
@@ -16,9 +16,15 @@ public class Compiler {
         Scanner scanner = new Scanner();
         ConsoleWriter cw = new ConsoleWriter();
 
+        /**
+         * Read IML code
+         */
         StringBuilder imlCode = IMLReader.read("add17.iml");
         ITokenList tokenList = null;
 
+        /**
+        * Parser
+        */
         try {
             tokenList = scanner.scan(imlCode);
         } catch (LexicalError e) {
@@ -26,7 +32,9 @@ public class Compiler {
             e.printStackTrace();
         }
 
-
+        /**
+         * Tokenlist
+         */
         assert tokenList != null;
         Parser parser = new Parser(tokenList);
         AbsSyn absSyn = null;
@@ -36,6 +44,10 @@ public class Compiler {
         cw.write("TokenList (vertical)");
         tokenList.print();
         cw.write("OUTPUT (Parser)");
+
+        /**
+         * Parser
+         */
         try { absSyn = parser.parse(); }
         catch (GrammarError e) {
             System.out.println("Parser error"); e.printStackTrace(); }
@@ -50,7 +62,22 @@ public class Compiler {
         catch (CannotAssignToConstError e) {
             System.out.println("Const error"); e.printStackTrace(); }
 
-        // assert absSyn != null;
+        assert absSyn != null;
+
+        /**
+         * Start VM
+         */
+        try {
+            cw.write("Generate code array");
+            ICodeArray codeArray = absSyn.getCodeArray();
+            System.out.println(codeArray.toString());
+            cw.write("Run programm...");
+            new VirtualMachine(codeArray, 65536);
+        } catch (IVirtualMachine.ExecutionError | ICodeArray.CodeTooSmallError e) {
+            System.out.println("VM error");
+            e.printStackTrace();
+        }
+
 
 
     }

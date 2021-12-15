@@ -43,24 +43,39 @@ public class Parser implements IParser {
     }
 
     public AbsSyn parse() throws GrammarError, NameAlreadyDeclaredError, NameNotDeclaredError, NameAlreadyGloballyDeclaredError, LRValError, InvalidParamCountError, AlreadyInitializedError, CaseAlreadyDeclaredError, DefaultCaseBoolOverkillError, TypeCheckError, NotInitializedError, GlobalInitializationProhibitedError, CannotAssignToConstError {
+        /**
+         * Concret Syntax Tree
+         */
         IConcSyn.IProgram program = program();
 
         // take the last bite
         consume(Terminals.SENTINEL);
 
         cw.write("Concrete Syntax Tree", program.toString(""));
-        AbsSyn absSyn = new AbsSyn(program);
 
+        /**
+         * Abstract Syntax Tree
+         */
+        AbsSyn absSyn = new AbsSyn(program);
         cw.write("Abstract Syntax Tree", absSyn.toString());
 
+        /**
+         * Scope check
+         */
         cw.write("SCOPE CHECK");
         absSyn.doScopeChecking();
         System.out.println("...scope check ✔");
 
+        /**
+         * Type check
+         */
         cw.write("TYPE CHECK");
         absSyn.doTypeChecking();
         System.out.println("...type check ✔");
 
+        /**
+         * Init check
+         */
         cw.write("INIT CHECK");
         absSyn.doInitChecking();
         System.out.println("...init check ✔");
