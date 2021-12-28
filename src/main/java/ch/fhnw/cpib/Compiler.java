@@ -23,7 +23,7 @@ public class Compiler {
         ITokenList tokenList = null;
 
         /**
-        * Parser
+        * Scanner
         */
         try {
             tokenList = scanner.scan(imlCode);
