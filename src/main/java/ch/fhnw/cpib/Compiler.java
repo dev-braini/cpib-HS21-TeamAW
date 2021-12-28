@@ -19,7 +19,7 @@ public class Compiler {
         /**
          * Read IML code
          */
-        StringBuilder imlCode = IMLReader.read("add17.iml");
+        StringBuilder imlCode = IMLReader.read("DividableOrNot.iml");
         ITokenList tokenList = null;
 
         /**

@@ -4,7 +4,7 @@ global
   output:int64
 do
   debugin input init;
-  output init := 1;
+  output init := 0;
 
   switch input
     case 2:

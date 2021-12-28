@@ -1,0 +1,30 @@
+program OddOrEven
+global
+  input:int64;
+  divider:int64;
+  output:bool;
+  rest:int64
+do
+  debugin input init;
+  debugin divider init;
+  output init := true;
+
+  rest init := input modE divider;
+
+  //if input modE 2 = 1 then
+      //output := false
+    //else
+      //output := true
+    //endif;
+
+  switch rest
+    case 0:
+      output := true
+    endcase
+    defaultcase:
+      output := false
+    endcase
+  endswitch;
+  debugout output;
+  debugout rest
+endprogram
