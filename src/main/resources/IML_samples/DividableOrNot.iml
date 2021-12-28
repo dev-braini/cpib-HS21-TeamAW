@@ -11,12 +11,6 @@ do
 
   rest init := input modE divider;
 
-  //if input modE 2 = 1 then
-      //output := false
-    //else
-      //output := true
-    //endif;
-
   switch rest
     case 0:
       output := true
