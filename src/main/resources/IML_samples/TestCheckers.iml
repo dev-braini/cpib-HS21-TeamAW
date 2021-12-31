@@ -1,0 +1,86 @@
+program SpecialCases
+global
+  g1:int64; g2:int64; // integers
+  const g3:int64;     // no access after first write
+  g4:bool; g5:bool;   // boolean
+
+  //g5:int64;         // does not work, name already declared
+
+  // function
+  fun fCheckStuff(a1:int64,
+                  copy var a2:bool, copy const a3:int64,
+                  ref var a4:bool, ref const a5:int64) returns const r1:int64
+  local
+    var l1:int64;
+    var l3:bool;
+    //var g1:bool;          // does not work, name already globally declared
+    const l2:int64
+  do
+    l1 init := 5;
+    a1 := 20;
+
+    l2 init := 0;
+    //l2 := 4;              // does not work, can't change local const variable
+
+    //a5 := 66;             // does not work, can't change const variable
+    a4 := false;            // change ref param a4 from caller
+
+    call pCheckStuff(l1);   // check change of local l1 over ref param
+    //call pCheckStuff(l2); // does not work, cant change local const variable l2 over ref param
+
+    r1 init := 999
+    //r1 := 888             // does not work, can't change const return variable
+  endfun;
+
+  // procedure
+  proc pCheckStuff(ref a1:int64)
+  do
+    skip;
+    //g5 := false        // does not work, g5 need to be initialised
+    g5 init := false;    // init and change global variable g5
+    a1 := 777            // change ref variable a1 from caller
+  endproc
+do
+  /////////////////////// init checking /////////////////////////////
+  //debugout g1; // does not work, need to be initialised
+  g1 init := 0;  // first init from global variable
+  g1 := 50;
+  //debugin g2;      // does not work, need to be initialised
+  debugin g2 init;
+  //g1 init;     // does not work, for safety if u init a variable then set something
+  //g1 init := 4;// does not work, g1 is already initialised
+
+  /////////////////////// const checking //////////////////////////////
+  g3 init := 4;  // first init from global const variable
+  //g3 := 5;     // does not work, can't change const variable
+  //debugin g3;  // does not work, can't change const variable
+  debugout g3;
+
+  /////////////////////// type checking //////////////////////////////
+  g4 init := true;
+  //g5 init := g1; // does not work, can't assign int64 to bool
+  //g1 := g4;      // does not work, can't assign bool to int64
+  //debugout fCheckStuff(g1, true, true, g4, g1); // does not work, expected int64 but found bool
+  //debugout fCheckStuff(g1, 10, 10, g4, g1); // does not work, expected bool but found int64
+
+  /////////////////////// name checking //////////////////////////////
+  //debugout g0;   // does not work, name is not globally declared
+
+  /////////////////////// invalid param count checking //////////////////////////////
+  //debugout fCheckStuff(10, true, 10, g4, g1, 10); // does not work, expected 5 params found 6
+  //call pCheckStuff(g1, 10);                       // does not work, expected 1 param found 2
+
+  /////////////////////// LRval checking //////////////////////////////
+  ////// expected fCheckStuff(rval, rval, rval, lval, lval) ///////////
+  debugout fCheckStuff(g1, true, 10, g4, g1);     // rval assigable to lval (will be copied, no change of the g1)
+  //debugout fCheckStuff(g1, true, 10, true, g1); // does not work, expected lval but found rval
+  //call pCheckStuff(10);                         // does not work, expected lval but found rval
+
+  /////////////////////// routine call checking //////////////////////////////
+  call pCheckStuff(g1);                      // check call of procedure
+  debugout g5;                               // check change of global g5 in pCkeckStuff
+  debugout g1;                               // check change of global g1 over ref param in proc
+  debugout fCheckStuff(10, true, 10, g4, g1);// check call of function
+  debugout g4                                // check change of global g4 over ref param in func
+
+endprogram

@@ -1,0 +1,20 @@
+program Switch
+global
+  x:int64;
+  y:int64;
+
+  fun f(m:int64) returns r:int64
+  do
+    r init := m*m
+  endfun
+
+do
+  debugin x init;
+  y init := 0;
+  switch f(x)
+    defaultcase:
+      y := x divE 2
+    endcase
+  endswitch;
+  debugout y
+endprogram

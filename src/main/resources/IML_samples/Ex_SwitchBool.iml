@@ -1,0 +1,21 @@
+program SwitchBool
+global
+  x:bool;
+  y:bool
+
+do
+  debugin x init;
+  y init := false;
+  switch x
+    case true:
+      y := false
+    endcase
+    case false:
+      y := true
+    endcase
+//    defaultcase:
+//      y := false
+//    endcase
+  endswitch;
+  debugout y
+endprogram

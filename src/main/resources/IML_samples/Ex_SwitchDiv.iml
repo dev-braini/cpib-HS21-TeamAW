@@ -1,0 +1,52 @@
+program SwitchDiv
+global
+  const typeOfDiv:int64;
+  const dividend:int64;
+  const divisor:int64;
+  quotientenWert:int64;
+  restWert:int64;
+
+  proc T(copy const a:int64, copy const b:int64, ref q:int64, ref r:int64)
+  do
+     q := a divT b;
+     r := a modT b
+  endproc;
+
+  proc F(copy const a:int64, copy const b:int64, ref q:int64, ref r:int64)
+  do
+     q := a divF b;
+     r := a modF b
+  endproc;
+
+  proc E(copy const a:int64, copy const b:int64, ref q:int64, ref r:int64)
+  do
+     q := a divE b;
+     r := a modE b
+  endproc
+
+do
+  debugin typeOfDiv init;
+  debugin dividend init;
+  debugin divisor init;
+  quotientenWert init := 0;
+  restWert init := 0;
+  switch typeOfDiv
+    case 0:
+      call T(dividend, divisor, quotientenWert, restWert)
+    endcase
+    case 1:
+      call F(dividend, divisor, quotientenWert, restWert)
+    endcase
+    case 2:
+      call E(dividend, divisor, quotientenWert, restWert)
+    endcase
+    defaultcase:
+      //call T(dividend, divisor, quotientenWert, restWert)
+      debugout 10
+    endcase
+  endswitch;
+
+  debugout quotientenWert;
+  debugout restWert
+
+endprogram
