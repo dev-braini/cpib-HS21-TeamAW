@@ -1,0 +1,16 @@
+program Fibonacci_Position
+global
+  const Position:int64;
+
+  fun fibonacciPos(copy const a:int64) returns r:int64
+  do
+    r init := a = 0 ? 0 :
+      (a > 0 /\ a < 3) ? 1 :
+        fibonacciPos(a - 1) + fibonacciPos(a - 2);
+    debugout r
+  endfun
+
+do
+  debugin Position init;
+  debugout fibonacciPos(Position)
+endprogram

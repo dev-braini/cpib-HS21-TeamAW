@@ -9,7 +9,7 @@ global
     endif
   endfun;
 
-  fun fact(n:int64) returns var fact:int64
+  fun factLoop(n:int64) returns var fact:int64
   local
     var i:int64
   do
@@ -21,9 +21,9 @@ global
     endwhile
   endfun;
 
-  n:int64
+  StartValue:int64
 do
-  debugin n init;
-  debugout factRec(n);
-  debugout fact(n)
+  debugin StartValue init;
+  debugout factRec(StartValue);
+  debugout factLoop(StartValue)
 endprogram

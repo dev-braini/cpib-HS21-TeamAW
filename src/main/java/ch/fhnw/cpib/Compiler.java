@@ -19,7 +19,11 @@ public class Compiler {
         /**
          * Read IML code
          */
-        StringBuilder imlCode = IMLReader.read("DividableOrNot.iml");
+        // final String iml = "Factorial";
+        // final String iml = "Fibonacci";
+        final String iml = "Fibonacci_Position";
+
+        StringBuilder imlCode = IMLReader.read(iml + ".iml");
         ITokenList tokenList = null;
 
         /**
