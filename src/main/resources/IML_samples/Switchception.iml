@@ -1,0 +1,22 @@
+program BasicSwitch
+global
+var n:int64
+do
+  n init := 2;
+
+  switch n
+    case 1:
+      debugout 111
+    endcase
+    defaultcase:
+      switch n+1
+        case 3:
+          debugout 222
+        endcase
+        defaultcase:
+          debugout 333
+        endcase
+      endswitch
+    endcase
+  endswitch
+endprogram
