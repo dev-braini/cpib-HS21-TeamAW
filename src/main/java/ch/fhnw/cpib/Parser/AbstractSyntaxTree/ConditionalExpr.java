@@ -53,7 +53,7 @@ public class ConditionalExpr extends AbsSynTreeNode implements IAbsSyn.IExpr {
 		
 		if(exprConditional.getTypeValue() != Types.BOOL)
 			throw new TypeCheckError(new Type(Types.BOOL), exprConditional.getType());
-		if(exprTrue.getType() != exprFalse.getType())
+		if(exprTrue.getTypeValue() != exprFalse.getTypeValue())
 			throw new TypeCheckError(exprTrue.getType(), exprFalse.getType());
 	}
 
