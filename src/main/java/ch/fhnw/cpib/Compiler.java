@@ -19,9 +19,9 @@ public class Compiler {
         /**
          * Read IML code
          */
-        // final String iml = "Factorial";
-        // final String iml = "Fibonacci";
-        final String iml = "Fibonacci_Position";
+        final String iml = "Factorial";
+        // final String iml = "Fibonacci_Position";
+        // final String iml = "Switchception";
 
         StringBuilder imlCode = IMLReader.read(iml + ".iml");
         ITokenList tokenList = null;
