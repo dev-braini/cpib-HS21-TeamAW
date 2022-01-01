@@ -6,11 +6,17 @@ global
   do
     r init := a = 0 ? 0 :
       (a > 0 /\ a < 3) ? 1 :
-        fibonacciPos(a - 1) + fibonacciPos(a - 2);
-    debugout r
+        fibonacciPos(a - 1) + fibonacciPos(a - 2)
   endfun
 
 do
   debugin Position init;
   debugout fibonacciPos(Position)
 endprogram
+
+
+//             +-----------------------------------------------------------+
+//  Position   | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 10 | 11 |
+//             +-----------------------------------------------------------|
+//  Fibonacci  | 00 | 01 | 01 | 02 | 03 | 05 | 08 | 13 | 21 | 34 | 55 | 89 |
+//             +-----------------------------------------------------------+
