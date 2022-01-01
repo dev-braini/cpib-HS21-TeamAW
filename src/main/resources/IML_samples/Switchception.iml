@@ -1,4 +1,4 @@
-program BasicSwitch
+program Switchception
 global
 var n:int64
 do
