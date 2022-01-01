@@ -2,4 +2,4 @@
 
 **IML Compiler**
 
-_with the extension "Case Commands and Conditional Expressions"_
+_with extension "Case Commands and Conditional Expressions"_
