@@ -22,9 +22,4 @@ public class Term0NTSBoolopr implements IConcSyn.ITerm0NTS {
         IAbsSyn.IExpr expr2 = new BoolExpr((Operator)boolopr, expr, term1.toAbsSyn());
         return term0NTS.toAbsSyn(expr2);
 	}
-
-	@Override
-	public String toString(String indent) {
-		return null;
-	}
 }

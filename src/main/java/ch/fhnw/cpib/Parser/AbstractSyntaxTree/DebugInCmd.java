@@ -3,7 +3,6 @@ package ch.fhnw.cpib.Parser.AbstractSyntaxTree;
 import ch.fhnw.cpib.Enums.Types;
 import ch.fhnw.cpib.Errors.*;
 import ch.fhnw.cpib.Enums.LRVal;
-import ch.fhnw.cpib.Token.Type;
 import ch.fhnw.cpib.VM.ICodeArray.CodeTooSmallError;
 import ch.fhnw.cpib.VM.IInstructions;
 

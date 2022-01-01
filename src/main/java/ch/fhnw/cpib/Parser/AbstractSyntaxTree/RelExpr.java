@@ -31,7 +31,8 @@ public class RelExpr extends AbsSynTreeNode implements IAbsSyn.IExpr{
 	}
 	
 	@Override
-	public void doScopeChecking() throws NameNotDeclaredError, LRValError, InvalidParamCountError, CaseAlreadyDeclaredError, DefaultCaseBoolOverkillError {
+	public void doScopeChecking() throws NameNotDeclaredError, LRValError, InvalidParamCountError,
+            CaseAlreadyDeclaredError, DefaultCaseBoolOverkillError {
 		exprLeft.doScopeChecking();
 		exprRight.doScopeChecking();
 	}

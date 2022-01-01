@@ -20,9 +20,4 @@ public class ExprListLparenNTSExpr implements IConcSyn.IExprListLparenNTS {
 
         return exprListNTS.toAbsSyn(tmp);
     }
-
-    @Override
-    public String toString(String indent) {
-        return null;
-    }
 }

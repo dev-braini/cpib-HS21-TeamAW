@@ -7,7 +7,11 @@ import ch.fhnw.cpib.Token.Ident;
 
 // factorNTS ::= INIT
 public class FactorNTSInit implements IConcSyn.IFactorNTS {
-    public FactorNTSInit(final IToken init) { }
+    public final IToken init;
+
+    public FactorNTSInit(final IToken init) {
+        this.init = init;
+    }
 
     @Override
     public IAbsSyn.IFactor toAbsSyn(Ident ident) {

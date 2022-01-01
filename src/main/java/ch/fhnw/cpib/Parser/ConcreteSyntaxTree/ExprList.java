@@ -21,9 +21,4 @@ public class ExprList implements IConcSyn.IExprList {
     public ArrayList<IAbsSyn.IExpr> toAbsSyn() {
         return exprListLparenNTS.toAbsSyn();
     }
-
-    @Override
-    public String toString(String indent) {
-        return null;
-    }
 }

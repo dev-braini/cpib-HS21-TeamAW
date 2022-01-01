@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class ProcCallCmd extends AbsSynTreeNode implements IAbsSyn.ICmd {
 	private Ident ident;
-	private ArrayList<IAbsSyn.IExpr> expressions = new ArrayList<>();
+	private ArrayList<IAbsSyn.IExpr> expressions;
 	
 	public ProcCallCmd(Ident ident, ArrayList<IAbsSyn.IExpr> expressions) {
 		this.ident = ident;
