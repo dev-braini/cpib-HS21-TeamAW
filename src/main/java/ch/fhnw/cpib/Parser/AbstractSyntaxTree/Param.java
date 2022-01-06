@@ -24,7 +24,8 @@ public class Param extends AbsSynTreeNode {
 		this.typedIdent = typedIdent;
 		this.typedIdent.setInit();
 		// Set the const boolean value on the typedIdent to true
-		if(this.changeMode.getValue() == ChangeModes.CONST)
+
+        if(changeMode != null && changeMode.getValue() == ChangeModes.CONST)
 			this.typedIdent.setConst();		
 		lrVal = this.mechMode.getValue() == MechModes.COPY ? LRVal.RVAL : LRVal.LVAL;
 	}	

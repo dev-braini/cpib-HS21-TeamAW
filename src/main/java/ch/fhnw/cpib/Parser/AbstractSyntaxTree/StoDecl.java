@@ -17,8 +17,10 @@ public class StoDecl extends AbsSynTreeNode implements IAbsSyn.IDecl {
 		this.changeMode = changeMode;
 		this.typedIdent = typedIdent;
 		// Set the const boolean value on the typedIdent to true
-		if(this.changeMode.getValue() == ChangeModes.CONST)
-			this.typedIdent.setConst();
+
+		if(changeMode != null && changeMode.getValue() == ChangeModes.CONST) {
+            this.typedIdent.setConst();
+        }
 	}
 	
 	public StoDecl(TypedIdent typedIdent) {
