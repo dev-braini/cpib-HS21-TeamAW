@@ -1,18 +1,23 @@
 // Virtual Machine Java 2015, V01
 // Edgar F.A. Lederer, FHNW and Uni Basel, 2015
 
+/**
+ * sdfsdf
+ * sdfsdf
+ */
+
 package ch.fhnw.cpib.VM;
 
 public class Data
 {
-    static interface IBaseData
+    interface IBaseData
     {
         IBaseData copy();
     }
 
     static class IntData implements IBaseData
     {
-        private int i;
+        private final int i;
         IntData(int i) { this.i= i; }
         int getData() { return i; }
         public IntData copy() { return intCopy(this); }
@@ -47,7 +52,7 @@ public class Data
 
     static class FloatData implements IBaseData
     {
-        private float f;
+        private final float f;
         FloatData(float f) { this.f= f; }
         float getData() { return f; }
         public FloatData copy() { return floatCopy(this); }
@@ -76,7 +81,7 @@ public class Data
     // added by TeamAW
     static IntData boolInv(IBaseData a)
     {
-        return boolNew(intGet(a) == 1 ? false : true);
+        return boolNew(intGet(a) != 1);
     }
 
     static FloatData floatInv(IBaseData a)

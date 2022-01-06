@@ -1,4 +1,4 @@
-program Switchception
+program NestedSwitch
 global
 var n:int64
 do
@@ -6,15 +6,15 @@ do
 
   switch n
     case 1:
-      debugout 111
+      debugout 1
     endcase
     defaultcase:
       switch n+1
         case 3:
-          debugout 222
+          debugout 3
         endcase
         defaultcase:
-          debugout 333
+          debugout 42
         endcase
       endswitch
     endcase
