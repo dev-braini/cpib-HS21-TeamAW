@@ -1,5 +1,6 @@
 package ch.fhnw.cpib.Parser.AbstractSyntaxTree;
 
+import ch.fhnw.cpib.Enums.Types;
 import ch.fhnw.cpib.Errors.*;
 import ch.fhnw.cpib.Token.Ident;
 import ch.fhnw.cpib.Token.Type;
@@ -36,6 +37,10 @@ public class TypedIdent extends AbsSynTreeNode implements Cloneable {
 	public Type getType() {
 		return type;
 	}
+
+    public Types getTypeValue() {
+        return getType().getValue();
+    }
 	
 	public void setInit() {
 		this.isInit = true;

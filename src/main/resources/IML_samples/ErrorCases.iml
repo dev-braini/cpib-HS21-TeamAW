@@ -1,4 +1,4 @@
-program SpecialCases
+program ErrorCases
 global
   g1:int64; g2:int64; // integers
   const g3:int64;     // no access after first write

@@ -84,10 +84,10 @@ public class FunCallFactor extends IdentFactor{
 		
 		FunDecl funDecl = (FunDecl)globalRoutinesNamespace.get(ident.getValue());
 		for(int i = 0; i < funDecl.getParams().size(); i++) {
-			Type typeExpected = funDecl.getParams().get(i).getTypedIdent().getType();
-			Type typeFound = expressions.get(i).getType();
-			if(typeExpected != typeFound)
-				throw new TypeCheckError(typeExpected, typeFound);
+			TypedIdent typeExpected = funDecl.getParams().get(i).getTypedIdent();
+			IAbsSyn.IExpr typeFound = expressions.get(i);
+			if(typeExpected.getTypeValue() != typeFound.getTypeValue())
+				throw new TypeCheckError(typeExpected.getType(), typeFound.getType());
 		}
 	}
 
