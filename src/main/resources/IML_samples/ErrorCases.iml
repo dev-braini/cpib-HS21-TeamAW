@@ -1,86 +1,127 @@
+// HYPER-ZENTRAL-ULTRA-WICHTIG
+//  - Compile Time Error → CTE
+//  - Runtime Error      → RE
+
 program ErrorCases
 global
-  g1:int64; g2:int64; // integers
-  const g3:int64;     // no access after first write
-  g4:bool; g5:bool;   // boolean
+  // GLOBAL INTEGERS
+  int_global_1:int64;
+  int_global_2:int64;
+  const int_const:int64;
 
-  //g5:int64;         // does not work, name already declared
+  // GLOBAL BOOLEANS
+  bool_global_1:bool;
+  bool_global_2:bool;
+  // bool_global_2:int64;                // CTE: NameAlreadyDeclaredError
+  // [];                                 // CTE: LexicalError
+  // testcommand;                        // CTE: GrammarError
 
-  // function
-  fun fCheckStuff(a1:int64,
-                  copy var a2:bool, copy const a3:int64,
-                  ref var a4:bool, ref const a5:int64) returns const r1:int64
+  // FUNCTION
+  fun funDoStuff(
+                  input_fun_1:int64,
+    copy var      input_fun_2:bool,
+    copy const    input_fun_3:int64,
+    ref var       input_fun_4:bool,
+    ref const     input_fun_5:int64
+  ) returns const output_fun:int64
   local
-    var l1:int64;
-    var l3:bool;
-    //var g1:bool;          // does not work, name already globally declared
-    const l2:int64
+    var   int_local_1:int64;
+    const int_local_2:int64;
+    var   bool_local:bool
+    // var int_global_1:bool;            // CTE: NameAlreadyGloballyDeclErr
   do
-    l1 init := 5;
-    a1 := 20;
+    int_local_1 init := 5;
+    input_fun_1          := 20;
 
-    l2 init := 0;
-    //l2 := 4;              // does not work, can't change local const variable
+    int_local_2 init := 0;
+    // int_local_2 := 4;                 // CTE: CannotAssignToConstError
 
-    //a5 := 66;             // does not work, can't change const variable
-    a4 := false;            // change ref param a4 from caller
+    // input_fun_5 := 66;                // CTE: CannotAssignToConstError
+    input_fun_4 := false;
 
-    call pCheckStuff(l1);   // check change of local l1 over ref param
-    //call pCheckStuff(l2); // does not work, cant change local const variable l2 over ref param
+    call procDoStuff(int_local_1);
 
-    r1 init := 999
-    //r1 := 888             // does not work, can't change const return variable
+    output_fun init := 999
+    // output_fun := 888                 // CTE: CannotAssignToConstError
   endfun;
 
-  // procedure
-  proc pCheckStuff(ref a1:int64)
+  // PROCEDURE
+  proc procDoStuff(ref input_proc_1:int64)
   do
     skip;
-    //g5 := false        // does not work, g5 need to be initialised
-    g5 init := false;    // init and change global variable g5
-    a1 := 777            // change ref variable a1 from caller
+    // bool_global_2 := false;           // CTE: NotInitializedError
+    bool_global_2 init := false;
+    input_proc_1 := 777
   endproc
 do
-  /////////////////////// init checking /////////////////////////////
-  //debugout g1; // does not work, need to be initialised
-  g1 init := 0;  // first init from global variable
-  g1 := 50;
-  //debugin g2;      // does not work, need to be initialised
-  debugin g2 init;
-  //g1 init;     // does not work, for safety if u init a variable then set something
-  //g1 init := 4;// does not work, g1 is already initialised
 
-  /////////////////////// const checking //////////////////////////////
-  g3 init := 4;  // first init from global const variable
-  //g3 := 5;     // does not work, can't change const variable
-  //debugin g3;  // does not work, can't change const variable
-  debugout g3;
+  // +---------------------------------------------------------------------+
+  // |  INIT CHECK                                                         |
+  // +---------------------------------------------------------------------+
+  // debugout int_global_1;              // CTE: NotInitializedError
+  int_global_1 init := 0;
+  int_global_1 := 50;
+  // debugin int_global_2;               // CTE: NotInitializedError
+  debugin int_global_2 init;
+  // int_global_1 init;                  // CTE: GrammarError
+  // int_global_1 init := 4;             // CTE: AlreadyInitializedError
 
-  /////////////////////// type checking //////////////////////////////
-  g4 init := true;
-  //g5 init := g1; // does not work, can't assign int64 to bool
-  //g1 := g4;      // does not work, can't assign bool to int64
-  //debugout fCheckStuff(g1, true, true, g4, g1); // does not work, expected int64 but found bool
-  //debugout fCheckStuff(g1, 10, 10, g4, g1); // does not work, expected bool but found int64
 
-  /////////////////////// name checking //////////////////////////////
-  //debugout g0;   // does not work, name is not globally declared
+  // +---------------------------------------------------------------------+
+  // |  CONST CHECK                                                        |
+  // +---------------------------------------------------------------------+
+  int_const init := 4;
+  // int_const := 5;                     // CPE: CannotAssignToConstError
+  // debugin int_const;                  // CPE: CannotAssignToConstError
+  debugout int_const;
 
-  /////////////////////// invalid param count checking //////////////////////////////
-  //debugout fCheckStuff(10, true, 10, g4, g1, 10); // does not work, expected 5 params found 6
-  //call pCheckStuff(g1, 10);                       // does not work, expected 1 param found 2
 
-  /////////////////////// LRval checking //////////////////////////////
-  ////// expected fCheckStuff(rval, rval, rval, lval, lval) ///////////
-  debugout fCheckStuff(g1, true, 10, g4, g1);     // rval assigable to lval (will be copied, no change of the g1)
-  //debugout fCheckStuff(g1, true, 10, true, g1); // does not work, expected lval but found rval
-  //call pCheckStuff(10);                         // does not work, expected lval but found rval
+  // +---------------------------------------------------------------------+
+  // |  TYPE CHECK                                                         |
+  // +---------------------------------------------------------------------+
+  bool_global_1 init := true;
+  // bool_global_2 init := int_global_1; // CPE: TypeCheckErroe
+  // int_global_1 := bool_global_1;      // CPE: TypeCheckError
+  // debugout funDoStuff(                // CPE: TypeCheckError
+  //   int_global_1, true, true,
+  //   bool_global_1, int_global_1);
+  // debugout funDoStuff(                // CPE: TypeCheckError
+  //   int_global_1, 10, 10,
+  //   bool_global_1, int_global_1);
 
-  /////////////////////// routine call checking //////////////////////////////
-  call pCheckStuff(g1);                      // check call of procedure
-  debugout g5;                               // check change of global g5 in pCkeckStuff
-  debugout g1;                               // check change of global g1 over ref param in proc
-  debugout fCheckStuff(10, true, 10, g4, g1);// check call of function
-  debugout g4                                // check change of global g4 over ref param in func
+
+  // +---------------------------------------------------------------------+
+  // |  NAME CHECK                                                         |
+  // +---------------------------------------------------------------------+
+  // debugout testvar;                   // CTE: NameNotDeclaredError
+
+
+  // +---------------------------------------------------------------------+
+  // |  INVALID PARAMETER COUNT CHECK                                      |
+  // +---------------------------------------------------------------------+
+  // debugout funDoStuff(10, true, 10,
+  //   bool_global_1, int_global_1, 10); // CTE: InvalidParamCountError
+  // call procDoStuff(int_global_1, 10); // CTE: InvalidParamCountError
+
+  // +---------------------------------------------------------------------+
+  // |  L-RVAL CHECK  [expected funDoStuff(rval, rval, rval, lval, lval) ] |
+  // +---------------------------------------------------------------------+
+  debugout funDoStuff(int_global_1,
+    true, 10, bool_global_1, int_global_1 );
+  // debugout funDoStuff(int_global_1,   // CPE: LRValError
+  //   true, 10, true, int_global_1);
+  // call procDoStuff(10);               // CPE: LRValError
+
+  // +---------------------------------------------------------------------+
+  // |  PROCEDURE CALL CHECK                                               |
+  // +---------------------------------------------------------------------+
+  call procDoStuff(int_global_1);
+  debugout bool_global_2;
+  debugout int_global_1;
+  debugout funDoStuff(10, true, 10, bool_global_1, int_global_1);
+  debugout bool_global_1
+
+  // run programm → type 'a'             // RT: Execution error: Not an int
+  // run programm → type 2147483648      // RT: Execution error: Not an int
 
 endprogram
